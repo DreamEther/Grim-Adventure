@@ -55,6 +55,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\PlayerController.cs" />
      <Compile Include="Assets\Scripts\CameraScript.cs" />
      <None Include="Assets\Forest road BG\READ_ME_\READ_ME_.txt" />
      <None Include="Assets\Ninja Files\Read Me.txt" />
