@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Lane1P
+  - Lane2P
+  - Lane3P
+  - Lane1E
+  - Lane2E
+  - Lane3E
   layers:
   - Default
   - TransparentFX

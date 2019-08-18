@@ -55,12 +55,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\CombatController.cs" />
      <Compile Include="Assets\PlayerController.cs" />
      <Compile Include="Assets\Scripts\CameraScript.cs" />
      <None Include="Assets\Forest road BG\READ_ME_\READ_ME_.txt" />
      <None Include="Assets\Ninja Files\Read Me.txt" />
+     <None Include="Assets\Dragon Warrior Files\Read Me.txt" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>D:/Repos/Unity2D Projects/Grim Fantasy Adventure/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Cinemachine">
+ <HintPath>D:/Repos/Unity2D Projects/Grim Fantasy Adventure/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
  </Reference>
  <Reference Include="Unity.VSCode.Editor">
  <HintPath>D:/Repos/Unity2D Projects/Grim Fantasy Adventure/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
@@ -86,17 +91,14 @@
  <Reference Include="Unity.2D.Tilemap.Editor">
  <HintPath>D:/Repos/Unity2D Projects/Grim Fantasy Adventure/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
  </Reference>
+ <Reference Include="com.unity.cinemachine.editor">
+ <HintPath>D:/Repos/Unity2D Projects/Grim Fantasy Adventure/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.TextMeshPro">
  <HintPath>D:/Repos/Unity2D Projects/Grim Fantasy Adventure/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.UI">
  <HintPath>D:/Repos/Unity2D Projects/Grim Fantasy Adventure/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
- </Reference>
- <Reference Include="Cinemachine">
- <HintPath>D:/Repos/Unity2D Projects/Grim Fantasy Adventure/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
- </Reference>
- <Reference Include="com.unity.cinemachine.editor">
- <HintPath>D:/Repos/Unity2D Projects/Grim Fantasy Adventure/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>D:/Unity Hub/2019.2.0f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
