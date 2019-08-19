@@ -7,23 +7,27 @@ public class PlayerController : MonoBehaviour
     public Vector3 minPlayerPos;
     public Vector3 maxPlayerPos;
     [SerializeField] float speed = 2f;
+
+
     public enum PlayerStates { InCombatMyTurn, InCombatTheirTurn }
 
     PlayerStates myTurn = PlayerStates.InCombatMyTurn;
 
-    private Animator runAnim;
+    private Animator runAnim, idleAnim, slashAnim, stabAnim;
+    
 
     // Start is called before the first frame update
     void Start()
     {
         runAnim = GetComponent<Animator>();
+        slashAnim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        runAnim.SetBool("BeginLaneCharge", true);
-        PlayerMovement();
+       
+        //PlayerMovement();
         //runAnim.Play("NinjaSwordRunning");
     }
 
@@ -34,5 +38,15 @@ public class PlayerController : MonoBehaviour
       //  transform.position = new Vector3(Mathf.Clamp(transform.position.x + deltaX, minPlayerPos.x, maxPlayerPos.x), 0, 0);
       
      
+    }
+
+    public void PlayRunAnim()
+    {
+        runAnim.SetBool("BeginLaneCharge", true);
+    }
+
+    public void PlaySlashAnim()
+    {
+        slashAnim.Play("NinjaSwordStriking");
     }
 }

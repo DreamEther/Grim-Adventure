@@ -10,7 +10,9 @@ public class CombatController : MonoBehaviour
     [SerializeField] GameObject dragonPrefab;
     PlayerController playerController;
     GameObject ninja;
-    float speed = 2f;
+    float speed = 5f;
+    float accuracy = 2f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,21 +25,38 @@ public class CombatController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         MovePlayerInLaneOne(ninja);
+        LaneOneDistanceFromEnemy();
     }
 
     private void SpawnPlayer()
     {
 
         ninja = Instantiate(ninjaPrefab, lane1P.transform.position, Quaternion.identity);
+     
+    }
+
+    private void MovePlayerInLaneOne()
+    {
         MovePlayerInLaneOne(ninja);
     }
 
     private void MovePlayerInLaneOne(GameObject playerInLaneOne)
     {
-        playerInLaneOne.GetComponent<Rigidbody2D>().MovePosition(lane1E.transform.position * speed * Time.deltaTime);
+        var laneOnePlayer = playerInLaneOne.GetComponent<Transform>();
+            laneOnePlayer.transform.position = Vector3.MoveTowards(laneOnePlayer.transform.position, lane1E.transform.position, speed * Time.deltaTime);
+    }
+
+    private void LaneOneDistanceFromEnemy()
+    {
+       var distance = lane1E.transform.position - ninja.transform.position;
+        if(distance.magnitude < accuracy)
+        {
+            Debug.Log("working");
+            playerController.PlaySlashAnim();
+        }
     }
 
     private void SpawnEnemy()
