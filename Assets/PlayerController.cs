@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+        runAnim.SetBool("BeginLaneCharge",true);
         //PlayerMovement();
         //runAnim.Play("NinjaSwordRunning");
     }
@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
 
     public void PlayRunAnim()
     {
-        runAnim.SetBool("BeginLaneCharge", true);
+        runAnim.SetBool("BeginLaneCharge",true);
     }
 
     public void PlaySlashAnim()

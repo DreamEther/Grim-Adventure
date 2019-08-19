@@ -8,6 +8,7 @@ public class CombatController : MonoBehaviour
     [SerializeField] GameObject lane1E;
     [SerializeField] GameObject ninjaPrefab;
     [SerializeField] GameObject dragonPrefab;
+    private Animator ninjaAnim;
     PlayerController playerController;
     GameObject ninja;
     float speed = 5f;
@@ -24,10 +25,15 @@ public class CombatController : MonoBehaviour
         SpawnPlayer();
     }
 
+    void Update()
+    {
+
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
-        MovePlayerInLaneOne(ninja);
+        MovePlayer();
         LaneOneDistanceFromEnemy();
     }
 
@@ -38,7 +44,7 @@ public class CombatController : MonoBehaviour
      
     }
 
-    private void MovePlayerInLaneOne()
+    private void MovePlayer()
     {
         MovePlayerInLaneOne(ninja);
     }
@@ -54,7 +60,7 @@ public class CombatController : MonoBehaviour
        var distance = lane1E.transform.position - ninja.transform.position;
         if(distance.magnitude < accuracy)
         {
-            Debug.Log("working");
+           // Debug.Log("working");
             playerController.PlaySlashAnim();
         }
     }
