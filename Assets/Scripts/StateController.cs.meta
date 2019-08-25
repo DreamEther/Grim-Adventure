@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: eab8893a60499684d825cba2b4324e7e
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - ninja: {fileID: 5311821664560422724, guid: 8aa436b69c2b2654fa784eb1799da32a, type: 3}
+  - ninjaSlashAbility: {fileID: 11400000, guid: 774b8bd335759dd47ab25de65bcc4dab,
+      type: 2}
+  - buttonTexture: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

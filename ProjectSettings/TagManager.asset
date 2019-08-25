@@ -10,6 +10,10 @@ TagManager:
   - Lane1E
   - Lane2E
   - Lane3E
+  - Lane
+  - BattleUI
+  - ninja
+  - dragon
   layers:
   - Default
   - TransparentFX
