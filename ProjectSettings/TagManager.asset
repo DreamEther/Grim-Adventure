@@ -4,9 +4,6 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Lane1P
-  - Lane2P
-  - Lane3P
   - Lane1E
   - Lane2E
   - Lane3E
@@ -14,6 +11,10 @@ TagManager:
   - BattleUI
   - ninja
   - dragon
+  - Lane1PF
+  - Lane2PF
+  - Lane3PF
+  - Lane1EF
   layers:
   - Default
   - TransparentFX

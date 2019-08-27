@@ -5,17 +5,17 @@ using UnityEngine;
 public class NinjaSlashAbilityTrigger : MonoBehaviour
 {
     [HideInInspector] private int damage = 5;
-    [HideInInspector] Animator ninjaAnim;
+    [HideInInspector] private Animator ninjaAnim;
     // Start is called before the first frame update
     void Start()
     {
-        ninjaAnim = GetComponent<Animator>();
+        //ninjaAnim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        ninjaAnim = GetComponent<Animator>();
+        ninjaAnim = gameObject.GetComponent<Animator>();
         //TriggerSlashAnim();
     }
 

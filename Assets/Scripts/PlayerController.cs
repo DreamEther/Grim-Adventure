@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
 
     private void DistanceFromEnemy()
     {
-        var distance =  CharacterSpawner.lane1E.transform.position - this.transform.position;
+        var distance =  CharacterSpawner.lane1EF.transform.position - this.transform.position;
         if (distance.magnitude < accuracy)
         {
             //anim.SetBool("StartSlash", true);
@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
     private void MovePlayerInLaneOne(GameObject playerInLaneOne)
     {
         var laneOnePlayer = playerInLaneOne.GetComponent<Transform>();
-        laneOnePlayer.transform.position = Vector3.MoveTowards(laneOnePlayer.transform.position, CharacterSpawner.lane1E.transform.position, speed * Time.deltaTime);
+        laneOnePlayer.transform.position = Vector3.MoveTowards(laneOnePlayer.transform.position, CharacterSpawner.lane1EF.transform.position, speed * Time.deltaTime);
     }
 
 
