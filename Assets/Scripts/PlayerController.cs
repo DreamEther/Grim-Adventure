@@ -4,12 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-
-    PlayerParty playerParty;
-
     float accuracy = 5f;
-    public Vector3 minPlayerPos;
-    public Vector3 maxPlayerPos;
     [SerializeField] float speed = 2f;
     public static bool beginMoving = false;
     Animator anim;
@@ -18,7 +13,6 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerParty = FindObjectOfType<PlayerParty>();
         anim = gameObject.GetComponent<Animator>();
         anim.GetBool("BeginLaneCharge");
     }
@@ -35,7 +29,7 @@ public class PlayerController : MonoBehaviour
 
     private void DistanceFromEnemy()
     {
-        var distance =  CharacterSpawner.lane1EF.transform.position - this.transform.position;
+        var distance = CharacterSpawner.lane1EF.transform.position - this.transform.position;
         if (distance.magnitude < accuracy)
         {
             //anim.SetBool("StartSlash", true);
@@ -57,12 +51,5 @@ public class PlayerController : MonoBehaviour
                     anim.SetBool("BeginLaneCharge", true);
                     MovePlayerInLaneOne(this.gameObject);
                 }                   
-    }
-
-    public void PlaySlashAnim()
-    {
-        anim.Play("NinjaSwordStriking");
-    }
-
-   
+    }   
 }

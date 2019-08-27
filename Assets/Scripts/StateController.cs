@@ -59,8 +59,7 @@ public class StateController : MonoBehaviour
                         case "ninja":
                             InitializeNinjaSlashAnim(CharacterSpawner.playerOne, ninjaSlashAbility);
                             if (beginRush == true)
-                            {
-                                
+                            {                               
                                 ninjaSlashAbility.TriggerAbility();
                                 playerController.PlayRunAnim();
                                 battleUI.SetActive(false);

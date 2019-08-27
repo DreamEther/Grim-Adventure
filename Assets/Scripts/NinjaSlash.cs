@@ -7,8 +7,6 @@ public class NinjaSlash : Ability
 {
     private NinjaSlashAbilityTrigger ninjaSlashAbilityTrigger;
     
-
-
     public override void Initialize(GameObject gameObject)
     {
         ninjaSlashAbilityTrigger = gameObject.GetComponent<NinjaSlashAbilityTrigger>();
