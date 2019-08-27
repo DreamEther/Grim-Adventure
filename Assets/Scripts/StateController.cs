@@ -13,6 +13,8 @@ public class StateController : MonoBehaviour
     private GameObject dragonTag;
     [SerializeField] Ability ninjaSlashAbility;
     [SerializeField] Texture buttonTexture;
+    bool beginRush = false;
+
     public enum PlayerStates
     {
         PLAYERTURN,
@@ -38,30 +40,51 @@ public class StateController : MonoBehaviour
         InitializeNinjaSlashAnim(ninja, ninjaSlashAbility);
         ninjaTag = GameObject.FindGameObjectWithTag("ninja"); // need to do this so we can determine how many, and which chars the player has in their party at the start of battle. 
         dragonTag = GameObject.FindGameObjectWithTag("dragon"); // need to do this so we can determine how many, and which chars the player has in their party at the start of battle.
-        playerController = FindObjectOfType<PlayerController>();
+      //  playerController = FindObjectOfType<PlayerController>();
         rect = new Rect(800, 130.2f, 160, 30);
 
         currentState = PlayerStates.PLAYERTURN;
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
-        switch(currentState)
+        if (playerController == null)
+        {
+            Debug.Log("Located PlayerControllerComponent");
+            playerController = FindObjectOfType<PlayerController>();
+            return;
+        }
+        switch (currentState)
         {
             case PlayerStates.PLAYERTURN:
-                battleUI.SetActive(true);
-                if (PlayerController.beginMoving == true)
                 {
-                    ninjaSlashAbility.TriggerAbility();
-                    playerController.PlayRunAnim();
-                    battleUI.SetActive(false);
+                    battleUI.SetActive(true);
+
+                    switch (CharacterSpawner.playerOne.gameObject.tag)
+                    {
+                        case "ninja":
+                            if (beginRush == true)
+                            {
+                                ninjaSlashAbility.TriggerAbility();
+                                playerController.PlayRunAnim();
+                                battleUI.SetActive(false);
+                            }
+                        break;
+                    }
+                    break;
                 }
-                break;
+             
+             
+
                 
         }
     }
 
+    public void BeginRush()
+    {
+        beginRush = true;
+    }
     void OnGUI()
     {
         //GUI.Button(new Rect(50, 130.2f, 160, 30), buttonTexture);

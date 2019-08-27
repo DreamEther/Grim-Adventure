@@ -15,7 +15,8 @@ public class NinjaSlashAbilityTrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       // TriggerSlashAnim();
+        ninjaAnim = GetComponent<Animator>();
+        //TriggerSlashAnim();
     }
 
     public void TriggerSlashAnim()

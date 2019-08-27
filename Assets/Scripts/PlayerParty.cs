@@ -4,13 +4,37 @@ using UnityEngine;
 
 public class PlayerParty : MonoBehaviour
 {
+    SceneLoader sceneLoader;
+    [SerializeField] public List<GameObject> characters;
 
-    [SerializeField] List<BaseCharacter> characters = new List<BaseCharacter>();
 
-    public void AddNinjaToList(BaseCharacter character)
+    public static PlayerParty instance;
+
+    void Awake()
     {
-        characters.Add(character);
+        if (instance != null)
+        {
+            return;
+        }
+
+        instance = this;
+        DontDestroyOnLoad(instance);
     }
 
+    void Start()
+    {
+        sceneLoader = FindObjectOfType<SceneLoader>();
+    }
+
+    public void AddCharacterToParty(GameObject character)
+    {
+        characters.Add(character);
+        sceneLoader.LoadNextScene();
+    }
+
+    public void OnAttackClick()
+    {
+
+    }
 
 }

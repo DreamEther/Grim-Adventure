@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Character Select.unity
+    guid: bb7833d188b4bc04e8bec9c78be0e36a
+  - enabled: 1
     path: Assets/Scenes/Combat My Turn.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}

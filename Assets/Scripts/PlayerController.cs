@@ -5,20 +5,20 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-
+    PlayerParty playerParty;
 
     float accuracy = 5f;
     public Vector3 minPlayerPos;
     public Vector3 maxPlayerPos;
     [SerializeField] float speed = 2f;
     public static bool beginMoving = false;
-    
     Animator anim;
     
 
     // Start is called before the first frame update
     void Start()
     {
+        playerParty = FindObjectOfType<PlayerParty>();
         anim = gameObject.GetComponent<Animator>();
         anim.GetBool("BeginLaneCharge");
     }
@@ -50,13 +50,13 @@ public class PlayerController : MonoBehaviour
 
 
     public void PlayRunAnim()
-    {
-        beginMoving = true;
-        if (anim != null && anim.isActiveAndEnabled) // gets rid of unassignedReferenceException error
-        {
-            anim.SetBool("BeginLaneCharge", true);
-            MovePlayerInLaneOne(this.gameObject);
-        }
+    {           
+                beginMoving = true;
+                if (anim != null && anim.isActiveAndEnabled) // gets rid of unassignedReferenceException error
+                {
+                    anim.SetBool("BeginLaneCharge", true);
+                    MovePlayerInLaneOne(this.gameObject);
+                }                   
     }
 
     public void PlaySlashAnim()
