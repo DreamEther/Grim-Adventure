@@ -4,31 +4,27 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class SelectLane : MonoBehaviour, IPointerEnterHandler
+public class SelectLane : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    GameObject lane;
+    MoveButtonTrigger moveButtonTrigger;
+    private Image innerBoxTransparency;
     // Start is called before the first frame update
     void Start()
     {
-        lane = GameObject.FindGameObjectWithTag("Lane");
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        moveButtonTrigger = FindObjectOfType<MoveButtonTrigger>();
+        innerBoxTransparency = GetComponent<Image>();
     }
 
     public void OnPointerEnter(PointerEventData eventData)
-    {    
-            Image image = lane.GetComponent<Image>();
-            image.material.color = new Color(255, 255, 255, 0);           
-    }
-
-    public void MoveChar()
     {
-
+        if (moveButtonTrigger.moveButtonClicked == true)
+        {            
+            innerBoxTransparency.color = new Color(255, 255, 255, 0.5f);
+        }
     }
 
-    
+    public void OnPointerExit(PointerEventData eventData)
+    {
+           innerBoxTransparency.color = new Color(255, 255, 255, 0);       
+    }  
 }

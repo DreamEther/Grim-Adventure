@@ -56,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Modern_GUI_Skin\Demo_Assets\scripts\GUI_Demo.cs" />
+     <Compile Include="Assets\MoveButtonTrigger.cs" />
      <Compile Include="Assets\Scripts\Ability.cs" />
      <Compile Include="Assets\Scripts\AnimController.cs" />
      <Compile Include="Assets\Scripts\BaseCharacter.cs" />
