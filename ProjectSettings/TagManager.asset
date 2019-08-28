@@ -15,6 +15,9 @@ TagManager:
   - Lane2PF
   - Lane3PF
   - Lane1EF
+  - Lane1EB
+  - Lane1Enemy
+  - enemy
   layers:
   - Default
   - TransparentFX

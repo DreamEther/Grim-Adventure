@@ -5,34 +5,48 @@ using UnityEngine;
 public class CharacterSpawner : MonoBehaviour
 {
     PlayerParty playerParty;
-    [SerializeField] public static GameObject lane1PF;
-    [SerializeField] public static GameObject lane2PF;
-    [SerializeField] public static GameObject lane3PF;
-    [SerializeField] public static GameObject lane1EF;
+    public static GameObject lane1PF;
+    public static GameObject lane2PF;
+    public static GameObject lane3PF;
+    public static GameObject lane1EF;
+    public static GameObject lane1EB;
     [SerializeField] GameObject ninjaPrefab;
     [SerializeField] GameObject dragonPrefab;
     public static GameObject playerOne;
     public static GameObject playerTwo;
     public static GameObject playerThree;
-    GameObject[] charsInParty;
-
+    GameObject[] spawnPoints = new GameObject[3];
+  
+   
+  
+    void Awake()
+    {
+        
+    }
     // Start is called before the first frame update
     void Start()
     {
+        
         playerParty = FindObjectOfType<PlayerParty>();
         lane1PF = GameObject.FindGameObjectWithTag("Lane1PF");
         lane2PF = GameObject.FindGameObjectWithTag("Lane2PF");
         lane3PF = GameObject.FindGameObjectWithTag("Lane3PF");
+        lane1EB = GameObject.FindGameObjectWithTag("Lane1EB");
         lane1EF = GameObject.FindGameObjectWithTag("Lane1EF");
+
+
+        SpawnDragon();
 
         SpawnPlayerOneInPlayerParty();
         SpawnPlayerTwoInPlayerParty();
         SpawnPlayerThreeInPlayerParty();
+         
+
     }
 
     void Update()
     {
-
+       
     }
 
     public void SpawnPlayerOneInPlayerParty()

@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     float accuracy = 5f;
-    [SerializeField] float speed = 2f;
+    [SerializeField] float speed = 6f;
     public static bool beginMoving = false;
     Animator anim;
     
@@ -13,8 +13,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        anim = gameObject.GetComponent<Animator>();
-        anim.GetBool("BeginLaneCharge");
+       
     }
 
     // Update is called once per frame
@@ -27,29 +26,7 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    private void DistanceFromEnemy()
-    {
-        var distance = CharacterSpawner.lane1EF.transform.position - this.transform.position;
-        if (distance.magnitude < accuracy)
-        {
-            //anim.SetBool("StartSlash", true);
-        }
-    }
-
-    private void MovePlayerInLaneOne(GameObject playerInLaneOne)
-    {
-        var laneOnePlayer = playerInLaneOne.GetComponent<Transform>();
-        laneOnePlayer.transform.position = Vector3.MoveTowards(laneOnePlayer.transform.position, CharacterSpawner.lane1EF.transform.position, speed * Time.deltaTime);
-    }
 
 
-    public void PlayRunAnim()
-    {           
-                beginMoving = true;
-                if (anim != null && anim.isActiveAndEnabled) // gets rid of unassignedReferenceException error
-                {
-                    anim.SetBool("BeginLaneCharge", true);
-                    MovePlayerInLaneOne(this.gameObject);
-                }                   
-    }   
+     
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class StateController : MonoBehaviour
@@ -10,7 +11,11 @@ public class StateController : MonoBehaviour
     private GameObject ninjaTag;
     private GameObject dragonTag;
     [SerializeField] Ability ninjaSlashAbility;
+    [SerializeField] Ability ninjaRunAbility;
     bool beginRush = false;
+
+    private UnityAction ninjaActions;
+    private UnityAction draygonActions;
 
     public enum PlayerStates
     {
@@ -34,6 +39,7 @@ public class StateController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         ninjaTag = GameObject.FindGameObjectWithTag("ninja"); // need to do this so we can determine how many, and which chars the player has in their party at the start of battle. 
         dragonTag = GameObject.FindGameObjectWithTag("dragon"); // need to do this so we can determine how many, and which chars the player has in their party at the start of battle.
         currentState = PlayerStates.PLAYERTURN;
@@ -44,7 +50,6 @@ public class StateController : MonoBehaviour
     {
         if (playerController == null)
         {
-            Debug.Log("Located PlayerControllerComponent");
             playerController = FindObjectOfType<PlayerController>();
             return;
         }
@@ -57,11 +62,12 @@ public class StateController : MonoBehaviour
                     switch (CharacterSpawner.playerOne.gameObject.tag)
                     {
                         case "ninja":
-                            InitializeNinjaSlashAnim(CharacterSpawner.playerOne, ninjaSlashAbility);
+                            PlayNinjaSlashAnim(CharacterSpawner.playerOne, ninjaSlashAbility);
+                            PlayNinjaRunAnim(CharacterSpawner.playerOne, ninjaRunAbility);
                             if (beginRush == true)
                             {                               
                                 ninjaSlashAbility.TriggerAbility();
-                                playerController.PlayRunAnim();
+                                ninjaRunAbility.TriggerAbility();
                                 battleUI.SetActive(false);
                             }
                         break;
@@ -85,13 +91,24 @@ public class StateController : MonoBehaviour
 
     }
 
-    public void InitializeNinjaSlashAnim(GameObject playerChar, Ability ability)
+    public void PlayNinjaSlashAnim(GameObject playerChar, Ability ability)
     {
 
         ninjaSlashAbility = ability;
         ninjaSlashAbility.Initialize(playerChar); // getting the trigger component script attached to 'playerChar'
 
     }
+
+    public void PlayNinjaRunAnim(GameObject playerChar, Ability ability)
+    {
+
+        ninjaRunAbility = ability;
+        ninjaRunAbility.Initialize(playerChar); // getting the trigger component script attached to 'playerChar'
+
+    }
+
+
+
 
 
 }

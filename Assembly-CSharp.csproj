@@ -62,6 +62,8 @@
      <Compile Include="Assets\Scripts\CameraScript.cs" />
      <Compile Include="Assets\Scripts\characters.cs" />
      <Compile Include="Assets\Scripts\CharacterSpawner.cs" />
+     <Compile Include="Assets\Scripts\NinjaRun.cs" />
+     <Compile Include="Assets\Scripts\NinjaRunAbilityTrigger.cs" />
      <Compile Include="Assets\Scripts\NinjaSlash.cs" />
      <Compile Include="Assets\Scripts\NinjaSlashAbilityTrigger.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
