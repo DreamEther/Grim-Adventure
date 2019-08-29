@@ -9,5 +9,6 @@ public class MoveButtonTrigger : MonoBehaviour
     public void MoveButtonClicked()
     {
         moveButtonClicked = true;
+        StateController.combatLog.SetActive(false);
     }
 }

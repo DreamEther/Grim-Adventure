@@ -7,7 +7,8 @@ using UnityEngine.UI;
 public class StateController : MonoBehaviour
 {
     PlayerController playerController;
-    GameObject battleUI;
+    public static GameObject battleUI;
+    public static GameObject combatLog;
     private GameObject ninjaTag;
     private GameObject dragonTag;
     [SerializeField] Ability ninjaSlashAbility;
@@ -32,6 +33,7 @@ public class StateController : MonoBehaviour
     void Awake()
     {
         battleUI = GameObject.FindGameObjectWithTag("BattleUI");
+        combatLog = GameObject.FindGameObjectWithTag("CombatLog");
     }
 
 
@@ -57,8 +59,8 @@ public class StateController : MonoBehaviour
         {
             case PlayerStates.PLAYERTURN:
                 {
-                    battleUI.SetActive(true);
-
+                    //battleUI.SetActive(true);
+                    //combatLog.SetActive(true);
                     switch (CharacterSpawner.playerOne.gameObject.tag)
                     {
                         case "ninja":
@@ -69,6 +71,7 @@ public class StateController : MonoBehaviour
                                 ninjaSlashAbility.TriggerAbility();
                                 ninjaRunAbility.TriggerAbility();
                                 battleUI.SetActive(false);
+                                combatLog.SetActive(false);
                             }
                         break;
                     }

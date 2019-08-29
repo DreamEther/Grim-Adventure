@@ -18,6 +18,7 @@ TagManager:
   - Lane1EB
   - Lane1Enemy
   - enemy
+  - CombatLog
   layers:
   - Default
   - TransparentFX

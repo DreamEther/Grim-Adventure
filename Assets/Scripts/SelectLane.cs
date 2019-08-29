@@ -15,6 +15,11 @@ public class SelectLane : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         innerBoxTransparency = GetComponent<Image>();
     }
 
+    void Update()
+    {
+        OnRightMouseClick();
+    }
+
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (moveButtonTrigger.moveButtonClicked == true)
@@ -33,6 +38,7 @@ public class SelectLane : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         if (Input.GetMouseButtonDown(1))
         {
             moveButtonTrigger.moveButtonClicked = false;
+            StateController.combatLog.SetActive(true);
         }
     }
     
