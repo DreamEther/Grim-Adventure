@@ -19,6 +19,8 @@ TagManager:
   - Lane1Enemy
   - enemy
   - CombatLog
+  - draygon
+  - EnemyGrid
   layers:
   - Default
   - TransparentFX
@@ -55,4 +57,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: GameObject
+    uniqueID: 715040959
     locked: 0

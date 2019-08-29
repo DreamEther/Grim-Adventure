@@ -62,6 +62,7 @@
      <Compile Include="Assets\Scripts\CameraScript.cs" />
      <Compile Include="Assets\Scripts\CharacterSpawner.cs" />
      <Compile Include="Assets\Scripts\DestroyOnClick.cs" />
+     <Compile Include="Assets\Scripts\EnemySpawner.cs" />
      <Compile Include="Assets\Scripts\MoveButtonTrigger.cs" />
      <Compile Include="Assets\Scripts\NinjaRun.cs" />
      <Compile Include="Assets\Scripts\NinjaRunAbilityTrigger.cs" />

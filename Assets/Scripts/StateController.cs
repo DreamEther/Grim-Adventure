@@ -9,6 +9,7 @@ public class StateController : MonoBehaviour
     PlayerController playerController;
     public static GameObject battleUI;
     public static GameObject combatLog;
+    public static GameObject enemyGrid;
     private GameObject ninjaTag;
     private GameObject dragonTag;
     [SerializeField] Ability ninjaSlashAbility;
@@ -34,6 +35,7 @@ public class StateController : MonoBehaviour
     {
         battleUI = GameObject.FindGameObjectWithTag("BattleUI");
         combatLog = GameObject.FindGameObjectWithTag("CombatLog");
+        enemyGrid = GameObject.FindGameObjectWithTag("EnemyGrid");
     }
 
 
@@ -41,9 +43,9 @@ public class StateController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+       // enemyGrid.SetActive(false);
         ninjaTag = GameObject.FindGameObjectWithTag("ninja"); // need to do this so we can determine how many, and which chars the player has in their party at the start of battle. 
-        dragonTag = GameObject.FindGameObjectWithTag("dragon"); // need to do this so we can determine how many, and which chars the player has in their party at the start of battle.
+        dragonTag = GameObject.FindGameObjectWithTag("draygon"); // need to do this so we can determine how many, and which chars the player has in their party at the start of battle.
         currentState = PlayerStates.PLAYERTURN;
     }
 
@@ -59,11 +61,10 @@ public class StateController : MonoBehaviour
         {
             case PlayerStates.PLAYERTURN:
                 {
-                    //battleUI.SetActive(true);
-                    //combatLog.SetActive(true);
                     switch (CharacterSpawner.playerOne.gameObject.tag)
                     {
                         case "ninja":
+                            //GetCurrentSelectedChar("ninja");
                             PlayNinjaSlashAnim(CharacterSpawner.playerOne, ninjaSlashAbility);
                             PlayNinjaRunAnim(CharacterSpawner.playerOne, ninjaRunAbility);
                             if (beginRush == true)
@@ -74,14 +75,21 @@ public class StateController : MonoBehaviour
                                 combatLog.SetActive(false);
                             }
                         break;
+
+                        case "draygon":
+                            GetCurrentSelectedChar("draygon");
+                        break;
                     }
                     break;
-                }
-             
-             
-
-                
+                }          
         }
+    }
+
+    public GameObject GetCurrentSelectedChar(string tag)
+    {
+        string charTag = tag;
+        GameObject currentChar = GameObject.FindGameObjectWithTag(charTag);
+        return currentChar;
     }
 
     public void BeginRushOnAttackSelect()
