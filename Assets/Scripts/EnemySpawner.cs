@@ -7,36 +7,28 @@ public class EnemySpawner : MonoBehaviour
 {
     private float randomEnemyCount;
     [SerializeField] List<GameObject> enemies;
-    [SerializeField] Image spawnPoint;
-    Vector3 cameraPos;
-   // Camera camera;
-   // [SerializeField] List<>
+    [SerializeField] List<Image> spawnPoint;
+
     void Awake()
     {
-      //  camera = Camera.main
-        randomEnemyCount = Random.Range(2, 4);
+        
+        randomEnemyCount = Random.Range(2, 6);
     }
     // Start is called before the first frame update
     void Start()
     {
-        Vector3 YPosOffset = new Vector3(0, 40, 0);
-        cameraPos = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y, 0);
-        var localSpawnPoint = Camera.main.ScreenToWorldPoint(spawnPoint.transform.position + YPosOffset);
-        localSpawnPoint.z = 0;
-        Instantiate(enemies[0], localSpawnPoint, Quaternion.LookRotation(enemies[0].transform.forward)); 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+      
+        SpawnEnemies();
     }
 
     private void SpawnEnemies()
     {
-        for (int i = 0; i < randomEnemyCount - 1; i++)
+        Vector3 YPosOffset = new Vector3(0, 40, 0);
+        for (int i = 0; i < randomEnemyCount; i++)
         {
-          // Instantiate(enemies[i], lane1EF.transform.position, Quaternion.LookRotation(dragonPrefab.transform.forward));
+            var localSpawnPoint = Camera.main.ScreenToWorldPoint(spawnPoint[Random.Range(0, spawnPoint.Count - 1)].transform.position + YPosOffset);
+            localSpawnPoint.z = 0;
+            Instantiate(enemies[Random.Range(0, enemies.Count - 1)], localSpawnPoint, Quaternion.LookRotation(enemies[0].transform.forward));
         }
     }
 }
