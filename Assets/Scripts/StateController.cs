@@ -65,12 +65,11 @@ public class StateController : MonoBehaviour
                     {
                         case "ninja":
                             //GetCurrentSelectedChar("ninja");
-                            PlayNinjaSlashAnim(CharacterSpawner.playerOne, ninjaSlashAbility);
-                            PlayNinjaRunAnim(CharacterSpawner.playerOne, ninjaRunAbility);
+                          
                             if (beginRush == true)
-                            {                               
-                                ninjaSlashAbility.TriggerAbility();
-                                ninjaRunAbility.TriggerAbility();
+                            {
+                                PlayNinjaSlashAnim(CharacterSpawner.playerOne, ninjaSlashAbility);
+                                PlayNinjaRunAnim(CharacterSpawner.playerOne, ninjaRunAbility);
                                 battleUI.SetActive(false);
                                 combatLog.SetActive(false);
                             }
@@ -107,7 +106,7 @@ public class StateController : MonoBehaviour
 
         ninjaSlashAbility = ability;
         ninjaSlashAbility.Initialize(playerChar); // getting the trigger component script attached to 'playerChar'
-
+        ninjaSlashAbility.TriggerAbility();
     }
 
     public void PlayNinjaRunAnim(GameObject playerChar, Ability ability)
@@ -115,7 +114,7 @@ public class StateController : MonoBehaviour
 
         ninjaRunAbility = ability;
         ninjaRunAbility.Initialize(playerChar); // getting the trigger component script attached to 'playerChar'
-
+        ninjaRunAbility.TriggerAbility();
     }
 
 

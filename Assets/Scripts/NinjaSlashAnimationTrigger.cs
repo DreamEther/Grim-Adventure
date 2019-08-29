@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class NinjaSlashAbilityTrigger : MonoBehaviour
+public class NinjaSlashAnimationTrigger : MonoBehaviour
 {
     [HideInInspector] private int damage;
     [HideInInspector] private Animator ninjaAnim;
-    [HideInInspector] private float accuracy = .5f;
+    [HideInInspector] private float accuracy = 4f;
     public GameObject nearestGameObject;
     private List<GameObject> enemies;
     private Vector3 distanceToNearestGameObject;
+    bool triggerRunFromSlash;
     // Start is called before the first frame update
+
 
     void Start()
     {
@@ -37,22 +39,44 @@ public class NinjaSlashAbilityTrigger : MonoBehaviour
     {
         if (nearestGameObject != null) // this is so I can keep track of the Vector Length when I refer to 'distanceToNearestGameObject.magnitude
         {
+            ninjaAnim.SetBool("triggerRunFromSlash", false);
             distanceToNearestGameObject = nearestGameObject.transform.position - transform.position;
         }
         Debug.Log(distanceToNearestGameObject.magnitude);
 
+        SwitchBetweenRunandAttackAnim();
+
+        //Vector3 myPos = new Vector3(transform.position.x, 0, 0);
+        //ninjaAnim.SetBool("StartSlash", true);             
+    }
+
+    private void SwitchBetweenRunandAttackAnim()
+    {
         if (nearestGameObject == null) // this is to find the next nearest enemy once the previous nearest enemy is killed 
         {
+            ninjaAnim.SetBool("triggerRunFromSlash", true);
+            ninjaAnim.SetBool("PlayRunAnim", true);
             enemies.Clear(); // clearing my list of enemies
             enemies = new List<GameObject>(GameObject.FindGameObjectsWithTag("enemy")); // updating the list on each PLAYERTURN state to account for new enemies being instantiated by enemy ai. also accounts for enemies killed
             GetNearestGameObject(enemies);
         }
-        else if (distanceToNearestGameObject.magnitude < accuracy)  
-        {           
-            ninjaAnim.SetBool("StartSlash", true);
+        else if (distanceToNearestGameObject.magnitude < accuracy)
+        {
+            ninjaAnim.SetBool("PlayRunAnim", false);
+            StartCoroutine(PlayOneSlash("StartSlash"));
+            ninjaAnim.SetBool("PlayStabAnim", true);
         }
-        //Vector3 myPos = new Vector3(transform.position.x, 0, 0);
-        //ninjaAnim.SetBool("StartSlash", true);             
+    }
+
+    public void TriggerRunFromSlash()
+    {
+        triggerRunFromSlash = true;
+    }
+    public IEnumerator PlayOneSlash(string paramName)
+    {
+        ninjaAnim.SetBool(paramName, true);
+        yield return null;
+        ninjaAnim.SetBool(paramName, false);
     }
 
     private GameObject GetNearestGameObject(List<GameObject> enemies)

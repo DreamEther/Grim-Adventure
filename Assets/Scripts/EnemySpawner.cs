@@ -23,7 +23,7 @@ public class EnemySpawner : MonoBehaviour
     private void SpawnEnemies()
     {
         Vector3 YPosOffset = new Vector3(0, 40, 0);
-        for (int i = 0; i < randomEnemyCount; i++)
+        for (int i = 0; i < randomEnemyCount - 1; i++)
         {
             var localSpawnPoint = Camera.main.ScreenToWorldPoint(spawnPoint[Random.Range(0, spawnPoint.Count - 1)].transform.position + YPosOffset);
             localSpawnPoint.z = 0;
