@@ -7,11 +7,11 @@ public class NinjaRunAnimationTrigger : MonoBehaviour
    // public static bool beginMoving = false;
     [HideInInspector] public float speed = 6f;
     Animator anim;
-    NinjaSlashAnimationTrigger ninjaSlashAbilityTrigger;
+    NinjaAttackAnimationSequence ninjaSlashAbilityTrigger;
     // Start is called before the first frame update
     void Start()
     {
-        ninjaSlashAbilityTrigger = GetComponent<NinjaSlashAnimationTrigger>();
+        ninjaSlashAbilityTrigger = GetComponent<NinjaAttackAnimationSequence>();
         anim = gameObject.GetComponent<Animator>();
     }
 

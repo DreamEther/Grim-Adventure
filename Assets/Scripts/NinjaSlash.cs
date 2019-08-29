@@ -5,17 +5,17 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Ability - Ninja Slash")]
 public class NinjaSlash : Ability
 {
-    private NinjaSlashAnimationTrigger ninjaSlashAnimationTrigger;
+    private NinjaAttackAnimationSequence ninjaSlashAnimationTrigger;
     
     public override void Initialize(GameObject gameObject)
     {
-        ninjaSlashAnimationTrigger = gameObject.GetComponent<NinjaSlashAnimationTrigger>();
+        ninjaSlashAnimationTrigger = gameObject.GetComponent<NinjaAttackAnimationSequence>();
       
     }
 
     public override void TriggerAbility()
     {
-        ninjaSlashAnimationTrigger.TriggerSlashAnim();
+        ninjaSlashAnimationTrigger.TriggerNinjaAttackSequence();
     }
 
 }

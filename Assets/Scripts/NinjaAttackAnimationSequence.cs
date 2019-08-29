@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class NinjaSlashAnimationTrigger : MonoBehaviour
+public class NinjaAttackAnimationSequence : MonoBehaviour
 {
     [HideInInspector] private int damage;
     [HideInInspector] private Animator ninjaAnim;
@@ -11,7 +11,6 @@ public class NinjaSlashAnimationTrigger : MonoBehaviour
     public GameObject nearestGameObject;
     private List<GameObject> enemies;
     private Vector3 distanceToNearestGameObject;
-    bool triggerRunFromSlash;
     // Start is called before the first frame update
 
 
@@ -35,7 +34,7 @@ public class NinjaSlashAnimationTrigger : MonoBehaviour
         //TriggerSlashAnim();
     }
 
-    public void TriggerSlashAnim() // being called in the stateController Update function 
+    public void TriggerNinjaAttackSequence() // being called in the stateController Update function 
     {
         if (nearestGameObject != null) // this is so I can keep track of the Vector Length when I refer to 'distanceToNearestGameObject.magnitude
         {
@@ -68,10 +67,6 @@ public class NinjaSlashAnimationTrigger : MonoBehaviour
         }
     }
 
-    public void TriggerRunFromSlash()
-    {
-        triggerRunFromSlash = true;
-    }
     public IEnumerator PlayOneSlash(string paramName)
     {
         ninjaAnim.SetBool(paramName, true);

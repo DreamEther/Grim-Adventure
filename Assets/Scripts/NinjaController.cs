@@ -4,27 +4,33 @@ using UnityEngine;
 
 public class NinjaController : MonoBehaviour
 {
-    private Animator ninjaAnim;
+    private Animator ninjaAnimController;
+    [SerializeField] int energyLevel = 3;
 
     // Start is called before the first frame update
     void Start()
     {
-        ninjaAnim = GetComponent<Animator>();
-        ninjaAnim.SetBool("PlayIdleAnim", true);
+        ninjaAnimController = GetComponent<Animator>();
+        ninjaAnimController.SetBool("PlayIdleAnim", true);
     }
 
     public void PlayIdleAnim()
     {
-        ninjaAnim.SetBool("PlayIdleAnim", true);
+        ninjaAnimController.SetBool("PlayIdleAnim", true);
     }
 
     public void PlayStabAnim()
     {
-        ninjaAnim.SetBool("PlayStabAnim", true);
+        ninjaAnimController.SetBool("PlayStabAnim", true);
     }
     // Update is called once per frame
     void Update()
     {
        
+    }
+
+    public void ExpendOneEnergyOnAttack()
+    {
+        energyLevel--;
     }
 }

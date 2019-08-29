@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class StateController : MonoBehaviour
 {
-    PlayerController playerController;
     public static GameObject battleUI;
     public static GameObject combatLog;
     public static GameObject enemyGrid;
@@ -52,11 +51,7 @@ public class StateController : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-        if (playerController == null)
-        {
-            playerController = FindObjectOfType<PlayerController>();
-            return;
-        }
+     
         switch (currentState)
         {
             case PlayerStates.PLAYERTURN:
@@ -79,8 +74,10 @@ public class StateController : MonoBehaviour
                             GetCurrentSelectedChar("draygon");
                         break;
                     }
-                    break;
-                }          
+                    break;                 
+                }
+            case PlayerStates.ENEMYTURN:
+            break;
         }
     }
 

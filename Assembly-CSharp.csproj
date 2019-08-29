@@ -55,6 +55,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\DraygonController.cs" />
+     <Compile Include="Assets\FireBreathAnim.cs" />
      <Compile Include="Assets\Modern_GUI_Skin\Demo_Assets\scripts\GUI_Demo.cs" />
      <Compile Include="Assets\Scripts\Ability.cs" />
      <Compile Include="Assets\Scripts\BaseCharacter.cs" />
@@ -62,11 +64,11 @@
      <Compile Include="Assets\Scripts\DestroyOnClick.cs" />
      <Compile Include="Assets\Scripts\EnemySpawner.cs" />
      <Compile Include="Assets\Scripts\MoveButtonTrigger.cs" />
+     <Compile Include="Assets\Scripts\NinjaAttackAnimationSequence.cs" />
      <Compile Include="Assets\Scripts\NinjaController.cs" />
      <Compile Include="Assets\Scripts\NinjaRun.cs" />
      <Compile Include="Assets\Scripts\NinjaRunAnimationTrigger.cs" />
      <Compile Include="Assets\Scripts\NinjaSlash.cs" />
-     <Compile Include="Assets\Scripts\NinjaSlashAnimationTrigger.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\PlayerParty.cs" />
      <Compile Include="Assets\Scripts\SceneLoader.cs" />
