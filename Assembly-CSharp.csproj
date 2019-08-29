@@ -55,6 +55,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\DestroyOnClick.cs" />
      <Compile Include="Assets\Modern_GUI_Skin\Demo_Assets\scripts\GUI_Demo.cs" />
      <Compile Include="Assets\MoveButtonTrigger.cs" />
      <Compile Include="Assets\Scripts\Ability.cs" />
