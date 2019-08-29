@@ -26,5 +26,21 @@ public class SelectLane : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     public void OnPointerExit(PointerEventData eventData)
     {
            innerBoxTransparency.color = new Color(255, 255, 255, 0);       
-    }  
+    }
+
+    private void OnRightMouseClick()
+    {
+        if (Input.GetMouseButtonDown(1))
+        {
+            moveButtonTrigger.moveButtonClicked = false;
+        }
+    }
+    
+    private void OnMouseDown()
+    {
+        if (moveButtonTrigger.moveButtonClicked == true)
+        {
+           // GetCurrentlySelectedChar(); // create this function in state controller so that it references the correct playerchar depending on whose turn it is. 
+        }
+    }
 }

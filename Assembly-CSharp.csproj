@@ -55,15 +55,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\DestroyOnClick.cs" />
      <Compile Include="Assets\Modern_GUI_Skin\Demo_Assets\scripts\GUI_Demo.cs" />
-     <Compile Include="Assets\MoveButtonTrigger.cs" />
      <Compile Include="Assets\Scripts\Ability.cs" />
      <Compile Include="Assets\Scripts\AnimController.cs" />
      <Compile Include="Assets\Scripts\BaseCharacter.cs" />
      <Compile Include="Assets\Scripts\CameraScript.cs" />
-     <Compile Include="Assets\Scripts\characters.cs" />
      <Compile Include="Assets\Scripts\CharacterSpawner.cs" />
+     <Compile Include="Assets\Scripts\DestroyOnClick.cs" />
+     <Compile Include="Assets\Scripts\MoveButtonTrigger.cs" />
      <Compile Include="Assets\Scripts\NinjaRun.cs" />
      <Compile Include="Assets\Scripts\NinjaRunAbilityTrigger.cs" />
      <Compile Include="Assets\Scripts\NinjaSlash.cs" />
