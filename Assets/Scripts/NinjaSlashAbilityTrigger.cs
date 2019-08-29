@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class NinjaSlashAbilityTrigger : MonoBehaviour
 {
-    [HideInInspector] private int damage = 5;
+    [HideInInspector] private int damage;
     [HideInInspector] private Animator ninjaAnim;
     [HideInInspector] private float accuracy = .5f;
     public GameObject nearestGameObject;

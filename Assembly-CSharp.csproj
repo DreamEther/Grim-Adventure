@@ -59,7 +59,6 @@
      <Compile Include="Assets\Scripts\Ability.cs" />
      <Compile Include="Assets\Scripts\AnimController.cs" />
      <Compile Include="Assets\Scripts\BaseCharacter.cs" />
-     <Compile Include="Assets\Scripts\CameraScript.cs" />
      <Compile Include="Assets\Scripts\CharacterSpawner.cs" />
      <Compile Include="Assets\Scripts\DestroyOnClick.cs" />
      <Compile Include="Assets\Scripts\EnemySpawner.cs" />

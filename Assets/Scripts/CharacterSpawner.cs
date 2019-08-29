@@ -7,7 +7,7 @@ public class CharacterSpawner : MonoBehaviour
 {
     PlayerParty playerParty;
 
-    [SerializeField] Image[] spawnPoint;
+    [SerializeField] Image[] spawnPoint = null;
     [SerializeField] GameObject ninjaPrefab;
     [SerializeField] GameObject dragonPrefab;
 

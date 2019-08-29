@@ -7,7 +7,7 @@ using UnityEngine;
 public class NinjaRun : Ability
 {
     private NinjaRunAbilityTrigger ninjaRunAbilityTrigger;
-    [SerializeField] float speed;
+    [SerializeField] float speed = 2;
     public override void Initialize(GameObject gameObject)
     {
         ninjaRunAbilityTrigger = gameObject.GetComponent<NinjaRunAbilityTrigger>();

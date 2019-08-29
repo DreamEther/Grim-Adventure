@@ -6,12 +6,11 @@ using UnityEngine.UI;
 public class EnemySpawner : MonoBehaviour
 {
     private float randomEnemyCount;
-    [SerializeField] List<GameObject> enemies;
-    [SerializeField] List<Image> spawnPoint;
+    [SerializeField] private List<GameObject> enemies = null;
+    [SerializeField] private List<Image> spawnPoint = null;
 
     void Awake()
-    {
-        
+    {        
         randomEnemyCount = Random.Range(2, 6);
     }
     // Start is called before the first frame update
