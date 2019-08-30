@@ -4931,6 +4931,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: State Controller
       objectReference: {fileID: 0}
+    - target: {fileID: 1324451787872015741, guid: 29f4cd1dd107da246be6031529ff164a,
+        type: 3}
+      propertyPath: ninjaAttackSequence_1
+      value: 
+      objectReference: {fileID: 11400000, guid: 0990fe6f1b939fd469cd93fa334e63ef,
+        type: 2}
     - target: {fileID: 1324451787872015746, guid: 29f4cd1dd107da246be6031529ff164a,
         type: 3}
       propertyPath: m_LocalPosition.x

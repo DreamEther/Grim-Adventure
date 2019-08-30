@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Minion - Pocket Ninja")]
-public abstract class PocketNinjaMinion : BaseMinion
+public class PocketNinjaMinion : BaseMinion
 {
     PocketNinjaBehavior pocketNinjaBehavior;
 

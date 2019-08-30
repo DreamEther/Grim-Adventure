@@ -8,8 +8,7 @@ public class StateController : MonoBehaviour
 {
     private GameObject ninjaTag;
     private GameObject dragonTag;
-    [SerializeField] Ability ninjaSlashAbility;
-    //[SerializeField] Ability ninjaRunAbility;
+    [SerializeField] AttackSequence ninjaAttackSequence_1;
     bool beginRush = false;
 
     private UnityAction ninjaActions;
@@ -53,7 +52,7 @@ public class StateController : MonoBehaviour
                           
                             if (beginRush == true)
                             {
-                                PlayNinjaSlashAnim(CharacterSpawner.playerOne, ninjaSlashAbility);
+                                PlayNinjaSlashAnim(CharacterSpawner.playerOne, ninjaAttackSequence_1);
                                // PlayNinjaRunAnim(CharacterSpawner.playerOne, ninjaRunAbility);
                                 UIController.battleUI.SetActive(false);
                                 UIController.combatLog.SetActive(false);
@@ -88,12 +87,12 @@ public class StateController : MonoBehaviour
 
     }
 
-    public void PlayNinjaSlashAnim(GameObject playerChar, Ability ability)
+    public void PlayNinjaSlashAnim(GameObject playerChar, AttackSequence attackSequence)
     {
 
-        ninjaSlashAbility = ability;
-        ninjaSlashAbility.Initialize(playerChar); // getting the trigger component script attached to 'playerChar'
-        ninjaSlashAbility.TriggerAbility();
+        ninjaAttackSequence_1 = attackSequence;
+        ninjaAttackSequence_1.Initialize(playerChar); // getting the trigger component script attached to 'playerChar'
+        ninjaAttackSequence_1.TriggerAbility();
     }
 
    /* public void PlayNinjaRunAnim(GameObject playerChar, Ability ability)

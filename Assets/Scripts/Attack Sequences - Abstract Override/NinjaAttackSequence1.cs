@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Attack Sequence - #1- slash, stab, stab")]
-public abstract class NinjaAttackSequence1 : AttackSequence
+public class NinjaAttackSequence1 : AttackSequence
 {
     private NinjaAttackAnimationSequence ninjaAttackSequence1;
     

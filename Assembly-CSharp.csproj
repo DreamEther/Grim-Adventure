@@ -58,7 +58,6 @@
      <Compile Include="Assets\DraygonController.cs" />
      <Compile Include="Assets\FireBreathAnim.cs" />
      <Compile Include="Assets\Modern_GUI_Skin\Demo_Assets\scripts\GUI_Demo.cs" />
-     <Compile Include="Assets\Scripts\Ability.cs" />
      <Compile Include="Assets\Scripts\Attack Sequences - Abstract Override\DraygonAttackSequence1.cs" />
      <Compile Include="Assets\Scripts\Attack Sequences - Abstract Override\NinjaAttackSequence1.cs" />
      <Compile Include="Assets\Scripts\Attack Sequences - Mono\Draygon Animation Sequences - Mono\DraygonAttackAnimationSequence1.cs" />
@@ -72,7 +71,6 @@
      <Compile Include="Assets\Scripts\IEnemyMinion.cs" />
      <Compile Include="Assets\Scripts\ITakeDamage.cs" />
      <Compile Include="Assets\Scripts\MoveButtonTrigger.cs" />
-     <Compile Include="Assets\Scripts\NinjaAnimationSequence1.cs" />
      <Compile Include="Assets\Scripts\NinjaController.cs" />
      <Compile Include="Assets\Scripts\PlaceMinionButtonClicked.cs" />
      <Compile Include="Assets\Scripts\PlaceMinionSelectLane.cs" />
