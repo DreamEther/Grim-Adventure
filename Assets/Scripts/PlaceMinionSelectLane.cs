@@ -8,9 +8,11 @@ public class PlaceMinionSelectLane : MonoBehaviour, IPointerEnterHandler, IPoint
 {
     PlaceMinionButtonClicked placeMinionTrigger;
     private Image innerBoxTransparency;
+    Animator flashGreen;
     // Start is called before the first frame update
     void Start()
     {
+        flashGreen = GetComponent<Animator>();
         placeMinionTrigger = FindObjectOfType<PlaceMinionButtonClicked>();
          innerBoxTransparency = this.gameObject.GetComponent<Image>();
     }
@@ -20,19 +22,20 @@ public class PlaceMinionSelectLane : MonoBehaviour, IPointerEnterHandler, IPoint
         OnRightMouseClick();
     }
 
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        if (placeMinionTrigger.placeMinionButtonClicked == true)
-        {
-            // innerBoxTransparency.color = new Color(30, 179, 48, 0.5f); // darker green with 50% transparency
-            innerBoxTransparency.color = new Color(0.1121395f, 0.6792453f, 0.1340164f, 0.6588235f);
-        }
-    }
+     public void OnPointerEnter(PointerEventData eventData)
+     {
+         if (placeMinionTrigger.placeMinionButtonClicked == true)
+         {
+            flashGreen.SetBool("FlashGreen", true);
+            innerBoxTransparency.color = new Color(0.1121395f, 0.6792453f, 0.1340164f, 0.6588235f);  // darker green with 50% transparency
+         }
+     } 
 
     public void OnPointerExit(PointerEventData eventData)
     {
         if (placeMinionTrigger.placeMinionButtonClicked == true)
         {
+            flashGreen.SetBool("FlashGreen", false);
             innerBoxTransparency.color = new Color(255, 255, 255, 0);
         }
     }
