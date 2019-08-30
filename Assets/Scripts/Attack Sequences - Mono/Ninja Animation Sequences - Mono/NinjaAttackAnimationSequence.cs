@@ -16,16 +16,17 @@ public class NinjaAttackAnimationSequence : MonoBehaviour
 
     void Start()
     {
-        enemies = new List<GameObject>(GameObject.FindGameObjectsWithTag("enemy"));
-        GetNearestGameObject(enemies);
-        distanceToNearestGameObject = nearestGameObject.transform.position - transform.position;
-        
-      
-        //ninjaAnim = GetComponent<Animator>();
+       enemies = new List<GameObject>(GameObject.FindGameObjectsWithTag("enemy"));
+       GetNearestGameObject(enemies);
+       distanceToNearestGameObject = nearestGameObject.transform.position - transform.position;
     }
 
+
+
     // Update is called once per frame
+
     void Update()
+
     {
         if (ninjaAnim == null)
         {
@@ -34,20 +35,42 @@ public class NinjaAttackAnimationSequence : MonoBehaviour
         //TriggerSlashAnim();
     }
 
+    public void TriggerRunAnim()
+    {
+        Vector3 XOffset = new Vector3(3, 0, 0);
+        //beginMoving = true;
+        if (ninjaAnim != null && ninjaAnim.isActiveAndEnabled) // gets rid of unassignedReferenceException error
+        {
+
+            if (gameObject.transform.position != nearestGameObject.transform.position - XOffset)
+            {
+                ninjaAnim.SetBool("PlayRunAnim", true);
+                transform.position = Vector3.MoveTowards(transform.position, nearestGameObject.transform.position - XOffset, 15 * Time.deltaTime);
+            }
+            else
+            {
+                ninjaAnim.SetBool("PlayRunAnim", false);
+            }
+        }
+
+    }
+
     public void TriggerNinjaAttackSequence() // being called in the stateController Update function 
     {
+       
         if (nearestGameObject != null) // this is so I can keep track of the Vector Length when I refer to 'distanceToNearestGameObject.magnitude
         {
             ninjaAnim.SetBool("triggerRunFromSlash", false);
             distanceToNearestGameObject = nearestGameObject.transform.position - transform.position;
         }
+
         Debug.Log(distanceToNearestGameObject.magnitude);
 
         SwitchBetweenRunandAttackAnim();
-
-        //Vector3 myPos = new Vector3(transform.position.x, 0, 0);
-        //ninjaAnim.SetBool("StartSlash", true);             
+        TriggerRunAnim(); // the order of trigger run matters since we need to know what the next nearestGameObjects position is after we kill the inital closest enemy
     }
+
+
 
     private void SwitchBetweenRunandAttackAnim()
     {
@@ -59,12 +82,14 @@ public class NinjaAttackAnimationSequence : MonoBehaviour
             enemies = new List<GameObject>(GameObject.FindGameObjectsWithTag("enemy")); // updating the list on each PLAYERTURN state to account for new enemies being instantiated by enemy ai. also accounts for enemies killed
             GetNearestGameObject(enemies);
         }
+
         else if (distanceToNearestGameObject.magnitude < accuracy)
         {
             ninjaAnim.SetBool("PlayRunAnim", false);
             StartCoroutine(PlayOneSlash("StartSlash"));
             ninjaAnim.SetBool("PlayStabAnim", true);
         }
+
     }
 
     public IEnumerator PlayOneSlash(string paramName)
@@ -75,20 +100,20 @@ public class NinjaAttackAnimationSequence : MonoBehaviour
     }
 
     private GameObject GetNearestGameObject(List<GameObject> enemies)
-
     {
         float smallestDistance = Mathf.Infinity;
        
         foreach (var enemy in enemies)
         {
             var distance = Vector3.Distance(transform.position, enemy.transform.position);
+
             if (distance < smallestDistance)
             {              
                 smallestDistance = distance;
+
                 nearestGameObject = enemy;              
             }
         }
-
         return nearestGameObject;
     }
 }

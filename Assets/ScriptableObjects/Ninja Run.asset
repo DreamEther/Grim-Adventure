@@ -15,4 +15,4 @@ MonoBehaviour:
   aName: Ninja Run
   damage: 0
   aSound: {fileID: 0}
-  speed: 5
+  speed: 10

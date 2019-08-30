@@ -9,7 +9,7 @@ public class StateController : MonoBehaviour
     private GameObject ninjaTag;
     private GameObject dragonTag;
     [SerializeField] Ability ninjaSlashAbility;
-    [SerializeField] Ability ninjaRunAbility;
+    //[SerializeField] Ability ninjaRunAbility;
     bool beginRush = false;
 
     private UnityAction ninjaActions;
@@ -54,7 +54,7 @@ public class StateController : MonoBehaviour
                             if (beginRush == true)
                             {
                                 PlayNinjaSlashAnim(CharacterSpawner.playerOne, ninjaSlashAbility);
-                                PlayNinjaRunAnim(CharacterSpawner.playerOne, ninjaRunAbility);
+                               // PlayNinjaRunAnim(CharacterSpawner.playerOne, ninjaRunAbility);
                                 UIController.battleUI.SetActive(false);
                                 UIController.combatLog.SetActive(false);
                             }
@@ -96,13 +96,13 @@ public class StateController : MonoBehaviour
         ninjaSlashAbility.TriggerAbility();
     }
 
-    public void PlayNinjaRunAnim(GameObject playerChar, Ability ability)
+   /* public void PlayNinjaRunAnim(GameObject playerChar, Ability ability)
     {
 
         ninjaRunAbility = ability;
         ninjaRunAbility.Initialize(playerChar); // getting the trigger component script attached to 'playerChar'
         ninjaRunAbility.TriggerAbility();
-    }
+    }*/
 
 
 

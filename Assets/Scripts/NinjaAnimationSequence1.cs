@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Ability - Ninja Slash")]
-public class NinjaSlash : Ability
+public class NinjaAnimationSequence1 : Ability
 {
     private NinjaAttackAnimationSequence ninjaSlashAnimationTrigger;
     
