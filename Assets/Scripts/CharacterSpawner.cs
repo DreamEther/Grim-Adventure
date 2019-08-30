@@ -28,13 +28,16 @@ public class CharacterSpawner : MonoBehaviour
     {
         playerParty = FindObjectOfType<PlayerParty>();
 
-        Vector3 YPosOffset = new Vector3(0, 40, 0);
-        firstSpawnPoint = Camera.main.ScreenToWorldPoint(spawnPoint[0].transform.position + YPosOffset);
+        //needed this when using Screen Space Overlay for the Canvas. Apparently changing the perspective to screen space Camera changed the ui elements position to correspond with local coordinates. 
+
+        /*
+        /*firstSpawnPoint = Camera.main.ScreenToWorldPoint(spawnPoint[0].transform.position + YPosOffset);
         firstSpawnPoint.z = 0;
         secondSpawnPoint = Camera.main.ScreenToWorldPoint(spawnPoint[1].transform.position + YPosOffset);
         secondSpawnPoint.z = 0;
         thirdSpawnPoint = Camera.main.ScreenToWorldPoint(spawnPoint[2].transform.position + YPosOffset);
         thirdSpawnPoint.z = 0;
+        */
 
         SpawnPlayerOneInPlayerParty();
         SpawnPlayerTwoInPlayerParty();
@@ -43,7 +46,7 @@ public class CharacterSpawner : MonoBehaviour
 
     public void SpawnPlayerOneInPlayerParty()
     {
-        playerOne = Instantiate(playerParty.characters[0], firstSpawnPoint, Quaternion.identity);
+        playerOne = Instantiate(playerParty.characters[0], spawnPoint[0].transform.position, Quaternion.identity);
     }
 
     public void SpawnPlayerTwoInPlayerParty()
@@ -52,7 +55,7 @@ public class CharacterSpawner : MonoBehaviour
         {
             return;
         }
-        playerTwo = Instantiate(playerParty.characters[1], secondSpawnPoint, Quaternion.identity);
+        playerTwo = Instantiate(playerParty.characters[1], spawnPoint[1].transform.position, Quaternion.identity);
     }
 
     public void SpawnPlayerThreeInPlayerParty()
@@ -61,6 +64,6 @@ public class CharacterSpawner : MonoBehaviour
         {
             return;
         }
-        playerThree = Instantiate(playerParty.characters[2], thirdSpawnPoint, Quaternion.identity);
+        playerThree = Instantiate(playerParty.characters[2], spawnPoint[2].transform.position, Quaternion.identity);
     }   
 }

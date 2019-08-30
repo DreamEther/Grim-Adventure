@@ -22,6 +22,7 @@ TagManager:
   - draygon
   - EnemyGrid
   - LaneTracks
+  - PlayerGrid
   layers:
   - Default
   - TransparentFX

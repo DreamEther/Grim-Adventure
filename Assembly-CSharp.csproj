@@ -70,6 +70,7 @@
      <Compile Include="Assets\Scripts\NinjaRunAnimationTrigger.cs" />
      <Compile Include="Assets\Scripts\NinjaSlash.cs" />
      <Compile Include="Assets\Scripts\PlaceMinionButtonClicked.cs" />
+     <Compile Include="Assets\Scripts\PlaceMinionSelectLane.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\PlayerParty.cs" />
      <Compile Include="Assets\Scripts\SceneLoader.cs" />

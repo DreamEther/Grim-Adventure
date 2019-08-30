@@ -22,12 +22,10 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnEnemies()
     {
-        Vector3 YPosOffset = new Vector3(0, 40, 0);
+        Vector3 xOffset = new Vector3(0, 3, -90); // clones were at 90 on the Z axis for some reason...this was the simple fix. 
         for (int i = 0; i < randomEnemyCount - 1; i++)
         {
-            var localSpawnPoint = Camera.main.ScreenToWorldPoint(spawnPoint[Random.Range(0, spawnPoint.Count - 1)].transform.position + YPosOffset);
-            localSpawnPoint.z = 0;
-            Instantiate(enemies[Random.Range(0, enemies.Count - 1)], localSpawnPoint, Quaternion.LookRotation(enemies[0].transform.forward));
+            Instantiate(enemies[Random.Range(0, enemies.Count - 1)], spawnPoint[Random.Range(0, spawnPoint.Count - 1)].transform.position + xOffset, Quaternion.LookRotation(enemies[0].transform.forward));
         }
     }
 }
