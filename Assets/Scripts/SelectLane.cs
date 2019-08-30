@@ -38,7 +38,7 @@ public class SelectLane : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         if (Input.GetMouseButtonDown(1))
         {
             moveButtonTrigger.moveButtonClicked = false;
-            StateController.combatLog.SetActive(true);
+            UIController.combatLog.SetActive(true);
         }
     }
     

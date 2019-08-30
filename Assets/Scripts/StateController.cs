@@ -6,9 +6,6 @@ using UnityEngine.UI;
 
 public class StateController : MonoBehaviour
 {
-    public static GameObject battleUI;
-    public static GameObject combatLog;
-    public static GameObject enemyGrid;
     private GameObject ninjaTag;
     private GameObject dragonTag;
     [SerializeField] Ability ninjaSlashAbility;
@@ -30,15 +27,6 @@ public class StateController : MonoBehaviour
 
     private PlayerStates currentState; 
 
-    void Awake()
-    {
-        battleUI = GameObject.FindGameObjectWithTag("BattleUI");
-        combatLog = GameObject.FindGameObjectWithTag("CombatLog");
-        enemyGrid = GameObject.FindGameObjectWithTag("EnemyGrid");
-    }
-
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -56,8 +44,10 @@ public class StateController : MonoBehaviour
         {
             case PlayerStates.PLAYERTURN:
                 {
+                    
                     switch (CharacterSpawner.playerOne.gameObject.tag)
                     {
+
                         case "ninja":
                             //GetCurrentSelectedChar("ninja");
                           
@@ -65,8 +55,8 @@ public class StateController : MonoBehaviour
                             {
                                 PlayNinjaSlashAnim(CharacterSpawner.playerOne, ninjaSlashAbility);
                                 PlayNinjaRunAnim(CharacterSpawner.playerOne, ninjaRunAbility);
-                                battleUI.SetActive(false);
-                                combatLog.SetActive(false);
+                                UIController.battleUI.SetActive(false);
+                                UIController.combatLog.SetActive(false);
                             }
                         break;
 

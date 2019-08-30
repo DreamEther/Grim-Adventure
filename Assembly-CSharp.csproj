@@ -69,11 +69,13 @@
      <Compile Include="Assets\Scripts\NinjaRun.cs" />
      <Compile Include="Assets\Scripts\NinjaRunAnimationTrigger.cs" />
      <Compile Include="Assets\Scripts\NinjaSlash.cs" />
+     <Compile Include="Assets\Scripts\PlaceMinionButtonClicked.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\PlayerParty.cs" />
      <Compile Include="Assets\Scripts\SceneLoader.cs" />
      <Compile Include="Assets\Scripts\SelectLane.cs" />
      <Compile Include="Assets\Scripts\StateController.cs" />
+     <Compile Include="Assets\UIController.cs" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />

@@ -21,6 +21,7 @@ TagManager:
   - CombatLog
   - draygon
   - EnemyGrid
+  - LaneTracks
   layers:
   - Default
   - TransparentFX
