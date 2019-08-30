@@ -12,7 +12,7 @@ public class PlaceMinionSelectLane : MonoBehaviour, IPointerEnterHandler, IPoint
     void Start()
     {
         placeMinionTrigger = FindObjectOfType<PlaceMinionButtonClicked>();
-        innerBoxTransparency = GetComponent<Image>();
+         innerBoxTransparency = this.gameObject.GetComponent<Image>();
     }
 
     void Update()
@@ -24,7 +24,8 @@ public class PlaceMinionSelectLane : MonoBehaviour, IPointerEnterHandler, IPoint
     {
         if (placeMinionTrigger.placeMinionButtonClicked == true)
         {
-            innerBoxTransparency.color = new Color(255, 255, 255, 0.5f);
+            // innerBoxTransparency.color = new Color(30, 179, 48, 0.5f); // darker green with 50% transparency
+            innerBoxTransparency.color = new Color(0.1121395f, 0.6792453f, 0.1340164f, 0.6588235f);
         }
     }
 

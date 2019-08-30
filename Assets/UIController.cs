@@ -16,10 +16,4 @@ public class UIController : MonoBehaviour
         enemyGrid = GameObject.FindGameObjectWithTag("EnemyGrid");
         laneTracks = GameObject.FindGameObjectWithTag("LaneTracks");
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

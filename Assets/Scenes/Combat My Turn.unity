@@ -195,30 +195,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 13759075}
   m_CullTransparentMesh: 0
---- !u!1 &17148300 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6033377858898502057, guid: 8ecbf51e44cfcce469c867af6fc549ee,
-    type: 3}
-  m_PrefabInstance: {fileID: 8073061496912745192}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &17148301 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2703653307133074877, guid: 8ecbf51e44cfcce469c867af6fc549ee,
     type: 3}
   m_PrefabInstance: {fileID: 8073061496912745192}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &17148304
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 17148300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66499e93b3cb8b8408bbd190a975b269, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &17875488
 GameObject:
   m_ObjectHideFlags: 0
@@ -2439,7 +2421,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 0.11213954, g: 0.6792453, b: 0.13401641, a: 0.65882355}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4426,6 +4408,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Combat Log Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 7990120714678040605, guid: a2b1e77f03a135a479fd20939996ec8f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 97
+      objectReference: {fileID: 0}
+    - target: {fileID: 7990120714678040605, guid: a2b1e77f03a135a479fd20939996ec8f,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 227.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7990120714678040605, guid: a2b1e77f03a135a479fd20939996ec8f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 142.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7990120714678040605, guid: a2b1e77f03a135a479fd20939996ec8f,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 311.2
+      objectReference: {fileID: 0}
     - target: {fileID: 7990120714335100522, guid: a2b1e77f03a135a479fd20939996ec8f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4566,26 +4568,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -44
       objectReference: {fileID: 0}
-    - target: {fileID: 7990120714678040605, guid: a2b1e77f03a135a479fd20939996ec8f,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 97
-      objectReference: {fileID: 0}
-    - target: {fileID: 7990120714678040605, guid: a2b1e77f03a135a479fd20939996ec8f,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 227.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 7990120714678040605, guid: a2b1e77f03a135a479fd20939996ec8f,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 142.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 7990120714678040605, guid: a2b1e77f03a135a479fd20939996ec8f,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 311.2
-      objectReference: {fileID: 0}
     - target: {fileID: 7990120714695541948, guid: a2b1e77f03a135a479fd20939996ec8f,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -4659,6 +4641,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LaneTracks
+      objectReference: {fileID: 0}
+    - target: {fileID: 6033377858898502057, guid: 8ecbf51e44cfcce469c867af6fc549ee,
+        type: 3}
+      propertyPath: m_Name
+      value: 'L1T #1'
       objectReference: {fileID: 0}
     - target: {fileID: 841254789291766623, guid: 8ecbf51e44cfcce469c867af6fc549ee,
         type: 3}
