@@ -55,6 +55,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Bandits - Pixel Art\Demo\GuardScript.cs" />
      <Compile Include="Assets\DraygonController.cs" />
      <Compile Include="Assets\FireBreathAnim.cs" />
      <Compile Include="Assets\Modern_GUI_Skin\Demo_Assets\scripts\GUI_Demo.cs" />
