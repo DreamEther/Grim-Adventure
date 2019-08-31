@@ -64,7 +64,7 @@
      <Compile Include="Assets\Scripts\Attack Sequences - Mono\Ninja Animation Sequences - Mono\NinjaAttackAnimationSequence.cs" />
      <Compile Include="Assets\Scripts\Base Abstract Classes\AttackSequence.cs" />
      <Compile Include="Assets\Scripts\Base Abstract Classes\BaseCharacter.cs" />
-     <Compile Include="Assets\Scripts\BaseMinion.cs" />
+     <Compile Include="Assets\Scripts\Base Abstract Classes\BaseMinion.cs" />
      <Compile Include="Assets\Scripts\CharacterSpawner.cs" />
      <Compile Include="Assets\Scripts\DestroyOnClick.cs" />
      <Compile Include="Assets\Scripts\EnemySpawner.cs" />
@@ -80,6 +80,7 @@
      <Compile Include="Assets\Scripts\PocketNinjaMinion.cs" />
      <Compile Include="Assets\Scripts\SceneLoader.cs" />
      <Compile Include="Assets\Scripts\SelectLane.cs" />
+     <Compile Include="Assets\Scripts\SourceTreeStashTest.cs" />
      <Compile Include="Assets\Scripts\StateController.cs" />
      <Compile Include="Assets\UIController.cs" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
