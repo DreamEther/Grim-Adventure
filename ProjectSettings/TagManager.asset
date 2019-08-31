@@ -23,6 +23,7 @@ TagManager:
   - EnemyGrid
   - LaneTracks
   - PlayerGrid
+  - Lane1
   layers:
   - Default
   - TransparentFX

@@ -4,8 +4,6 @@ using UnityEngine;
 
 public abstract class BaseMinion : ScriptableObject, IEnemyMinion
 {
-    public int health = 10;
-    public int attackPower = 5;
     public Sprite aMinionType;
 
     public abstract void Initialize(GameObject gameObject);

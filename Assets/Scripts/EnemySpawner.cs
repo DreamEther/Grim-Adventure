@@ -7,8 +7,8 @@ public class EnemySpawner : MonoBehaviour
 {
     private float randomEnemyCount;
     [SerializeField] private List<GameObject> enemies = null;
-    [SerializeField] private List<Image> spawnPoint = null;
-
+    [SerializeField] public List<Image> spawnPoint = null;
+    [SerializeField] GameObject dragon;
     void Awake()
     {        
         randomEnemyCount = Random.Range(2, 6);
@@ -16,8 +16,10 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      
+        Vector3 newVec = new Vector3(0.1f, -2.9f, 0);
+        dragon = Instantiate(dragon, newVec, Quaternion.LookRotation(transform.forward));
         SpawnEnemies();
+      //  Debug.Log(dragon.transform.position);
     }
 
     private void SpawnEnemies()

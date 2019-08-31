@@ -151,6 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nearestGameObject: {fileID: 0}
+  dragon: {fileID: 5717988549371406425, guid: 1a582ff6919c5b740b464f987a637118, type: 3}
 --- !u!114 &2576961747016424660
 MonoBehaviour:
   m_ObjectHideFlags: 0
