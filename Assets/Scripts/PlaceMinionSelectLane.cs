@@ -12,8 +12,8 @@ public class PlaceMinionSelectLane : MonoBehaviour, IPointerEnterHandler, IPoint
     // Start is called before the first frame update
     void Start()
     {
-        flashGreen = GetComponent<Animator>();
-        placeMinionTrigger = FindObjectOfType<PlaceMinionButtonClicked>();
+         flashGreen = GetComponent<Animator>();
+         placeMinionTrigger = FindObjectOfType<PlaceMinionButtonClicked>();
          innerBoxTransparency = this.gameObject.GetComponent<Image>();
     }
 
