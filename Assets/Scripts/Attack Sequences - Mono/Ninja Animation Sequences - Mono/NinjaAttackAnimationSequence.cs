@@ -121,6 +121,11 @@ public class NinjaAttackAnimationSequence : MonoBehaviour
             }    
         return nearestGameObject;
     }     
+
+    public void PlayStabAnim()
+    {
+
+    }
 }
 
 

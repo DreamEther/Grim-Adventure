@@ -9,18 +9,21 @@ public class PocketNinjaBehavior : MonoBehaviour
     [HideInInspector] public int attackPower;
     EnemySpawner enemySpawns;
     private Animator pocketNinjaAnimController;
+    List<Collider2D> colliders;
+
+    [SerializeField] int tempHealth = 10;
     // Start is called before the first frame update
     void Start()
     {
         enemySpawns = FindObjectOfType<EnemySpawner>();
         pocketNinjaAnimController = GetComponent<Animator>();
-       
+        colliders = new List<Collider2D>(FindObjectsOfType<Collider2D>());
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void TriggerAbility()
@@ -30,16 +33,17 @@ public class PocketNinjaBehavior : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        PlayerController playerChar = other.gameObject.GetComponent<PlayerController>();
-        if (playerChar.gameObject)
-        {
-            float percentChanceToCounter = Random.Range(0f, 1f);
-            Debug.Log(percentChanceToCounter);
-            if (percentChanceToCounter <= 0.30f)
-            {
-                StartCoroutine(TriggerCounterAttack());
-            }
+        if (other.gameObject.tag == "ninjaSlash" || other.gameObject.tag == "ninjaStab")
+        { 
+                float percentChanceToCounter = Random.Range(0f, 1f);
+                Debug.Log(percentChanceToCounter);
+                if (percentChanceToCounter <= 0.50f)
+                {
+                    StartCoroutine(TriggerCounterAttack());
+                }
+            
         }
+        
     }
 
     public IEnumerator TriggerCounterAttack()

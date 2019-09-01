@@ -6,15 +6,25 @@ public class OnTriggerEnterLane1 : MonoBehaviour
 {
     public static List<GameObject> enemiesInLaneOne;
     public static List<GameObject> playerCharsInLaneOne;
+    PlayerController playerChar;
 
     void Start()
     {
+        playerChar = gameObject.GetComponent<PlayerController>();
         enemiesInLaneOne = new List<GameObject>();
         playerCharsInLaneOne = new List<GameObject>();
     }
+
+    void Update()
+    {
+        if (playerChar == null)
+        {
+            playerChar = gameObject.GetComponent<PlayerController>();
+        }
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        PlayerController playerChar = other.gameObject.GetComponent<PlayerController>();
+        playerChar = other.gameObject.GetComponent<PlayerController>();
         if (other.gameObject.tag == "enemy")
         { 
           enemiesInLaneOne.Add(other.gameObject);
@@ -31,7 +41,7 @@ public class OnTriggerEnterLane1 : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        PlayerController playerChar = other.gameObject.GetComponent<PlayerController>();
+        playerChar = other.gameObject.GetComponent<PlayerController>();
 
         if (other.gameObject.tag == "enemy")
         {

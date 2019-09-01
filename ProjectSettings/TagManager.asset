@@ -24,6 +24,8 @@ TagManager:
   - LaneTracks
   - PlayerGrid
   - Lane1
+  - ninjaStab
+  - ninjaSlash
   layers:
   - Default
   - TransparentFX

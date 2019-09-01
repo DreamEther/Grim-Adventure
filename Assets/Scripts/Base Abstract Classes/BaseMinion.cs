@@ -12,6 +12,11 @@ public abstract class BaseMinion : ScriptableObject, IEnemyMinion
     public abstract void CounterAnim();
     public abstract void TakingDamageAnim();
     public abstract void TakeDamage(); // going to implement ITakeDamage interface
+
+    public void TakeDamage(int damage)
+    {
+        throw new System.NotImplementedException();
+    }
 }
 
 
