@@ -8,6 +8,7 @@ public class NinjaAttackAnimationSequence : MonoBehaviour
     [HideInInspector] private int damage;
     [HideInInspector] private Animator ninjaAnim;
     [HideInInspector] private float accuracy = 4f;
+    [SerializeField] int speed;
     public GameObject nearestGameObject;
     private List<GameObject> enemies;
     private Vector3 distanceToNearestGameObject;
@@ -52,7 +53,7 @@ public class NinjaAttackAnimationSequence : MonoBehaviour
             if (gameObject.transform.position != nearestGameObject.transform.position - XOffset)
             {
                 ninjaAnim.SetBool("PlayRunAnim", true);
-                transform.position = Vector3.MoveTowards(transform.position, nearestGameObject.transform.position - XOffset, 15 * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position, nearestGameObject.transform.position - XOffset, speed * Time.deltaTime);
             }
             else
             {

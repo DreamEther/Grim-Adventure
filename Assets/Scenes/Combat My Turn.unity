@@ -214,6 +214,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   attackPower: 0
+  tempHealth: 10
 --- !u!50 &9469436
 Rigidbody2D:
   serializedVersion: 4
@@ -337,6 +338,18 @@ PolygonCollider2D:
       - {x: -0.013667427, y: -0.49772212}
       - {x: -0.013667427, y: -0.46355355}
       - {x: -0.02050114, y: -0.4384966}
+--- !u!114 &9469438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9469434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5f5730875246654d8363a4bed2b7dfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &17148301 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2703653307133074877, guid: 8ecbf51e44cfcce469c867af6fc549ee,

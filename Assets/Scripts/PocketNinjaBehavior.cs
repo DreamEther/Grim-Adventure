@@ -34,7 +34,8 @@ public class PocketNinjaBehavior : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "ninjaSlash" || other.gameObject.tag == "ninjaStab")
-        { 
+        {
+                StartCoroutine(TriggerHurt());
                 float percentChanceToCounter = Random.Range(0f, 1f);
                 Debug.Log(percentChanceToCounter);
                 if (percentChanceToCounter <= 0.50f)
@@ -44,6 +45,14 @@ public class PocketNinjaBehavior : MonoBehaviour
             
         }
         
+    }
+
+    public IEnumerator TriggerHurt()
+    {
+        pocketNinjaAnimController.SetBool("Hurt", true);
+        yield return null;
+        pocketNinjaAnimController.SetBool("Hurt", false);
+
     }
 
     public IEnumerator TriggerCounterAttack()
