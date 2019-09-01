@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 5728599270011680378}
   - component: {fileID: 5728599270011680379}
   - component: {fileID: 5728599270011680375}
-  - component: {fileID: 5728599270011680376}
+  - component: {fileID: 8797859327630017241}
+  - component: {fileID: 6054218082841429356}
   m_Layer: 0
   m_Name: Light Bandit - Pixel
   m_TagString: enemy
@@ -123,7 +124,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!60 &5728599270011680376
+--- !u!60 &8797859327630017241
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -133,14 +134,14 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 0.48, y: 0.48}
+    pivot: {x: 0.5324114, y: 0.4159495}
+    oldSize: {x: 0.5416667, y: 0.7708333}
     newSize: {x: 0.48, y: 0.48}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -148,15 +149,24 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.03838515, y: 0.39868763}
-      - {x: -0.0041925763, y: 0.39303136}
-      - {x: -0.023866557, y: 0.38151565}
-      - {x: -0.010913641, y: 0.30322906}
-      - {x: -0.05100387, y: 0.21245606}
-      - {x: -0.04666561, y: 0.17684907}
-      - {x: -0.059347987, y: 0.06565628}
-      - {x: -0.07386653, y: 0.022624744}
-      - {x: 0.11419258, y: 0.016968558}
-      - {x: 0.16515538, y: 0.20434378}
-      - {x: 0.17096281, y: 0.2386876}
-      - {x: 0.15677027, y: 0.2502034}
+    - - {x: -0.033168923, y: 0.45682105}
+      - {x: -0.14483671, y: 0.45020548}
+      - {x: -0.2102768, y: 0.14199999}
+      - {x: -0.28838953, y: -0.32062787}
+      - {x: 0.14911048, y: -0.32062787}
+      - {x: 0.14459857, y: -0.04451312}
+      - {x: 0.13101381, y: 0.16579378}
+--- !u!114 &6054218082841429356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5728599270011680380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99ca91794543a564aa48cfc4b8c26fbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
+  attackPower: 0

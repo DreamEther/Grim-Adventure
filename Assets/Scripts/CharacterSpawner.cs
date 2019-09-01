@@ -23,6 +23,8 @@ public class CharacterSpawner : MonoBehaviour
     public static GameObject playerTwo;
     public static GameObject playerThree;
 
+    [SerializeField] Vector3 spawnOffset;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,7 +48,7 @@ public class CharacterSpawner : MonoBehaviour
 
     public void SpawnPlayerOneInPlayerParty()
     {
-        playerOne = Instantiate(playerParty.characters[0], spawnPoint[0].transform.position, Quaternion.identity);
+        playerOne = Instantiate(playerParty.characters[0], spawnPoint[0].transform.position + spawnOffset, Quaternion.identity);
     }
 
     public void SpawnPlayerTwoInPlayerParty()
@@ -55,7 +57,7 @@ public class CharacterSpawner : MonoBehaviour
         {
             return;
         }
-        playerTwo = Instantiate(playerParty.characters[1], spawnPoint[1].transform.position, Quaternion.identity);
+        playerTwo = Instantiate(playerParty.characters[1], spawnPoint[1].transform.position + spawnOffset, Quaternion.identity);
     }
 
     public void SpawnPlayerThreeInPlayerParty()
@@ -64,6 +66,6 @@ public class CharacterSpawner : MonoBehaviour
         {
             return;
         }
-        playerThree = Instantiate(playerParty.characters[2], spawnPoint[2].transform.position, Quaternion.identity);
+        playerThree = Instantiate(playerParty.characters[2], spawnPoint[2].transform.position + spawnOffset, Quaternion.identity);
     }   
 }

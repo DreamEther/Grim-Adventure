@@ -73,13 +73,15 @@
      <Compile Include="Assets\Scripts\EnemySpawner.cs" />
      <Compile Include="Assets\Scripts\IEnemyMinion.cs" />
      <Compile Include="Assets\Scripts\ITakeDamage.cs" />
+     <Compile Include="Assets\Scripts\Minion Behavior\PocketNinjaBehavior.cs" />
+     <Compile Include="Assets\Scripts\Minions\PocketNinjaMinion.cs" />
      <Compile Include="Assets\Scripts\MoveButtonTrigger.cs" />
+     <Compile Include="Assets\Scripts\PixelBanditLightBehavior.cs" />
+     <Compile Include="Assets\Scripts\PixelBanditLightMinion.cs" />
      <Compile Include="Assets\Scripts\PlaceMinionButtonClicked.cs" />
      <Compile Include="Assets\Scripts\PlaceMinionSelectLane.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\PlayerParty.cs" />
-     <Compile Include="Assets\Scripts\PocketNinjaBehavior.cs" />
-     <Compile Include="Assets\Scripts\PocketNinjaMinion.cs" />
      <Compile Include="Assets\Scripts\SceneLoader.cs" />
      <Compile Include="Assets\Scripts\SelectLane.cs" />
      <Compile Include="Assets\Scripts\SourceTreeStashTest.cs" />

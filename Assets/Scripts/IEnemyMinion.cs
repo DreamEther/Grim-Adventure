@@ -5,8 +5,6 @@ using UnityEngine;
     public interface IEnemyMinion : ITakeDamage
     {
         void Ability();
-        void TakingDamageAnim();
-        void CounterAnim();
     }
 
 

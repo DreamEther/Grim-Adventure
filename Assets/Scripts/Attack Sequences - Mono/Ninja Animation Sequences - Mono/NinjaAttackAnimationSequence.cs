@@ -45,7 +45,7 @@ public class NinjaAttackAnimationSequence : MonoBehaviour
 
     public void TriggerRunAnim()
     {
-        Vector3 XOffset = new Vector3(3, 0, 0);
+        Vector3 XOffset = new Vector3(3f, 0, 0);
         //beginMoving = true;
         if (ninjaAnim != null && ninjaAnim.isActiveAndEnabled) // gets rid of unassignedReferenceException error
         {

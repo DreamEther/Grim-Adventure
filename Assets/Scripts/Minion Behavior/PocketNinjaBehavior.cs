@@ -9,7 +9,6 @@ public class PocketNinjaBehavior : MonoBehaviour
     [HideInInspector] public int attackPower;
     EnemySpawner enemySpawns;
     private Animator pocketNinjaAnimController;
-    List<Collider2D> colliders;
 
     [SerializeField] int tempHealth = 10;
     // Start is called before the first frame update
@@ -17,7 +16,6 @@ public class PocketNinjaBehavior : MonoBehaviour
     {
         enemySpawns = FindObjectOfType<EnemySpawner>();
         pocketNinjaAnimController = GetComponent<Animator>();
-        colliders = new List<Collider2D>(FindObjectsOfType<Collider2D>());
     }
 
     // Update is called once per frame

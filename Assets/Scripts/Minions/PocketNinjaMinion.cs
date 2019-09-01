@@ -23,15 +23,6 @@ public class PocketNinjaMinion : BaseMinion
         throw new System.NotImplementedException();
     }
 
-    public override void CounterAnim()
-    {
-        throw new System.NotImplementedException();
-    }
-    public override void TakingDamageAnim()
-    {
-        throw new System.NotImplementedException();
-    }
-
     public override void TakeDamage()
     {
         throw new System.NotImplementedException();
