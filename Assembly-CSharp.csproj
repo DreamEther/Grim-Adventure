@@ -71,6 +71,7 @@
      <Compile Include="Assets\Scripts\CharacterSpawner.cs" />
      <Compile Include="Assets\Scripts\DestroyOnClick.cs" />
      <Compile Include="Assets\Scripts\EnemySpawner.cs" />
+     <Compile Include="Assets\Scripts\Grid.cs" />
      <Compile Include="Assets\Scripts\IEnemyMinion.cs" />
      <Compile Include="Assets\Scripts\ITakeDamage.cs" />
      <Compile Include="Assets\Scripts\Minion Behavior\PocketNinjaBehavior.cs" />
