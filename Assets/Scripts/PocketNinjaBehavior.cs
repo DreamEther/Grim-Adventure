@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PocketNinjaBehavior : MonoBehaviour
 {
-    [HideInInspector] public int health;
+    [HideInInspector] public int health = 10;
     [HideInInspector] public int attackPower;
     EnemySpawner enemySpawns;
     private Animator pocketNinjaAnimController;
@@ -28,16 +28,27 @@ public class PocketNinjaBehavior : MonoBehaviour
         Debug.Log("triggering ability");
     }
 
-    public void TriggerCounterAttack()
+    public void OnTriggerEnter2D(Collider2D other)
     {
-        foreach(Image laneOneSpawnPoint in enemySpawns.spawnPoint)
+        PlayerController playerChar = other.gameObject.GetComponent<PlayerController>();
+        if (playerChar.gameObject)
         {
-           // if (enemySpawns.spawnPoint.transform.position)
+            float percentChanceToCounter = Random.Range(0f, 1f);
+            Debug.Log(percentChanceToCounter);
+            if (percentChanceToCounter <= 0.30f)
+            {
+                StartCoroutine(TriggerCounterAttack());
+            }
         }
-        
-        pocketNinjaAnimController.SetBool("CounterAttack", true);
     }
 
+    public IEnumerator TriggerCounterAttack()
+    {
+        pocketNinjaAnimController.SetBool("CounterAttack", true);
+        yield return null;
+        pocketNinjaAnimController.SetBool("CounterAttack", false);
+
+    }
     public void TakeDamage()
     {
         

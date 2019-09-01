@@ -74,7 +74,6 @@
      <Compile Include="Assets\Scripts\IEnemyMinion.cs" />
      <Compile Include="Assets\Scripts\ITakeDamage.cs" />
      <Compile Include="Assets\Scripts\MoveButtonTrigger.cs" />
-     <Compile Include="Assets\Scripts\NinjaController.cs" />
      <Compile Include="Assets\Scripts\PlaceMinionButtonClicked.cs" />
      <Compile Include="Assets\Scripts\PlaceMinionSelectLane.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
