@@ -18,7 +18,7 @@ public class NinjaAttackAnimationSequence : MonoBehaviour
     void Start()
     {
         enemies = new List<GameObject>(GameObject.FindGameObjectsWithTag("enemy"));
-        GetNearestGameObject(enemies);
+        GetNearestGameObject(OnTriggerEnterLane1.enemiesInLaneOne);
         laneOneSpawnPoints = new List<GameObject>(GameObject.FindGameObjectsWithTag("Lane1"));
         
     }
@@ -85,7 +85,7 @@ public class NinjaAttackAnimationSequence : MonoBehaviour
             ninjaAnim.SetBool("PlayRunAnim", true);
             enemies.Clear(); // clearing my list of enemies
             enemies = new List<GameObject>(GameObject.FindGameObjectsWithTag("enemy")); // updating the list on each PLAYERTURN state to account for new enemies being instantiated by enemy ai. also accounts for enemies killed
-            GetNearestGameObject(enemies);
+            GetNearestGameObject(OnTriggerEnterLane1.enemiesInLaneOne);
         }
 
         else if (distanceToNearestGameObject.magnitude < accuracy)
@@ -108,7 +108,7 @@ public class NinjaAttackAnimationSequence : MonoBehaviour
     {
         float smallestDistance = Mathf.Infinity;
 
-            foreach (GameObject enemy in enemies)
+            foreach (GameObject enemy in OnTriggerEnterLane1.enemiesInLaneOne)
             {
                    var distance = Vector3.Distance(transform.position, enemy.transform.position);
 

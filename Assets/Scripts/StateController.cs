@@ -45,7 +45,7 @@ public class StateController : MonoBehaviour
                 {
                     
                     switch (CharacterSpawner.playerOne.gameObject.tag)
-                    {
+                    { 
 
                         case "ninja":
                             //GetCurrentSelectedChar("ninja");
