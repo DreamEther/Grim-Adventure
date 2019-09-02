@@ -18,6 +18,6 @@ public class DestroyOnClick : MonoBehaviour
 
     public void OnMouseDown()
     {
-        Destroy(gameObject);
+        Destroy(gameObject, 10);
     }
 }

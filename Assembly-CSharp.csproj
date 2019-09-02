@@ -56,11 +56,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Bandits - Pixel Art\Demo\GuardScript.cs" />
-     <Compile Include="Assets\DraygonController.cs" />
-     <Compile Include="Assets\FireBreathAnim.cs" />
      <Compile Include="Assets\Modern_GUI_Skin\Demo_Assets\scripts\GUI_Demo.cs" />
-     <Compile Include="Assets\OnTriggerEnterLane1.cs" />
-     <Compile Include="Assets\OnTriggerEnterLane2.cs" />
      <Compile Include="Assets\Scripts\Attack Sequences - Abstract Override\DraygonAttackSequence1.cs" />
      <Compile Include="Assets\Scripts\Attack Sequences - Abstract Override\NinjaAttackSequence1.cs" />
      <Compile Include="Assets\Scripts\Attack Sequences - Mono\Draygon Animation Sequences - Mono\DraygonAttackAnimationSequence1.cs" />
@@ -70,13 +66,17 @@
      <Compile Include="Assets\Scripts\Base Abstract Classes\BaseMinion.cs" />
      <Compile Include="Assets\Scripts\CharacterSpawner.cs" />
      <Compile Include="Assets\Scripts\DestroyOnClick.cs" />
+     <Compile Include="Assets\Scripts\DraygonController.cs" />
      <Compile Include="Assets\Scripts\EnemySpawner.cs" />
+     <Compile Include="Assets\Scripts\FireBreathAnim.cs" />
      <Compile Include="Assets\Scripts\Grid.cs" />
      <Compile Include="Assets\Scripts\IEnemyMinion.cs" />
      <Compile Include="Assets\Scripts\ITakeDamage.cs" />
      <Compile Include="Assets\Scripts\Minion Behavior\PocketNinjaBehavior.cs" />
      <Compile Include="Assets\Scripts\Minions\PocketNinjaMinion.cs" />
      <Compile Include="Assets\Scripts\MoveButtonTrigger.cs" />
+     <Compile Include="Assets\Scripts\OnTriggerEnterLane1.cs" />
+     <Compile Include="Assets\Scripts\OnTriggerEnterLane2.cs" />
      <Compile Include="Assets\Scripts\PixelBanditLightBehavior.cs" />
      <Compile Include="Assets\Scripts\PixelBanditLightMinion.cs" />
      <Compile Include="Assets\Scripts\PlaceMinionButtonClicked.cs" />
@@ -87,7 +87,7 @@
      <Compile Include="Assets\Scripts\SelectLane.cs" />
      <Compile Include="Assets\Scripts\SourceTreeStashTest.cs" />
      <Compile Include="Assets\Scripts\StateController.cs" />
-     <Compile Include="Assets\UIController.cs" />
+     <Compile Include="Assets\Scripts\UIController.cs" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
