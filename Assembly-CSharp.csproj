@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\HitAnim.cs" />
+     <Compile Include="Assets\MinionInventoryUI.cs" />
      <Compile Include="Assets\Modern_GUI_Skin\Demo_Assets\scripts\GUI_Demo.cs" />
      <Compile Include="Assets\NinjaController.cs" />
      <Compile Include="Assets\Scripts\Attack Sequences - Abstract Override\DraygonAttackSequence1.cs" />
