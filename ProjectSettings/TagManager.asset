@@ -26,6 +26,8 @@ TagManager:
   - Lane1
   - ninjaStab
   - ninjaSlash
+  - PocketNinja
+  - WingedBat
   layers:
   - Default
   - TransparentFX
