@@ -35,7 +35,7 @@ public class PocketNinjaBehavior : MonoBehaviour
         {
                 StartCoroutine(TriggerHurt());
                 float percentChanceToCounter = Random.Range(0f, 1f);
-                Debug.Log(percentChanceToCounter);
+               // Debug.Log(percentChanceToCounter);
                 if (percentChanceToCounter <= 0.50f)
                 {
                     StartCoroutine(TriggerCounterAttack());

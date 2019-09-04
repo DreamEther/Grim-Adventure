@@ -6,11 +6,13 @@ using UnityEngine.UI;
 
 public class StateController : MonoBehaviour
 {
+    int nextCharTurn;
     private GameObject ninjaTag;
     private GameObject dragonTag;
     [SerializeField] AttackSequence ninjaAttackSequence_1;
     bool beginRush = false;
 
+    PlayerParty playerPartyList;
     private UnityAction ninjaActions;
     private UnityAction draygonActions;
 
@@ -33,6 +35,8 @@ public class StateController : MonoBehaviour
         ninjaTag = GameObject.FindGameObjectWithTag("ninja"); // need to do this so we can determine how many, and which chars the player has in their party at the start of battle. 
         dragonTag = GameObject.FindGameObjectWithTag("draygon"); // need to do this so we can determine how many, and which chars the player has in their party at the start of battle.
         currentState = PlayerStates.PLAYERTURN;
+
+        playerPartyList = PlayerParty.FindObjectOfType<PlayerParty>();
     }
 
     // Update is called once per frame
@@ -43,8 +47,9 @@ public class StateController : MonoBehaviour
         {
             case PlayerStates.PLAYERTURN:
                 {
-                    
-                    switch (CharacterSpawner.playerOne.gameObject.tag)
+                    // need to change this and instead grab the PlayerParty List instead, and then use a switch based on that GameObjects tag. Then in enemyState before we switch back to playerTurn, we'll increment the partyList by one
+                  
+                    switch(playerPartyList.characters[nextCharTurn].gameObject.tag)
                     { 
 
                         case "ninja":
@@ -77,7 +82,7 @@ public class StateController : MonoBehaviour
         return currentChar;
     }
 
-    public void BeginRushOnAttackSelect()
+    public void BeginRushOnAttackSelect() //Calling this method in the inspector on our Attack button.
     {
         beginRush = true;
     }

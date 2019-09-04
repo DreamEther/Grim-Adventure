@@ -315,6 +315,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7689763179471582543, guid: 8aa436b69c2b2654fa784eb1799da32a,
+        type: 3}
+      propertyPath: m_Name
+      value: Ninja
+      objectReference: {fileID: 0}
     - target: {fileID: 3539666931206600188, guid: 8aa436b69c2b2654fa784eb1799da32a,
         type: 3}
       propertyPath: m_Enabled
@@ -324,11 +329,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7689763179471582543, guid: 8aa436b69c2b2654fa784eb1799da32a,
-        type: 3}
-      propertyPath: m_Name
-      value: Ninja
       objectReference: {fileID: 0}
     - target: {fileID: 7689763179308824875, guid: 8aa436b69c2b2654fa784eb1799da32a,
         type: 3}

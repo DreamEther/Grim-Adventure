@@ -15,3 +15,4 @@ MonoBehaviour:
   aName: Ninja Attack Sequence 1
   damage: 5
   aSound: {fileID: 0}
+  accuracy: 4
