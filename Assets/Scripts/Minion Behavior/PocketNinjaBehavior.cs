@@ -10,6 +10,7 @@ public class PocketNinjaBehavior : MonoBehaviour
     EnemySpawner enemySpawns;
     private Animator pocketNinjaAnimController;
 
+    [SerializeField] GameObject hitParticleEffect;
     [SerializeField] int tempHealth = 10;
     // Start is called before the first frame update
     void Start()

@@ -17,14 +17,4 @@ public class PocketNinjaMinion : BaseMinion
         pocketNinjaBehavior.attackPower = attackPower;
 
     }
-
-    public override void Ability()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public override void TakeDamage()
-    {
-        throw new System.NotImplementedException();
-    }
 }

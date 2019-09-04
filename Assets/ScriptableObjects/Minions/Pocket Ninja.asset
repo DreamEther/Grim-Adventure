@@ -9,9 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 326274a39764a95499d912d700b585aa, type: 3}
+  m_Script: {fileID: 11500000, guid: 9fdaecbe3b241294fbf1b75edf1655dc, type: 3}
   m_Name: Pocket Ninja
   m_EditorClassIdentifier: 
-  aMinionType: {fileID: 0}
+  aMinionType: {fileID: 21300000, guid: a9886c5c5ddde4446b461ee73abf9fdd, type: 3}
+  minionPrefab: {fileID: 3418796384232441307, guid: 57867b83c7bbe94488a38741fc31cc61,
+    type: 3}
   health: 20
   attackPower: 3

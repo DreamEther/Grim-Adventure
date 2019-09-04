@@ -2,8 +2,6 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <LangVersion>latest</LangVersion>
-    <CscToolPath>D:\Unity Hub\2019.2.0f1\Editor\Data\Tools\RoslynScripts</CscToolPath>
-    <CscToolExe>unity_csc.bat</CscToolExe>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -55,9 +53,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Bandits - Pixel Art\Demo\GuardScript.cs" />
      <Compile Include="Assets\HitAnim.cs" />
      <Compile Include="Assets\Modern_GUI_Skin\Demo_Assets\scripts\GUI_Demo.cs" />
+     <Compile Include="Assets\NinjaController.cs" />
      <Compile Include="Assets\Scripts\Attack Sequences - Abstract Override\DraygonAttackSequence1.cs" />
      <Compile Include="Assets\Scripts\Attack Sequences - Abstract Override\NinjaAttackSequence1.cs" />
      <Compile Include="Assets\Scripts\Attack Sequences - Mono\Draygon Animation Sequences - Mono\DraygonAttackAnimationSequence1.cs" />
@@ -74,7 +72,9 @@
      <Compile Include="Assets\Scripts\IEnemyMinion.cs" />
      <Compile Include="Assets\Scripts\ITakeDamage.cs" />
      <Compile Include="Assets\Scripts\Minion Behavior\PocketNinjaBehavior.cs" />
+     <Compile Include="Assets\Scripts\MinionLists.cs" />
      <Compile Include="Assets\Scripts\Minions\PocketNinjaMinion.cs" />
+     <Compile Include="Assets\Scripts\MinionSpawner.cs" />
      <Compile Include="Assets\Scripts\MoveButtonTrigger.cs" />
      <Compile Include="Assets\Scripts\OnTriggerEnterLane1.cs" />
      <Compile Include="Assets\Scripts\OnTriggerEnterLane2.cs" />
@@ -89,12 +89,14 @@
      <Compile Include="Assets\Scripts\SourceTreeStashTest.cs" />
      <Compile Include="Assets\Scripts\StateController.cs" />
      <Compile Include="Assets\Scripts\UIController.cs" />
+     <Compile Include="Assets\SpriteSheets\Bandits - Pixel Art\Demo\GuardScript.cs" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
-     <None Include="Assets\Forest road BG\READ_ME_\READ_ME_.txt" />
-     <None Include="Assets\Ninja Files\Read Me.txt" />
+     <None Include="Assets\Scene Backgrounds\Forest road BG\READ_ME_\READ_ME_.txt" />
+     <None Include="Assets\SpriteSheets\Ninja Files\Read Me.txt" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+     <None Include="Assets\Sound Effects\Fantasy SFX for Particle Distort Texture effect library\readme_Fantasy SFX for Particle Distort Texture effect library.txt" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
      <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
@@ -107,7 +109,7 @@
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile.shader" />
-     <None Include="Assets\Dragon Warrior Files\Read Me.txt" />
+     <None Include="Assets\SpriteSheets\Dragon Warrior Files\Read Me.txt" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
  <Reference Include="Unity.Timeline.Editor">

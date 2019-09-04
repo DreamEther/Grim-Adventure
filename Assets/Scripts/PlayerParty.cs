@@ -6,6 +6,7 @@ public class PlayerParty : MonoBehaviour
 {
     SceneLoader sceneLoader;
     [SerializeField] public List<GameObject> characters;
+    [SerializeField] public List<GameObject> playerOneStartingMinion;
 
 
     public static PlayerParty instance;
@@ -31,10 +32,11 @@ public class PlayerParty : MonoBehaviour
         characters.Add(character);
         sceneLoader.LoadNextScene();
     }
-
-    public void OnAttackClick()
-    {
-
-    }
-
+                
+     public void AddStartingMinionToList(GameObject minion)
+        {
+          playerOneStartingMinion.Add(minion);
+        }
+        
+            
 }

@@ -2,19 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class BaseMinion : ScriptableObject, IEnemyMinion
+public abstract class BaseMinion : ScriptableObject
 {
     public Sprite aMinionType;
-
+    public GameObject minionPrefab;
     public abstract void Initialize(GameObject gameObject);
 
-    public abstract void Ability();
-    public abstract void TakeDamage(); // going to implement ITakeDamage interface
 
-    public void TakeDamage(int damage)
-    {
-        throw new System.NotImplementedException();
-    }
+
 }
 
 
