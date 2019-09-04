@@ -215,9 +215,9 @@ GameObject:
   - component: {fileID: 7689763179471582537}
   - component: {fileID: 7689763179471582536}
   - component: {fileID: 7689763179471582539}
-  - component: {fileID: 7689763179471582538}
   - component: {fileID: 7689763179471582541}
   - component: {fileID: 7689763179471582540}
+  - component: {fileID: 4482238304557198878}
   m_Layer: 9
   m_Name: Ninja
   m_TagString: ninja
@@ -324,27 +324,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   energyLevel: 3
---- !u!50 &7689763179471582538
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7689763179471582543}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!114 &7689763179471582541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -377,6 +356,27 @@ CapsuleCollider2D:
   m_Offset: {x: 0.041715864, y: -0.008987417}
   m_Size: {x: 0.3035263, y: 0.8062516}
   m_Direction: 0
+--- !u!50 &4482238304557198878
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7689763179471582543}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &7689763180036216568
 GameObject:
   m_ObjectHideFlags: 0

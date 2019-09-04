@@ -35,8 +35,7 @@ GameObject newNearestGameObject;
     // Update is called once per frame
 
     void Update()
-    {
-        
+    {       
         if (laneOneSpawnPoints == null)
         {
             laneOneSpawnPoints = new List<GameObject>(GameObject.FindGameObjectsWithTag("Lane1"));
@@ -46,7 +45,6 @@ GameObject newNearestGameObject;
         {
             ninjaAnim = gameObject.GetComponent<Animator>();
         }
-        //TriggerSlashAnim();
     }
 
     public void TriggerRunAnim()
@@ -69,30 +67,36 @@ GameObject newNearestGameObject;
 
     }
 
+ /* public IEnumerator TriggerRunAnim()
+{
+    Vector3 XOffset = new Vector3(3f, 0, 0);
+    while (!Mathf.Approximately((transform.position - newNearestGameObject.transform.position - XOffset).sqrMagnitude, 0))
+    {
+        transform.position = Vector3.MoveTowards(transform.position, newNearestGameObject.transform.position - XOffset, speed * Time.deltaTime);
+        yield return null;
+    }
+}*/
+ 
     public void TriggerNinjaAttackSequence() // being called in the stateController Update function 
     {
-
-        if (newNearestGameObject != null) // this is so I can keep track of the Vector Length when I refer to 'distanceToNearestGameObject.magnitude
-        {
-            ninjaAnim.SetBool("triggerRunFromAttack", false);
-            distanceToNearestGameObject = newNearestGameObject.transform.position - transform.position;
-          
-        }
-
-      //  Debug.Log(distanceToNearestGameObject.magnitude);
-
+        GetMagnitudeOfNearestEnemy();
         SwitchBetweenRunandAttackAnim();
         TriggerRunAnim(); // the order of trigger run matters since we need to know what the next nearestGameObjects position is after we kill the inital closest enemy
+    }
+
+    private void GetMagnitudeOfNearestEnemy()
+    {
+        if (newNearestGameObject != null) // this is so I can keep track of the Vector Length when I refer to 'distanceToNearestGameObject.magnitude
+        {
+            ninjaAnim.SetBool("triggerRunFromAttack", true); // need this so that our char transitions back into his run from any state. 
+            distanceToNearestGameObject = newNearestGameObject.transform.position - transform.position;          
+        }
     }
 
     private void SwitchBetweenRunandAttackAnim()
     {
         if (newNearestGameObject == null) // this is to find the next nearest enemy once the previous nearest enemy is killed 
         {
-            //ninjaAnim.SetBool("triggerRunFromAttack", true);
-            ninjaAnim.SetBool("PlayRunAnim", true);
-           // enemies.Clear(); // clearing my list of enemies
-           // enemies = new List<GameObject>(GameObject.FindGameObjectsWithTag("enemy")); // updating the list on each PLAYERTURN state to account for new enemies being instantiated by enemy ai. also accounts for enemies killed
             newNearestGameObject = GetNearestGameObject(OnTriggerEnterLane1.enemiesInLaneOne);
             Debug.Log(distanceToNearestGameObject.magnitude);
         }
@@ -111,12 +115,6 @@ public void PlayHitBoxAnim() // referencing this directly on the animations them
  hitAnim.PlayAnim();
 }
 
-public void TurnOffHitBoxRenderers()
-{
-    hitAnim.spriteRenderers[0].enabled = false;
-    
-    hitAnim.spriteRenderers[1].enabled = false;
-}
     public IEnumerator PlayOneSlash(string paramName)
     {
         ninjaAnim.SetBool(paramName, true);

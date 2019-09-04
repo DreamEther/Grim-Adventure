@@ -43,5 +43,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eab8893a60499684d825cba2b4324e7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ninjaSlashAbility: {fileID: 11400000, guid: 774b8bd335759dd47ab25de65bcc4dab, type: 2}
-  ninjaRunAbility: {fileID: 11400000, guid: 763cae1bdf346bd4ea39b9d540d034c9, type: 2}
+  ninjaAttackSequence_1: {fileID: 11400000, guid: 0990fe6f1b939fd469cd93fa334e63ef,
+    type: 2}
