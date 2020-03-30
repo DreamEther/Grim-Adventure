@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1324451787872015746}
   - component: {fileID: 1324451787872015741}
+  - component: {fileID: 5582889770031678297}
   m_Layer: 0
   m_Name: State Controller
   m_TagString: Untagged
@@ -45,3 +46,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ninjaAttackSequence_1: {fileID: 11400000, guid: 0990fe6f1b939fd469cd93fa334e63ef,
     type: 2}
+--- !u!114 &5582889770031678297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1324451787872015740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b29428b1e82c104e8026754780d2374, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

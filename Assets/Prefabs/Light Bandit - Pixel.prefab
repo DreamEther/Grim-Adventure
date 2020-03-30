@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5728599270011680375}
   - component: {fileID: 8797859327630017241}
   - component: {fileID: 6054218082841429356}
+  - component: {fileID: 9124924336342634983}
   m_Layer: 0
   m_Name: Light Bandit - Pixel
   m_TagString: enemy
@@ -170,3 +171,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   attackPower: 0
+--- !u!114 &9124924336342634983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5728599270011680380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f161a77702399c040b4fc8813217b138, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 7689763179471582543, guid: 8aa436b69c2b2654fa784eb1799da32a, type: 3}
+  _currentLane: 0
+  health: 0
+  attackPower: 0
+  energyLevel: 0
+  name: 
+  isMyTurn: 0

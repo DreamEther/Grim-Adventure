@@ -6,11 +6,11 @@ using UnityEngine;
 public abstract class DraygonAttackSequence1 : AttackSequence
 {
 
-    private DraygonAttackAnimationSequence1 draygonAttackAnimationSequence1;
+    private DraygonAttackAnimationSequences draygonAttackAnimationSequence1;
 
     public override void Initialize(GameObject gameObject)
     {
-        draygonAttackAnimationSequence1 = gameObject.GetComponent<DraygonAttackAnimationSequence1>();
+        draygonAttackAnimationSequence1 = gameObject.GetComponent<DraygonAttackAnimationSequences>();
     }
 
     public override void TriggerAbility()

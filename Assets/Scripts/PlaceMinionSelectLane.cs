@@ -9,6 +9,7 @@ public class PlaceMinionSelectLane : MonoBehaviour, IPointerEnterHandler, IPoint
     PlaceMinionButtonClicked placeMinionTrigger;
     private Image innerBoxTransparency;
     Animator flashGreen;
+    private bool placeholder = false; //remove this later
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +20,10 @@ public class PlaceMinionSelectLane : MonoBehaviour, IPointerEnterHandler, IPoint
 
     void Update()
     {
-        OnRightMouseClick();
+        if (placeholder == true) //remove this later. this is only so this doesn't get constantly called. 
+        {
+            OnRightMouseClick();
+        }
     }
 
      public void OnPointerEnter(PointerEventData eventData)

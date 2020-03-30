@@ -42,14 +42,14 @@ public class StateController : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-     
+   
         switch (currentState)
         {
             case PlayerStates.PLAYERTURN:
                 {
                     // need to change this and instead grab the PlayerParty List instead, and then use a switch based on that GameObjects tag. Then in enemyState before we switch back to playerTurn, we'll increment the partyList by one
                   
-                    switch(playerPartyList.characters[nextCharTurn].gameObject.tag)
+                    switch(playerPartyList.characters[0].gameObject.tag)
                     { 
 
                         case "ninja":
@@ -57,7 +57,7 @@ public class StateController : MonoBehaviour
                           
                             if (beginRush == true)
                             {
-                                PlayNinjaSlashAnim(CharacterSpawner.playerOne, ninjaAttackSequence_1);
+                                PlayAttackSequence(CharacterSpawner.playerOne, ninjaAttackSequence_1);
                                // PlayNinjaRunAnim(CharacterSpawner.playerOne, ninjaRunAbility);
                                 UIController.battleUI.SetActive(false);
                                 UIController.combatLog.SetActive(false);
@@ -92,7 +92,7 @@ public class StateController : MonoBehaviour
 
     }
 
-    public void PlayNinjaSlashAnim(GameObject playerChar, AttackSequence attackSequence)
+    public void PlayAttackSequence(GameObject playerChar, AttackSequence attackSequence)
     {
 
         ninjaAttackSequence_1 = attackSequence;

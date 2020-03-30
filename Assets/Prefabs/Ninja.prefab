@@ -338,9 +338,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   accuracy: 4
-  speed: 45
-  nearestGameObject: {fileID: 0}
-  playHitAnim: 0
+  speed: 15
 --- !u!70 &7689763179471582540
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -390,6 +388,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 352bc8b575209d84f9c76d56598e1336, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minionsAcquired: []
 --- !u!1 &7689763180036216568
 GameObject:
   m_ObjectHideFlags: 0
