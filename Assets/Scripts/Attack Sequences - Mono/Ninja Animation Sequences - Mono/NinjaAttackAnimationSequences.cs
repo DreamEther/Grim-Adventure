@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 public class NinjaAttackAnimationSequences : PlayerController
 {
@@ -13,10 +13,12 @@ public class NinjaAttackAnimationSequences : PlayerController
     private float speedFactor;
     private Vector3 distanceToNearestGameObject;
     HitAnim hitAnim;
-    
+    private Vector2 _cachedStartingPos;
+    private Vector2 myPosVectorTwo;
     // Start is called before the first frame update
-    private Vector3 currentPos;
+    private Vector2 currentPos;
     private GameObject newNearestGameObject;
+    public Button[] attackSequenceButtons;
 
 void Awake()
 {
@@ -32,20 +34,30 @@ void Awake()
 }
     void Start()
     {
-
+        myPosVectorTwo = new Vector2(transform.position.x, transform.position.y);
+        _cachedStartingPos = new Vector2();
+        _cachedStartingPos = transform.position;
         hitAnim = FindObjectOfType<HitAnim>();
-      //  distanceToNearestGameObject = new Vector3();
+        //  distanceToNearestGameObject = new Vector3();
         //GetNearestGameObject(OnTriggerEnterLane1.enemiesInLaneOne);
 
-       // newNearestGameObject = new GameObject();
+        // newNearestGameObject = new GameObject();
         //if (SceneLoader.CurrentSceneIndex > 0)
         //{
         //    distanceToNearestGameObject = transform.position - newNearestGameObject.transform.position;
         //}
+        attackSequenceButtons = UIController.combatLog.GetComponentsInChildren<Button>();
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "enemy")
+        {
+            energyLevel--;
+        }
+    }
 
-
+   
     // Update is called once per frame
 
     void Update()

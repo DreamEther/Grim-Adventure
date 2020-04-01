@@ -90,6 +90,7 @@
     <Compile Include="Assets\Scripts\GameEvents.cs" />
     <Compile Include="Assets\Scripts\Grid.cs" />
     <Compile Include="Assets\Scripts\HitAnim.cs" />
+    <Compile Include="Assets\Scripts\IAttack.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IEnemyMinion.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IListExtensions.cs" />
     <Compile Include="Assets\Scripts\Interfaces\ITakeDamage.cs" />

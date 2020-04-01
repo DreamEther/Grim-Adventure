@@ -12,7 +12,13 @@ public class Enemy : MonoBehaviour
     public int energyLevel;
     public string name;
     public bool isMyTurn = false;
+    private PlayerController playerChar;
 
+    //private void OnTriggerEnter2D(Collider2D other)
+    //{
+    //       playerChar = other.gameObject.GetComponent<PlayerController>();     
+    //       playerChar.energyLevel--;
+    //}
     public int GetCurrentLane()
     {
         return _currentLane;

@@ -32,7 +32,9 @@ public class PlayerTurn : State
         BattleSystem.playAttackSequenceOne = true;
 
         Debug.Log("I'm attacking");
+        //isMyTurn never turns false as of right now 
         yield return new WaitUntil(() => BattleSystem.currentPlayer.GetComponent<PlayerController>().isMyTurn == false);
         BattleSystem.SetState(new EnemyTurn(BattleSystem));    
     }
+
 }

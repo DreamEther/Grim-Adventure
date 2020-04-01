@@ -45,6 +45,7 @@ public class BattleSystem : StateMachine
         SetState(new BeginBattle(this));
     }
 
+
     public void OnAttack()
     {
        // if (_state != BattleState.PLAYERTURN) return;
