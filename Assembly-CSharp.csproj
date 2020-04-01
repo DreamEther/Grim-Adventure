@@ -8,9 +8,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace>
-    </RootNamespace>
-    <ProjectGuid>{268275D7-7EA1-C2AD-CD16-B6DC52CD5DD4}</ProjectGuid>
+    <RootNamespace></RootNamespace>
+    <ProjectGuid>{DA126679-4057-0B52-5FF4-73430E63BD37}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -64,15 +63,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\DragonAI.cs" />
-    <Compile Include="Assets\EnemyAnimFSM.cs" />
-    <Compile Include="Assets\EnemyIdle.cs" />
-    <Compile Include="Assets\EnemyLaneRushSequence1.cs" />
-    <Compile Include="Assets\GameEvents.cs" />
-    <Compile Include="Assets\HitAnim.cs" />
-    <Compile Include="Assets\MinionInventoryUI.cs" />
     <Compile Include="Assets\Modern_GUI_Skin\Demo_Assets\scripts\GUI_Demo.cs" />
-    <Compile Include="Assets\NinjaController.cs" />
     <Compile Include="Assets\Scripts\Attack Sequences - Abstract Override\DraygonAttackSequence1.cs" />
     <Compile Include="Assets\Scripts\Attack Sequences - Abstract Override\NinjaAttackSequence1.cs" />
     <Compile Include="Assets\Scripts\Attack Sequences - Mono\Draygon Animation Sequences - Mono\DraygonAttackAnimationSequences.cs" />
@@ -80,25 +71,36 @@
     <Compile Include="Assets\Scripts\Base Abstract Classes\AttackSequence.cs" />
     <Compile Include="Assets\Scripts\Base Abstract Classes\BaseCharacter.cs" />
     <Compile Include="Assets\Scripts\Base Abstract Classes\BaseMinion.cs" />
-    <Compile Include="Assets\Scripts\BattleSystem.cs" />
-    <Compile Include="Assets\Scripts\BeginBattle.cs" />
+    <Compile Include="Assets\Scripts\Battle System State Machine Components\BattleSystem.cs" />
+    <Compile Include="Assets\Scripts\Battle System State Machine Components\BeginBattle.cs" />
+    <Compile Include="Assets\Scripts\Battle System State Machine Components\EnemyTurn.cs" />
+    <Compile Include="Assets\Scripts\Battle System State Machine Components\PlayerTurn.cs" />
+    <Compile Include="Assets\Scripts\Battle System State Machine Components\State.cs" />
+    <Compile Include="Assets\Scripts\Battle System State Machine Components\StateMachine.cs" />
     <Compile Include="Assets\Scripts\CharacterSpawner.cs" />
     <Compile Include="Assets\Scripts\DestroyOnClick.cs" />
-    <Compile Include="Assets\Scripts\DragonController.cs" />
+    <Compile Include="Assets\Scripts\DragonAI.cs" />
+    <Compile Include="Assets\Scripts\DragonEnemyFSM\EnemyAnimFSM.cs" />
+    <Compile Include="Assets\Scripts\DragonEnemyFSM\EnemyIdle.cs" />
+    <Compile Include="Assets\Scripts\DragonEnemyFSM\EnemyLaneRushSequence1.cs" />
     <Compile Include="Assets\Scripts\DraygonController.cs" />
     <Compile Include="Assets\Scripts\Enemy.cs" />
     <Compile Include="Assets\Scripts\EnemySpawner.cs" />
-    <Compile Include="Assets\Scripts\EnemyTurn.cs" />
     <Compile Include="Assets\Scripts\FireBreathAnim.cs" />
+    <Compile Include="Assets\Scripts\GameEvents.cs" />
     <Compile Include="Assets\Scripts\Grid.cs" />
-    <Compile Include="Assets\Scripts\IEnemyMinion.cs" />
-    <Compile Include="Assets\Scripts\IListExtensions.cs" />
-    <Compile Include="Assets\Scripts\ITakeDamage.cs" />
+    <Compile Include="Assets\Scripts\HitAnim.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\IEnemyMinion.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\IListExtensions.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\ITakeDamage.cs" />
+    <Compile Include="Assets\Scripts\Inventory.cs" />
     <Compile Include="Assets\Scripts\Minion Behavior\PocketNinjaBehavior.cs" />
+    <Compile Include="Assets\Scripts\MinionInventory.cs" />
+    <Compile Include="Assets\Scripts\MinionInventoryUI.cs" />
     <Compile Include="Assets\Scripts\MinionLists.cs" />
     <Compile Include="Assets\Scripts\Minions\PocketNinjaMinion.cs" />
-    <Compile Include="Assets\Scripts\MinionSpawner.cs" />
     <Compile Include="Assets\Scripts\MoveButtonTrigger.cs" />
+    <Compile Include="Assets\Scripts\NinjaController.cs" />
     <Compile Include="Assets\Scripts\OnTriggerEnterLane1.cs" />
     <Compile Include="Assets\Scripts\OnTriggerEnterLane2.cs" />
     <Compile Include="Assets\Scripts\PixelBanditLightBehavior.cs" />
@@ -107,12 +109,9 @@
     <Compile Include="Assets\Scripts\PlaceMinionSelectLane.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\PlayerParty.cs" />
-    <Compile Include="Assets\Scripts\PlayerTurn.cs" />
     <Compile Include="Assets\Scripts\SceneLoader.cs" />
     <Compile Include="Assets\Scripts\SelectLane.cs" />
     <Compile Include="Assets\Scripts\SourceTreeStashTest.cs" />
-    <Compile Include="Assets\Scripts\State.cs" />
-    <Compile Include="Assets\Scripts\StateMachine.cs" />
     <Compile Include="Assets\Scripts\TurnOrder.cs" />
     <Compile Include="Assets\Scripts\UIController.cs" />
     <Compile Include="Assets\SpriteSheets\Bandits - Pixel Art\Demo\GuardScript.cs" />

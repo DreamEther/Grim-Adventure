@@ -6,7 +6,7 @@ public class TurnOrder : MonoBehaviour
 {
     public static List<GameObject> presentInScene;    
     public static Queue<GameObject> turnOrder;
-
+    [SerializeField] public List<GameObject> playerChars;
     public void Awake()
     {
         presentInScene = new List<GameObject>();
@@ -14,6 +14,8 @@ public class TurnOrder : MonoBehaviour
 
     public void Start()
     {
+        IListExtensions.Shuffle<GameObject>(presentInScene);
+
     }
 
     public void Update()
@@ -39,7 +41,7 @@ public class TurnOrder : MonoBehaviour
     }
 
   
-    public Component InitiateTurnOrder()
+    public void InitiateTurnOrder()
     {
         var nextEnemyTurn = presentInScene[0].gameObject.GetComponent<Enemy>();
         var nextPlayerTurn = presentInScene[0].gameObject.GetComponent<PlayerController>();
@@ -47,16 +49,16 @@ public class TurnOrder : MonoBehaviour
         {
             nextPlayerTurn.isMyTurn = true;
             Debug.Log("Fist in list last in queue ismyTurn bool = " + nextPlayerTurn.isMyTurn);
-            return nextPlayerTurn.gameObject.GetComponent<PlayerController>();
+           // return nextPlayerTurn.gameObject.GetComponent<PlayerController>();
            
         }
         else if (nextPlayerTurn == null)
         {
             nextEnemyTurn.isMyTurn = true;
             Debug.Log("Fist in list last in queue ismyTurn bool = " + nextEnemyTurn.isMyTurn);
-            return nextEnemyTurn.gameObject.GetComponent<Enemy>();
+            //return nextEnemyTurn.gameObject.GetComponent<Enemy>();
         }
-        return null;
+      //  return null;
     }
     public static void SetTurnOrder()
     {

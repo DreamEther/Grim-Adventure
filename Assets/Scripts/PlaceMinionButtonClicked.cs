@@ -9,6 +9,7 @@ public class PlaceMinionButtonClicked : MonoBehaviour
     public void PlaceMinionButtonClickedTrue()
     {
         placeMinionButtonClicked = true;
+        UIController.minionUI.SetActive(true);
        // UIController.combatLog.SetActive(false);
     }
 }

@@ -7,13 +7,14 @@ public class CharacterSpawner : MonoBehaviour
 {
     PlayerParty playerParty;
 
-    [SerializeField] Image[] spawnPoint = null;
+    [SerializeField] List<Image> spawnPoint = null;
+  
     [SerializeField] GameObject ninjaPrefab;
-    [SerializeField] GameObject dragonPrefab;
+   // [SerializeField] GameObject dragonPrefab;
 
-    private Vector3 firstSpawnPoint;
-    private Vector3 secondSpawnPoint;
-    private Vector3 thirdSpawnPoint;
+    //private Vector3 firstSpawnPoint;
+    //private Vector3 secondSpawnPoint;
+    //private Vector3 thirdSpawnPoint;
 
     private GameObject lane1PF;
     private GameObject lane2PF;
@@ -41,14 +42,23 @@ public class CharacterSpawner : MonoBehaviour
         thirdSpawnPoint.z = 0;
         */
 
-        SpawnPlayerOneInPlayerParty();
-        SpawnPlayerTwoInPlayerParty();
-        SpawnPlayerThreeInPlayerParty();
+        //SpawnPlayerOneInPlayerParty();
+        //SpawnPlayerTwoInPlayerParty();
+        //SpawnPlayerThreeInPlayerParty();
+
+        SpawnTwoPlayers();
     }
+
 
     public void SpawnPlayerOneInPlayerParty()
     {
+        playerOne = Instantiate(playerParty.characters[0], spawnPoint[Random.Range(0, spawnPoint.Count - 1)].transform.position + spawnOffset, Quaternion.identity);
+    }
+    public void SpawnTwoPlayers()
+    {
         playerOne = Instantiate(playerParty.characters[0], spawnPoint[0].transform.position + spawnOffset, Quaternion.identity);
+        playerTwo = Instantiate(playerParty.characters[1], spawnPoint[1].transform.position + spawnOffset, Quaternion.identity);
+
     }
 
     public void SpawnPlayerTwoInPlayerParty()

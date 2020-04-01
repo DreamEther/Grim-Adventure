@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class FireBreathAnim : MonoBehaviour
 {
-    DraygonController playfireBreathAnim;
+    DraygonController dragon;
     private Animator fireBreath;
 
     // Start is called before the first frame update
     void Start()
     {
-        playfireBreathAnim = FindObjectOfType<DraygonController>();
+        dragon = FindObjectOfType<DraygonController>();
         fireBreath = GetComponent<Animator>();
         //fireBreath.SetBool("PlayFireAnim", true);
     }
@@ -23,7 +23,7 @@ public class FireBreathAnim : MonoBehaviour
 
     public void PlayFireBreathAnim()
     {
-        if (playfireBreathAnim.playFireBreathAnim == true)
+        if (dragon.playFireBreathAnim == true)
         {
             fireBreath.SetBool("PlayFireAnim", true);
         }

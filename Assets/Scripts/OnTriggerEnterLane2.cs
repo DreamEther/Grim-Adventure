@@ -8,7 +8,7 @@ public class OnTriggerEnterLane2 : MonoBehaviour
     public static List<GameObject> playerCharsInLaneTwo;
     private PlayerController playerChar;
 
-    PlayerController.LanePosition lane1;
+    PlayerController.LanePosition lane2;
     PlayerController.LanePosition noLane;
 
     void Start()
@@ -23,7 +23,7 @@ public class OnTriggerEnterLane2 : MonoBehaviour
         {
             playerCharsInLaneTwo = new List<GameObject>();
         }
-        lane1 = PlayerController.LanePosition.LANE1;
+        lane2 = PlayerController.LanePosition.LANE2;
         noLane = PlayerController.LanePosition.NULL;
     }
 
@@ -37,10 +37,12 @@ public class OnTriggerEnterLane2 : MonoBehaviour
         Enemy enemy = other.gameObject.GetComponent<Enemy>();
         if (playerChar != null)
         {
+            TurnOrder.presentInScene.Add(playerChar.gameObject);
+
             playerCharsInLaneTwo.Add(playerChar.gameObject);
             playerChar.isMyTurn = false;
             //TurnOrder.presentInScene.Add(playerChar.gameObject);
-            playerChar.UpdateLane(lane1);
+            playerChar.UpdateLane(lane2);
             // foreach(GameObject player in playerCharsInLaneOne)
             // {
             //    playerChar.UpdateLane(lane1);
@@ -52,6 +54,7 @@ public class OnTriggerEnterLane2 : MonoBehaviour
         //PlayerController.LanePosition.LANE1;
         if (other.gameObject.tag == "enemy")
         {
+            TurnOrder.presentInScene.Add(other.gameObject);
             enemy.SetCurrentLane(1);
             enemy.isMyTurn = false;
             enemiesInLaneTwo.Add(other.gameObject);

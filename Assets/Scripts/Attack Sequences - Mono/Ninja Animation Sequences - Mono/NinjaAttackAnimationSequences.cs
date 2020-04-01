@@ -4,17 +4,15 @@ using System.Linq;
 using UnityEngine;
 
 
-public class NinjaAttackAnimationSequences : MonoBehaviour
+public class NinjaAttackAnimationSequences : PlayerController
 {
     public delegate void Attack();
     [HideInInspector] private int damage;
     [HideInInspector] private Animator ninjaAnim;
-    [HideInInspector] public float accuracy = 4f;
-    [SerializeField] int speed;
+    [SerializeField] public float accuracy = 4f;
     private float speedFactor;
     private Vector3 distanceToNearestGameObject;
     HitAnim hitAnim;
-    private PlayerController player;
     
     // Start is called before the first frame update
     private Vector3 currentPos;
@@ -35,15 +33,15 @@ void Awake()
     void Start()
     {
 
-        player = gameObject.GetComponent<PlayerController>();
         hitAnim = FindObjectOfType<HitAnim>();
+      //  distanceToNearestGameObject = new Vector3();
+        //GetNearestGameObject(OnTriggerEnterLane1.enemiesInLaneOne);
 
-        GetNearestGameObject(OnTriggerEnterLane1.enemiesInLaneOne);
-        newNearestGameObject =  GetNearestGameObject(OnTriggerEnterLane1.enemiesInLaneOne);
-        if (SceneLoader.CurrentSceneIndex > 0)
-        {
-            distanceToNearestGameObject = transform.position - newNearestGameObject.transform.position;
-        }
+       // newNearestGameObject = new GameObject();
+        //if (SceneLoader.CurrentSceneIndex > 0)
+        //{
+        //    distanceToNearestGameObject = transform.position - newNearestGameObject.transform.position;
+        //}
     }
 
 
@@ -55,27 +53,42 @@ void Awake()
       
         if (newNearestGameObject == null) // this is to find the next nearest enemy once the previous nearest enemy is killed 
         {
-            newNearestGameObject = GetNearestGameObject(OnTriggerEnterLane1.enemiesInLaneOne);
-            if (distanceToNearestGameObject == null)
+            //need to pass in to GetNearestGameObject the correct Lane depending on what lane this object is in
+            if (CurrentPosition == LanePosition.LANE1)
             {
-                distanceToNearestGameObject = newNearestGameObject.transform.position - transform.position;
+                newNearestGameObject = GetNearestGameObject(OnTriggerEnterLane1.enemiesInLaneOne);
+                if (distanceToNearestGameObject == null)
+                {
+                    distanceToNearestGameObject = newNearestGameObject.transform.position - transform.position;
+                }
             }
+            else if (CurrentPosition == LanePosition.LANE2)
+            {
+                newNearestGameObject = GetNearestGameObject(OnTriggerEnterLane2.enemiesInLaneTwo);
+                if (distanceToNearestGameObject == null)
+                {
+                    distanceToNearestGameObject = newNearestGameObject.transform.position - transform.position;
+                }
+            }
+            return;
+            //else if (CurrentPosition == LanePosition.LANE3)
+            //{
+            //    newNearestGameObject = GetNearestGameObject(OnTriggerEnterLane3.enemiesInLaneOne);
+            //    if (distanceToNearestGameObject == null)
+            //    {
+            //        distanceToNearestGameObject = newNearestGameObject.transform.position - transform.position;
+            //    }
+            //}
+           
             //newNearestGameObject = GetNearestGameObject(OnTriggerEnterLane1.enemiesInLaneOne);
             // Debug.Log("This is the magnitude of the distance between me and nearest enemy: " + distanceToNearestGameObject.magnitude);
         }
-      
-
-        // if (ninjaAnim == null)
-        // {
-        //     ninjaAnim = gameObject.GetComponent<Animator>();
-        // }
     }
 
     public void TriggerRunAnim()
     {
         Vector3 XOffset = new Vector3(3f, 0, 0);
-        Vector3 normalized = (newNearestGameObject.transform.position - XOffset).normalized;
-        //beginMoving = true;
+
         if (ninjaAnim != null && ninjaAnim.isActiveAndEnabled) // gets rid of unassignedReferenceException error
         {
             if (transform.position != newNearestGameObject.transform.position - XOffset)
@@ -134,9 +147,11 @@ public void PlayHitBoxAnim() // referencing this directly on the animations them
         float smallestDistance = Mathf.Infinity;
          if(OnTriggerEnterLane1.enemiesInLaneOne != null)
          {
-            foreach (GameObject enemy in OnTriggerEnterLane1.enemiesInLaneOne)
+            if (CurrentPosition == LanePosition.LANE1)
             {
-                   var distance = Vector3.Distance(transform.position, enemy.transform.position);
+                foreach (GameObject enemy in enemies)
+                {
+                    var distance = Vector3.Distance(transform.position, enemy.transform.position);
 
                     if (distance < smallestDistance)
                     {
@@ -144,7 +159,22 @@ public void PlayHitBoxAnim() // referencing this directly on the animations them
                         newNearestGameObject = enemy;
                         Debug.Log("Nearest Enemy: " + newNearestGameObject.gameObject.name);
                     }
-            }    
+                }
+            }
+            else if (CurrentPosition == LanePosition.LANE2)
+            {
+                foreach (GameObject enemy in enemies)
+                {
+                    var distance = Vector3.Distance(transform.position, enemy.transform.position);
+
+                    if (distance < smallestDistance)
+                    {
+                        smallestDistance = distance;
+                        newNearestGameObject = enemy;
+                        Debug.Log("Nearest Enemy: " + newNearestGameObject.gameObject.name);
+                    }
+                }
+            }
          }
         return newNearestGameObject;
     }     

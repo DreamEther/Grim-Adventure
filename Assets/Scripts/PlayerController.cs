@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public abstract class PlayerController : MonoBehaviour
 {
-    [SerializeField] int energyLevel = 3;
+    [SerializeField] public int energyLevel = 3;
+    [SerializeField] public int speed;
     public bool isMyTurn = false;
 
     public enum LanePosition
@@ -19,34 +20,16 @@ public class PlayerController : MonoBehaviour
 
     public LanePosition CurrentPosition{get; set;}
 
-    // Start is called before the first frame update
-    void Start()
-    {
-       
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-        
-        //PlayerMovement();
-        //runAnim.Play("NinjaSwordRunning");
-    }
-
-    public void UpdateLane(LanePosition lane)
+    public virtual void UpdateLane(LanePosition lane)
     {
         CurrentPosition = lane;
     }
 
-    public LanePosition GetCurrentLane()
+    public virtual LanePosition GetCurrentLane()
     {
         return this.currentPosition;
     }
-    public void ExpendOneEnergyOnAttack()
-    {
-        energyLevel--;
-    }
+
 
 
 

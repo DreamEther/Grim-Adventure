@@ -28,6 +28,8 @@ TagManager:
   - ninjaSlash
   - PocketNinja
   - WingedBat
+  - MinionInventory
+  - RushInventory
   layers:
   - Default
   - TransparentFX

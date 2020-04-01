@@ -10,8 +10,7 @@ public class NinjaAttackSequence1 : AttackSequence
     public override void Initialize(GameObject gameObject)
     {
         ninjaAttackSequence = gameObject.GetComponent<NinjaAttackAnimationSequences>();
-        ninjaAttackSequence.accuracy = accuracy;
-        
+        //ninjaAttackSequence.accuracy = accuracy;      
     }
 
     public override void TriggerAbility()
