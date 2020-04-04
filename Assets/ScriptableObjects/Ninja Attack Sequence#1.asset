@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 230f83950d9b71a478a086941edafaff, type: 3}
   m_Name: Ninja Attack Sequence#1
   m_EditorClassIdentifier: 
+  isDefaultSequence: 0
+  isOfType: ninja
   aName: Ninja Attack Sequence 1
   damage: 5
   aSound: {fileID: 0}
+  icon: {fileID: 2564291875423365701, guid: 4fc99969f6d24aa45a97cd1b42b124a3, type: 3}
   accuracy: 4

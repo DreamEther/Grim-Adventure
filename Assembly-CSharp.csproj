@@ -67,10 +67,11 @@
     <Compile Include="Assets\Scripts\Attack Sequences - Abstract Override\DraygonAttackSequence1.cs" />
     <Compile Include="Assets\Scripts\Attack Sequences - Abstract Override\NinjaAttackSequence1.cs" />
     <Compile Include="Assets\Scripts\Attack Sequences - Mono\Draygon Animation Sequences - Mono\DraygonAttackAnimationSequences.cs" />
-    <Compile Include="Assets\Scripts\Attack Sequences - Mono\Ninja Animation Sequences - Mono\NinjaAttackAnimationSequences.cs" />
+    <Compile Include="Assets\Scripts\Attack Sequences - Mono\Ninja Animation Sequences - Mono\NinjaAI.cs" />
     <Compile Include="Assets\Scripts\Base Abstract Classes\AttackSequence.cs" />
     <Compile Include="Assets\Scripts\Base Abstract Classes\BaseCharacter.cs" />
     <Compile Include="Assets\Scripts\Base Abstract Classes\BaseMinion.cs" />
+    <Compile Include="Assets\Scripts\BaseUI.cs" />
     <Compile Include="Assets\Scripts\Battle System State Machine Components\BattleSystem.cs" />
     <Compile Include="Assets\Scripts\Battle System State Machine Components\BeginBattle.cs" />
     <Compile Include="Assets\Scripts\Battle System State Machine Components\EnemyTurn.cs" />
@@ -83,25 +84,33 @@
     <Compile Include="Assets\Scripts\DragonEnemyFSM\EnemyAnimFSM.cs" />
     <Compile Include="Assets\Scripts\DragonEnemyFSM\EnemyIdle.cs" />
     <Compile Include="Assets\Scripts\DragonEnemyFSM\EnemyLaneRushSequence1.cs" />
+    <Compile Include="Assets\Scripts\DragoonAI.cs" />
+    <Compile Include="Assets\Scripts\DragoonAttackSequence1.cs" />
+    <Compile Include="Assets\Scripts\DragoonRushUI.cs" />
     <Compile Include="Assets\Scripts\DraygonController.cs" />
     <Compile Include="Assets\Scripts\Enemy.cs" />
     <Compile Include="Assets\Scripts\EnemySpawner.cs" />
     <Compile Include="Assets\Scripts\FireBreathAnim.cs" />
     <Compile Include="Assets\Scripts\GameEvents.cs" />
+    <Compile Include="Assets\Scripts\GameInstaller.cs" />
     <Compile Include="Assets\Scripts\Grid.cs" />
     <Compile Include="Assets\Scripts\HitAnim.cs" />
     <Compile Include="Assets\Scripts\IAttack.cs" />
+    <Compile Include="Assets\Scripts\IInventoryItem.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IEnemyMinion.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IListExtensions.cs" />
     <Compile Include="Assets\Scripts\Interfaces\ITakeDamage.cs" />
-    <Compile Include="Assets\Scripts\Inventory.cs" />
+    <Compile Include="Assets\Scripts\InventorySlot.cs" />
+    <Compile Include="Assets\Scripts\ItemFactory.cs" />
     <Compile Include="Assets\Scripts\Minion Behavior\PocketNinjaBehavior.cs" />
     <Compile Include="Assets\Scripts\MinionInventory.cs" />
     <Compile Include="Assets\Scripts\MinionInventoryUI.cs" />
     <Compile Include="Assets\Scripts\MinionLists.cs" />
     <Compile Include="Assets\Scripts\Minions\PocketNinjaMinion.cs" />
     <Compile Include="Assets\Scripts\MoveButtonTrigger.cs" />
+    <Compile Include="Assets\Scripts\NinjaAttackSequence2.cs" />
     <Compile Include="Assets\Scripts\NinjaController.cs" />
+    <Compile Include="Assets\Scripts\NinjaRushUI.cs" />
     <Compile Include="Assets\Scripts\OnTriggerEnterLane1.cs" />
     <Compile Include="Assets\Scripts\OnTriggerEnterLane2.cs" />
     <Compile Include="Assets\Scripts\PixelBanditLightBehavior.cs" />
@@ -110,6 +119,7 @@
     <Compile Include="Assets\Scripts\PlaceMinionSelectLane.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\PlayerParty.cs" />
+    <Compile Include="Assets\Scripts\RushInventoryManager.cs" />
     <Compile Include="Assets\Scripts\SceneLoader.cs" />
     <Compile Include="Assets\Scripts\SelectLane.cs" />
     <Compile Include="Assets\Scripts\SourceTreeStashTest.cs" />
@@ -118,6 +128,7 @@
     <Compile Include="Assets\SpriteSheets\Bandits - Pixel Art\Demo\GuardScript.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
+    <None Include="Assets\SpriteSheets\DRGF _SpriteSheets\DRGF notes.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\Scene Backgrounds\Forest road BG\READ_ME_\READ_ME_.txt" />
     <None Include="Assets\SpriteSheets\Ninja Files\Read Me.txt" />
@@ -353,6 +364,21 @@
     </Reference>
     <Reference Include="UnityEngine.XRModule">
       <HintPath>D:/Unity Hub/2019.2.0f1/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Zenject.ReflectionBaking.Mono.Cecil">
+      <HintPath>D:/Repos/UnityProjects/Unity2D Projects/GrimFantasyAdventure/Assets/Plugins/Zenject/OptionalExtras/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.dll</HintPath>
+    </Reference>
+    <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Mdb">
+      <HintPath>D:/Repos/UnityProjects/Unity2D Projects/GrimFantasyAdventure/Assets/Plugins/Zenject/OptionalExtras/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.Mdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Pdb">
+      <HintPath>D:/Repos/UnityProjects/Unity2D Projects/GrimFantasyAdventure/Assets/Plugins/Zenject/OptionalExtras/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.Pdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Rocks">
+      <HintPath>D:/Repos/UnityProjects/Unity2D Projects/GrimFantasyAdventure/Assets/Plugins/Zenject/OptionalExtras/ReflectionBaking/Lib/Zenject.ReflectionBaking.Mono.Cecil.Rocks.dll</HintPath>
+    </Reference>
+    <Reference Include="Zenject-usage">
+      <HintPath>D:/Repos/UnityProjects/Unity2D Projects/GrimFantasyAdventure/Assets/Plugins/Zenject/Source/Usage/Zenject-usage.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>D:/Unity Hub/2019.2.0f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
@@ -699,6 +725,24 @@
     <Reference Include="System.Xml.Serialization">
       <HintPath>D:/Unity Hub/2019.2.0f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Xml.Serialization.dll</HintPath>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Zenject-Editor.csproj">
+      <Project>{B6C7F310-6AB2-A3A8-4FF3-980E4C2AF05D}</Project>
+      <Name>Zenject-Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Zenject-ReflectionBaking-Editor.csproj">
+      <Project>{16DDC392-FCB9-B710-6F52-9125095F5DE8}</Project>
+      <Name>Zenject-ReflectionBaking-Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Zenject-PoolMonitor-Editor.csproj">
+      <Project>{BD8E708A-E9A4-6501-3E96-1023C204D921}</Project>
+      <Name>Zenject-PoolMonitor-Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Zenject.csproj">
+      <Project>{56A32D31-F863-1D48-64AD-D109022EA992}</Project>
+      <Name>Zenject</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

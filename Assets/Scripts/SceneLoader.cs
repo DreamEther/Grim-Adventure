@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
+    public static Camera currentCamera;
+
     private static int _currentSceneIndex; 
 
     public static int CurrentSceneIndex 
@@ -22,5 +24,9 @@ public class SceneLoader : MonoBehaviour
     {
         _currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(_currentSceneIndex + 1);
+        currentCamera = Camera.main;
     }
+
+   
+
 }

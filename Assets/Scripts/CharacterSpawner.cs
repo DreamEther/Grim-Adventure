@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class CharacterSpawner : MonoBehaviour
 {
-    PlayerParty playerParty;
 
     [SerializeField] List<Image> spawnPoint = null;
   
@@ -15,7 +14,7 @@ public class CharacterSpawner : MonoBehaviour
     //private Vector3 firstSpawnPoint;
     //private Vector3 secondSpawnPoint;
     //private Vector3 thirdSpawnPoint;
-
+    
     private GameObject lane1PF;
     private GameObject lane2PF;
     private GameObject lane3PF;
@@ -26,56 +25,51 @@ public class CharacterSpawner : MonoBehaviour
 
     [SerializeField] Vector3 spawnOffset;
 
+
     // Start is called before the first frame update
     void Start()
     {
-        playerParty = FindObjectOfType<PlayerParty>();
+        if (PlayerParty.instance.characters.Count == 1)
+        {
+            SpawnPlayerOneInPlayerParty();
+        }
+        else if (PlayerParty.instance.characters.Count == 2)
+        {
+            SpawnTwoPlayers();
+        }
 
-        //needed this when using Screen Space Overlay for the Canvas. Apparently changing the perspective to screen space Camera changed the ui elements position to correspond with local coordinates. 
-
-        /*
-        /*firstSpawnPoint = Camera.main.ScreenToWorldPoint(spawnPoint[0].transform.position + YPosOffset);
-        firstSpawnPoint.z = 0;
-        secondSpawnPoint = Camera.main.ScreenToWorldPoint(spawnPoint[1].transform.position + YPosOffset);
-        secondSpawnPoint.z = 0;
-        thirdSpawnPoint = Camera.main.ScreenToWorldPoint(spawnPoint[2].transform.position + YPosOffset);
-        thirdSpawnPoint.z = 0;
-        */
-
-        //SpawnPlayerOneInPlayerParty();
-        //SpawnPlayerTwoInPlayerParty();
-        //SpawnPlayerThreeInPlayerParty();
-
-        SpawnTwoPlayers();
     }
 
+    private void Update()
+    {
+    }
 
     public void SpawnPlayerOneInPlayerParty()
     {
-        playerOne = Instantiate(playerParty.characters[0], spawnPoint[Random.Range(0, spawnPoint.Count - 1)].transform.position + spawnOffset, Quaternion.identity);
+        playerOne = Instantiate(PlayerParty.instance.characters[0], spawnPoint[Random.Range(0, spawnPoint.Count - 1)].transform.position + spawnOffset, Quaternion.identity);
     }
     public void SpawnTwoPlayers()
     {
-        playerOne = Instantiate(playerParty.characters[0], spawnPoint[0].transform.position + spawnOffset, Quaternion.identity);
-        playerTwo = Instantiate(playerParty.characters[1], spawnPoint[1].transform.position + spawnOffset, Quaternion.identity);
+        playerOne = Instantiate(PlayerParty.instance.characters[0], spawnPoint[0].transform.position + spawnOffset, Quaternion.identity);
+        playerTwo = Instantiate(PlayerParty.instance.characters[1], spawnPoint[1].transform.position + spawnOffset, Quaternion.identity);
 
     }
 
     public void SpawnPlayerTwoInPlayerParty()
     {
-        if (playerParty.characters.Count <= 1)
+        if (PlayerParty.instance.characters.Count <= 1)
         {
             return;
         }
-        playerTwo = Instantiate(playerParty.characters[1], spawnPoint[1].transform.position + spawnOffset, Quaternion.identity);
+        playerTwo = Instantiate(PlayerParty.instance.characters[1], spawnPoint[1].transform.position + spawnOffset, Quaternion.identity);
     }
 
     public void SpawnPlayerThreeInPlayerParty()
     {
-        if (playerParty.characters.Count <= 2)
+        if (PlayerParty.instance.characters.Count <= 2)
         {
             return;
         }
-        playerThree = Instantiate(playerParty.characters[2], spawnPoint[2].transform.position + spawnOffset, Quaternion.identity);
+        playerThree = Instantiate(PlayerParty.instance.characters[2], spawnPoint[2].transform.position + spawnOffset, Quaternion.identity);
     }   
 }

@@ -41,7 +41,7 @@ public class OnTriggerEnterLane1 : MonoBehaviour
             playerChar.UpdateLane(lane1);
             presentInScene.Add(playerChar.gameObject);
       
-            Debug.Log("Player chars in lane 1: " + playerCharsInLaneOne.Count);
+            Debug.Log("OnTriggerEnter for Player Called. Player chars in lane 1: " + playerCharsInLaneOne.Count);
             Debug.Log("Player Char current Position: " + playerChar.CurrentPosition);
             Debug.Log("Player: " + presentInScene);
         
@@ -69,7 +69,7 @@ public class OnTriggerEnterLane1 : MonoBehaviour
         else if (playerChar.gameObject != null)
         {
             playerCharsInLaneOne.Remove(playerChar.gameObject);
-            Debug.Log(playerCharsInLaneOne.Count);
+            Debug.Log("OnTriggerExit for player called. Lane One count is: " + playerCharsInLaneOne.Count);
         }
     }
 }

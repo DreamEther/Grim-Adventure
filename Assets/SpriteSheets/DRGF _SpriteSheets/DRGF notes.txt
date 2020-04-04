@@ -1,0 +1,29 @@
+Thanks for purchasing DRGF sprite sheet!
+
+Here's some helpful information when implementing them into your game.
+
+Sprites are animated for 12FPS
+
+Each sheet has 12 rows, 12 columns
+
+Each cell is 750px x 500px 
+
+
+motion order by rows:
+cast
+damage
+dead
+fall
+guard
+idle
+jump
+jump attack
+run
+slash
+special
+thrust
+
+This is the first in a long line of sprites! Feel free to contact me for any problems or suggestions. 
+I will provide updates accordingly!
+
+

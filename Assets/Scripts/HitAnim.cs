@@ -7,12 +7,12 @@ public class HitAnim : MonoBehaviour
     private Animator hitBoxAnim;
     public List<SpriteRenderer> spriteRenderers;
 
-    NinjaAttackAnimationSequences nearestGameObjectToNinja;
+    NinjaAI nearestGameObjectToNinja;
     // Start is called before the first frame update
 
     void Start()
     {
-        nearestGameObjectToNinja = GetComponent<NinjaAttackAnimationSequences>();
+        nearestGameObjectToNinja = GetComponent<NinjaAI>();
         hitBoxAnim = GetComponentInChildren<Animator>();
         spriteRenderers = new List<SpriteRenderer>(GetComponentsInChildren<SpriteRenderer>());
         TurnOffRenderers();

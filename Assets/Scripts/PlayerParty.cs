@@ -8,12 +8,15 @@ public class PlayerParty : MonoBehaviour
     SceneLoader sceneLoader;
     [SerializeField] public List<GameObject> characters;
     [SerializeField] public List<GameObject> playerOneStartingMinion;
+    [SerializeField] public List<GameObject> spawnTwoPlayers;
+    [SerializeField] public AttackSequence defaultNinjaSequence;
+    [SerializeField] public AttackSequence defaultDragoonSequence;
+    [SerializeField] public GameObject rushPrefab;
 
-    //[SerializeField] public List<GameObject> spawnTwoPlayers;
+    #region Singleton
     public static PlayerParty instance;
-
     void Awake()
-    {
+    {     
         if (instance != null)
         {
             return;
@@ -21,7 +24,10 @@ public class PlayerParty : MonoBehaviour
 
         instance = this;
         DontDestroyOnLoad(instance);
+        playerOneStartingMinion = new List<GameObject>();
     }
+
+    #endregion
 
     void Start()
     {
@@ -30,22 +36,17 @@ public class PlayerParty : MonoBehaviour
 
     public void AddCharacterToParty(GameObject character)
     {
-        characters.Add(character);
-        sceneLoader.LoadNextScene();
+            characters.Add(character);  
+            sceneLoader.LoadNextScene();
     }
 
+
+    //need this to spawn two different prefabs on one button click. probably won't use anyway
     public void AddCharacterToParty2(GameObject character)
     {
         characters.Add(character);
         sceneLoader.LoadNextScene();
     }
 
-
-
-    public void AddStartingMinionToList(GameObject minion)
-        {
-          playerOneStartingMinion.Add(minion);
-        }
         
-            
 }
