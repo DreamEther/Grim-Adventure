@@ -5,13 +5,30 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class SelectLane : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
-{
-    MoveButtonTrigger moveButtonTrigger;
+{ 
+    public bool isSelected = false;
+    // in ninjaAI loop through lane spots and check if isSelected is true. isSelected will only be true onEnter and false OnExit
+    public delegate void OnMoveClick();
+    public OnMoveClick MoveClicked;
+
+    public Image image;
+    MoveButtonTrigger moveButtonClicked;
     private Image innerBoxTransparency;
+    public NinjaAI _ninja;
+    public PlayerGrid playerGrid;
     // Start is called before the first frame update
+
+    void Awake()
+    {
+        playerGrid = gameObject.GetComponentInParent<PlayerGrid>();
+        _ninja = gameObject.GetComponent<NinjaAI>();
+        Debug.Log("In awake: " + _ninja);
+    }
     void Start()
     {
-        moveButtonTrigger = FindObjectOfType<MoveButtonTrigger>();
+        _ninja = gameObject.GetComponent<NinjaAI>();
+        Debug.Log("ninja game object : " + _ninja);
+        moveButtonClicked = FindObjectOfType<MoveButtonTrigger>();
         innerBoxTransparency = GetComponent<Image>();
     }
 
@@ -22,31 +39,26 @@ public class SelectLane : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (moveButtonTrigger.moveButtonClicked == true)
-        {            
+
+        if (moveButtonClicked.moveButtonClicked == true)
+        {
+            isSelected = true;
             innerBoxTransparency.color = new Color(255, 255, 255, 0.5f);
+            playerGrid.SetCurrentOnHoverPosition(innerBoxTransparency.transform.position);
         }
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
+           isSelected = false;
            innerBoxTransparency.color = new Color(255, 255, 255, 0);       
     }
-
     private void OnRightMouseClick()
     {
         if (Input.GetMouseButtonDown(1))
         {
-            moveButtonTrigger.moveButtonClicked = false;
+            moveButtonClicked.moveButtonClicked  = false;
             UIController.combatLog.SetActive(true);
-        }
-    }
-    
-    private void OnMouseDown()
-    {
-        if (moveButtonTrigger.moveButtonClicked == true)
-        {
-           // GetCurrentlySelectedChar(); // create this function in state controller so that it references the correct playerchar depending on whose turn it is. 
         }
     }
 }

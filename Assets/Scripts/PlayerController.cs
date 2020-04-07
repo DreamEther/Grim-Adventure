@@ -5,27 +5,28 @@ using UnityEngine;
 public abstract class PlayerController : MonoBehaviour
 {
     public delegate void Attack();
-    public Vector3 distanceToNearestGameObject;
 
+    public Vector3 distanceToNearestGameObject;
     [SerializeField] public int energyLevel = 3;
     [SerializeField] public int speed;
     public bool isMyTurn = false;
     public GameObject newNearestGameObject;
+    private LanePosition currentPosition;
+    public List<AttackSequence> myAttackSequences;
+    public List<BaseMinion> myMinions;
+    public bool moveSelected;
+
+
+
+    public LanePosition CurrentPosition { get; set; }
+
     public enum LanePosition
     {
-        NULL = 0, 
+        NULL = 0,
         LANE1,
         LANE2,
         LANE3
     };
-
-    private LanePosition currentPosition;
-
-    public List<AttackSequence> myAttackSequences;
-
-    public List<BaseMinion>  myMinions;
-
-    public LanePosition CurrentPosition{get; set;}
 
     public abstract void PlayHitBoxAnim();
 
@@ -101,20 +102,10 @@ public abstract class PlayerController : MonoBehaviour
                 }
             }
             return;
-            //else if (CurrentPosition == LanePosition.LANE3)
-            //{
-            //    newNearestGameObject = GetNearestGameObject(OnTriggerEnterLane3.enemiesInLaneOne);
-            //    if (distanceToNearestGameObject == null)
-            //    {
-            //        distanceToNearestGameObject = newNearestGameObject.transform.position - transform.position;
-            //    }
-            //}
-
-            //newNearestGameObject = GetNearestGameObject(OnTriggerEnterLane1.enemiesInLaneOne);
-            // Debug.Log("This is the magnitude of the distance between me and nearest enemy: " + distanceToNearestGameObject.magnitude);
         }
     }
-
-
-
 }
+
+
+
+

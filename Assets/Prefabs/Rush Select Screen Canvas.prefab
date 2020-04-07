@@ -273,9 +273,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b21da691a45da4d4e88ae86afa1e7f16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasClicked: 0
   icon: {fileID: 0}
+  text: {fileID: 0}
+  isOfType: 
+  aName: 
   attackSequence: {fileID: 0}
   minion: {fileID: 0}
+  playerChar: {fileID: 0}
+  rushButton: {fileID: 0}
 --- !u!1001 &5688642702792135504
 PrefabInstance:
   m_ObjectHideFlags: 0

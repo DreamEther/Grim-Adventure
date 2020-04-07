@@ -16,6 +16,7 @@ public class BeginBattle : State
         yield return new WaitForSeconds(1f);
 
         BattleSystem.currentPlayer = TurnOrder.turnOrder.Dequeue();
+        Debug.Log("currentPlayer" + BattleSystem.currentPlayer.name);
         if (BattleSystem.currentPlayer.GetComponent<Enemy>() == null)
         {
             BattleSystem.SetState(new PlayerTurn(BattleSystem));

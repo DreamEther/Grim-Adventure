@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class TurnOrder : MonoBehaviour
 {
-    public static List<GameObject> presentInScene;    
+    public static List<GameObject> presentInScene;
+    public static List<GameObject> enemiesInScene;
     public static Queue<GameObject> turnOrder;
     [SerializeField] public List<GameObject> playerChars;
     public void Awake()
