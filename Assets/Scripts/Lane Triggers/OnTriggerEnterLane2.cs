@@ -71,6 +71,7 @@ public class OnTriggerEnterLane2 : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other)
     {
         playerChar = other.gameObject.GetComponent<PlayerController>();
+        playerChar.newNearestGameObject = null;
 
         if (other.gameObject.tag == "enemy")
         {

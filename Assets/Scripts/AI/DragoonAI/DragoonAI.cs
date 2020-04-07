@@ -74,7 +74,7 @@ public class DragoonAI : PlayerController
     }
     public override void GetMagnitudeOfNearestEnemy()
     {
-        dragoonAnim.SetBool("triggerRunFromAttack", true); // need this so that our char transitions back into his run from any state. 
+        dragoonAnim.SetBool("TriggerRunFromAttack", true); // need this so that our char transitions back into his run from any state. 
         distanceToNearestGameObject = newNearestGameObject.transform.position - transform.position;
         //float distance = distanceToNearestGameObject.magnitude;
         //speedFactor = (100f / distance);
@@ -83,11 +83,11 @@ public class DragoonAI : PlayerController
     {
         if (distanceToNearestGameObject.magnitude < accuracy)
         {
-            dragoonAnim.SetBool("PlayRunAnim", false);
-            dragoonAnim.SetBool("TriggerRunFromAttack", false);
-            dragoonAnim.SetBool("DownwardSlash", true);
+            dragoonAnim.SetBool("TriggerAttackSequence1", true);
         }
     }
+
+
     public override void PlayHitBoxAnim() // referencing this directly on the animations themselves. 
     {
         hitAnim.SetPosition(newNearestGameObject.transform.position);

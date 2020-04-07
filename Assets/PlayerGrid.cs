@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class PlayerGrid : MonoBehaviour
 {
-    public delegate void Click();
-    public event Click OnClick;
+    public delegate void OnClick();
+    public event OnClick Clicked;
     public SelectLane[] _playerLanesList;
     private NinjaAI _ninja;
     [SerializeField] public Transform itemsParent;
@@ -24,6 +24,14 @@ public class PlayerGrid : MonoBehaviour
         foreach (SelectLane lane in _playerLanesList)
         {
             Debug.Log("List of lanes and their boolean values: " + lane.isSelected);
+        }
+    }
+
+    public void MovePlayerChar()
+    {
+        if(Clicked != null)
+        {
+            Clicked.Invoke();
         }
     }
 

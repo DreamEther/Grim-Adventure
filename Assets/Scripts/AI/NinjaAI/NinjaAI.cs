@@ -42,7 +42,7 @@ public class NinjaAI : PlayerController
 
     void Start()
     {
-
+        _playerGrids.Clicked += MovePosition;
         offsetWhenMoving = new Vector3(0, 2, 0);
         _listOfPlayerLanes = gameObject.GetComponents<SelectLane>();
         _hoverPosition = new Vector3();
@@ -68,11 +68,16 @@ public class NinjaAI : PlayerController
 
     private void Update()
     {
-        
         if (!isMyTurn)
         {
             UIController.combatLog.SetActive(false);
         }
+        GetDistanceToNearestGameObject();
+        ReadyNinjaRushUI();
+    }
+
+    private void GetDistanceToNearestGameObject()
+    {
         if (newNearestGameObject == null) // this is to find the next nearest enemy once the previous nearest enemy is killed 
         {
             //need to pass in to GetNearestGameObject the correct Lane depending on what lane this object is in
@@ -94,17 +99,17 @@ public class NinjaAI : PlayerController
             }
             return;
         }
+    }
+    private void ReadyNinjaRushUI()
+    {
         if (isMyTurn)
         {
             UIController.combatLog.SetActive(true);
-            if(rushSelected)
+            if (rushSelected)
             {
                 UIController.ninjaRushUI.SetActive(true);
             }
-           
-           
         }
-
     }
 
     public void MovePosition()

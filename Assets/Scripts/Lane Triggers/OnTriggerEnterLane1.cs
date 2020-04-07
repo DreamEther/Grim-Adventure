@@ -52,6 +52,8 @@ public class OnTriggerEnterLane1 : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other)
     {
         playerChar = other.gameObject.GetComponent<PlayerController>();
+        playerChar.newNearestGameObject = null;
+        playerCharsInLaneOne.Remove(playerChar.gameObject);
 
         if (other.gameObject.tag == "enemy")
         {
@@ -59,10 +61,10 @@ public class OnTriggerEnterLane1 : MonoBehaviour
             Debug.Log(enemiesInLaneOne.Count);
         }
 
-        else if (playerChar.gameObject != null)
-        {
-            playerCharsInLaneOne.Remove(playerChar.gameObject);
-            Debug.Log("OnTriggerExit for player called. Lane One count is: " + playerCharsInLaneOne.Count);
-        }
+        //else if (playerChar.gameObject != null)
+        //{
+        //    playerCharsInLaneOne.Remove(playerChar.gameObject);
+        //    Debug.Log("OnTriggerExit for player called. Lane One count is: " + playerCharsInLaneOne.Count);
+        //}
     }
 }
