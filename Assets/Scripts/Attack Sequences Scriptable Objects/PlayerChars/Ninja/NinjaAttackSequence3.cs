@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,21 +15,10 @@ using UnityEngine.UI;
             //ninjaAttackSequence.accuracy = accuracy;      
         }
 
-        public override void TriggerAbility()
+        public override void TriggerAbility(Action onAttackCompleted)
         {
             PlayerController.Attack attack = ninjaAttackSequence.AttackSequence2;
             ninjaAttackSequence.TriggerNinjaAttackSequence(attack);
         }
-
-        public void ListenForButtonPress(Button button)
-        {
-            button.onClick.AddListener(() => TriggerAbility());
-        }
-
-        public void SetIcon(Image icon)
-        {
-            throw new System.NotImplementedException();
-        }
-
 
     }

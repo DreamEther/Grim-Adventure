@@ -50,8 +50,7 @@ public class OnTriggerEnterLane2 : MonoBehaviour
         }
         //PlayerController.LanePosition.LANE1;
         if (other.gameObject.tag == "enemy")
-        {
-            enemy.SetCurrentLane(1);
+        {            enemy.SetCurrentLane(1);
             enemiesInLaneTwo.Add(other.gameObject);
            // TurnOrder.presentInScene.Add(other.gameObject);
 

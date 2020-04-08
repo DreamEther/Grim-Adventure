@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -12,26 +13,17 @@ public class NinjaAI : PlayerController
     public delegate void MinionAdded();
     public event MinionAdded OnMinionAdded;
 
-    //[SerializeField] public static List<AttackSequence> attackSequenceInventory;
-    [HideInInspector] private Animator ninjaAnim;
     [SerializeField] public float accuracy = 4f;
-    private float speedFactor;
-    HitAnim hitAnim;
-    private Vector2 _cachedStartingPos;
-    private Vector2 myPosVectorTwo;
-    // Start is called before the first frame update
-    private Vector2 currentPos;
-    [SerializeField] public AttackSequence _myDefaultAttackSequence;
-    [SerializeField] public BaseMinion _myDefaultMinion;
-    [SerializeField] public int inventorySpace;
-    private NinjaRushUI ninjaRushUI;
-    public GameEvents getEnemiesInScene;
+    [SerializeField] public Vector3 offsetWhenMoving; // need this offset to better align character with the center of the lane that they're moving to
+    private Animator ninjaAnim;
+    private HitAnim hitAnim;
+    private Vector3 _cachedStartingPos; // trying to use this to move back to starting position when energy level reaches zero
+    private Vector2 myPosVectorTwo; // trying to use this to move back to starting position when energy level reaches zero
+    Vector2 backToStartPos;
+   
     public bool rushSelected;
     private Vector3 _hoverPosition;
-    public PlayerGrid _playerGrids;
-    [SerializeField] MoveButtonTrigger _moveButtonTrigger;
-    private SelectLane[] _listOfPlayerLanes;
-    [SerializeField] public Vector3 offsetWhenMoving;
+ 
     void Awake()
     {        
         if (ninjaAnim == null)
@@ -42,74 +34,48 @@ public class NinjaAI : PlayerController
 
     void Start()
     {
+        backToStartPos = new Vector2();
         _playerGrids.Clicked += MovePosition;
         offsetWhenMoving = new Vector3(0, 2, 0);
-        _listOfPlayerLanes = gameObject.GetComponents<SelectLane>();
         _hoverPosition = new Vector3();
        // isMyTurn = true; //NEED TO REMOVE!!
-        ninjaRushUI = gameObject.GetComponentInChildren<NinjaRushUI>();
         myAttackSequences = new List<AttackSequence>();
-        _cachedStartingPos = new Vector2();
+        _cachedStartingPos = new Vector3();
         _cachedStartingPos = transform.position;
+        Debug.Log("starting pos: " + _cachedStartingPos);
         hitAnim = FindObjectOfType<HitAnim>();
         AddDefaultAttackSequence();
         AddDefaultMinion();
-        if (SceneLoader.CurrentSceneIndex > 0)
-        {
-            distanceToNearestGameObject = transform.position - newNearestGameObject.transform.position;
-        }
-        //adding event listener to every SelectLane OnPointerDownEvent. 
-        foreach (SelectLane lane in _listOfPlayerLanes)
-        {
-            lane.MoveClicked += MovePosition;
-            Debug.Log("lane in list of lanes: " + lane);
-        }
+        //if (SceneLoader.CurrentSceneIndex > 0)
+        //{
+        //    distanceToNearestGameObject = transform.position - newNearestGameObject.transform.position;
+        //}
     }
 
     private void Update()
     {
-        if (!isMyTurn)
-        {
-            UIController.combatLog.SetActive(false);
-        }
-        GetDistanceToNearestGameObject();
-        ReadyNinjaRushUI();
-    }
 
-    private void GetDistanceToNearestGameObject()
-    {
-        if (newNearestGameObject == null) // this is to find the next nearest enemy once the previous nearest enemy is killed 
-        {
-            //need to pass in to GetNearestGameObject the correct Lane depending on what lane this object is in
-            if (CurrentPosition == LanePosition.LANE1)
-            {
-                newNearestGameObject = GetNearestGameObject(OnTriggerEnterLane1.enemiesInLaneOne);
-                if (distanceToNearestGameObject == null)
-                {
-                    distanceToNearestGameObject = newNearestGameObject.transform.position - transform.position;
-                }
-            }
-            else if (CurrentPosition == LanePosition.LANE2)
-            {
-                newNearestGameObject = GetNearestGameObject(OnTriggerEnterLane2.enemiesInLaneTwo);
-                if (distanceToNearestGameObject == null)
-                {
-                    distanceToNearestGameObject = newNearestGameObject.transform.position - transform.position;
-                }
-            }
-            return;
-        }
-    }
-    private void ReadyNinjaRushUI()
-    {
         if (isMyTurn)
         {
+            myTurnCircle.GetComponent<SpriteRenderer>().enabled = true;
+            GetDistanceToNearestGameObject();
+            ReadyNinjaRushUI();
+        }
+        else
+        {
+            myTurnCircle.GetComponent<SpriteRenderer>().enabled = false;
+        }
+
+    }
+
+    private void ReadyNinjaRushUI()
+    {
             UIController.combatLog.SetActive(true);
-            if (rushSelected)
+            if (_openRushUI.placeRushButtonClicked)
             {
                 UIController.ninjaRushUI.SetActive(true);
-            }
-        }
+                _openRushUI.placeRushButtonClicked = false;
+            }      
     }
 
     public void MovePosition()
@@ -120,22 +86,17 @@ public class NinjaAI : PlayerController
             {
                 Debug.Log("moving");
                 _hoverPosition = _playerGrids.GetCurrentOnHoverPosition();
-
                 transform.position = _hoverPosition + offsetWhenMoving;
+                _moveButtonTrigger.moveButtonClicked = false;
             }
         }
         
     }
- 
-    public void MoveSelected()
-    {
-        moveSelected = true;
-    }
 
-    public void OpenRushMenuOnClick()
-    {
-        rushSelected = true;
-    }
+    //public void OpenRushMenuOnClick()
+    //{
+    //    rushSelected = true;
+    //}
     private void AddDefaultMinion()
     {
         if (myMinions.Count == 0)
@@ -160,6 +121,15 @@ public class NinjaAI : PlayerController
         }
     }
 
+    public void AddAttackSequenceToInventory(AttackSequence attackSequence)
+    {
+        myAttackSequences.Add(attackSequence);
+        if (OnSequenceAdded != null)
+        {
+            OnSequenceAdded.Invoke();
+        }
+    }
+
     public void AddMinionToInventory(BaseMinion minion)
     {
         if (myAttackSequences.Count <= inventorySpace)
@@ -172,14 +142,7 @@ public class NinjaAI : PlayerController
     {
         myMinions.Remove(minion);
     }
-    public void AddAttackSequenceToInventory(AttackSequence attackSequence)
-    {  
-        myAttackSequences.Add(attackSequence);
-        if (OnSequenceAdded != null)
-        {
-            OnSequenceAdded.Invoke();
-        }
-    }
+ 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "enemy")
@@ -187,27 +150,31 @@ public class NinjaAI : PlayerController
             energyLevel--;
         }
     }
-    public void EndAttack()
-    {
-        if(energyLevel == 0)
-        {
-            myPosVectorTwo = new Vector2(transform.position.x, transform.position.y);
-            Vector2 backToStartPos = new Vector2();
-            backToStartPos = _cachedStartingPos - myPosVectorTwo;
-            ninjaAnim.StopPlayback();
-            transform.position = Vector2.MoveTowards(transform.position, _cachedStartingPos, speed * Time.deltaTime);
 
-            if(backToStartPos.magnitude < accuracy)
+    //this function is called by another function which institutes a delay before executing this method. 
+    public override void EndAttack()
+    {
+        if (energyLevel == 0)
+        {
+            isMyTurn = false;
+            Vector3 changeAxis = new Vector3(0, 180, 0);
+            ninjaAnim.SetBool("PlayIdleAnim", true);
+            ninjaAnim.SetBool("PlayRunAnim", false);
+            transform.position += (_cachedStartingPos - transform.position) * speed * Time.deltaTime;
+            //transform.position = Vector3.MoveTowards(transform.position, _cachedStartingPos, speed * Time.deltaTime);
+
+            if (backToStartPos.magnitude < accuracy)
             {
                 isMyTurn = false;
             }
         }
     }
+
     public override void TriggerRunAnim()
     {
         Vector3 XOffset = new Vector3(3f, 0, 0);
 
-        if (ninjaAnim != null && ninjaAnim.isActiveAndEnabled) // gets rid of unassignedReferenceException error
+        if (ninjaAnim != null && ninjaAnim.isActiveAndEnabled && isMyTurn) // gets rid of unassignedReferenceException error
         {
             if (transform.position != newNearestGameObject.transform.position - XOffset)
             {

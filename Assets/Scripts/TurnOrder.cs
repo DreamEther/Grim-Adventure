@@ -7,56 +7,67 @@ public class TurnOrder : MonoBehaviour
     public static List<GameObject> presentInScene;
     public static List<GameObject> enemiesInScene;
     public static Queue<GameObject> turnOrder;
+    public static bool updateQueue;
+    public BattleSystem battleSystem;
     [SerializeField] public List<GameObject> playerChars;
     public void Awake()
     {
         presentInScene = new List<GameObject>();
+      
     }
 
     public void Start()
     {
+        battleSystem = gameObject.GetComponent<BattleSystem>();
+        battleSystem.TurnChanged += OnDequeue;
         IListExtensions.Shuffle<GameObject>(presentInScene);
 
     }
 
-    public void Update()
+    public void OnDequeue()
     {
-        if(turnOrder == null) // && turn.ENEMYTURN == true
+        if (turnOrder == null) // && turn.ENEMYTURN == true
         {
             IListExtensions.Shuffle<GameObject>(presentInScene);
-            InitiateTurnOrder();
+            InitiateTurnOrder(presentInScene.ToArray());
             turnOrder = new Queue<GameObject>(presentInScene);
             Debug.Log("turn order count from TurnOrder class: " + turnOrder.Count);
 
         }
-        //if(turnOrder.Count == 0)
-        //{
-        //    turnOrder = new Queue<GameObject>(presentInScene);
-        //    Debug.Log("Turn Order: " + turnOrder);
-        //}
-        //need to create an event that listens each time an enemy is added to the stack
+        else
+        {
+            InitiateTurnOrder(turnOrder.ToArray());
+            Debug.Log("OnDequeue method being triggered...current turn order count = " + turnOrder.Count);
+        }
+      
+        //turnOrder = new Queue<GameObject>(presentInScene);
+        //Debug.Log("updating turn order... " + turnOrder.Count);
     }
     public static Queue<GameObject> GetCurrentTurnOrder()
     {
         return turnOrder;
     }
 
-  
-    public void InitiateTurnOrder()
+    public void UpdateTurnOrder()
     {
-        var nextEnemyTurn = presentInScene[0].gameObject.GetComponent<Enemy>();
-        var nextPlayerTurn = presentInScene[0].gameObject.GetComponent<PlayerController>();
-        if (nextEnemyTurn == null)
+
+    }
+
+    public void InitiateTurnOrder(GameObject[] presentInScene)
+    {
+        var enemy = presentInScene[0].gameObject.GetComponent<Enemy>();
+        var player = presentInScene[0].gameObject.GetComponent<PlayerController>();
+        if (enemy == null)
         {
-            nextPlayerTurn.isMyTurn = true;
-            Debug.Log("Fist in list last in queue ismyTurn bool = " + nextPlayerTurn.isMyTurn);
+            player.isMyTurn = true;
+            Debug.Log("Fist in list last in queue ismyTurn bool = " + player.isMyTurn);
            // return nextPlayerTurn.gameObject.GetComponent<PlayerController>();
            
         }
-        else if (nextPlayerTurn == null)
+        else if (player == null)
         {
-            nextEnemyTurn.isMyTurn = true;
-            Debug.Log("Fist in list last in queue ismyTurn bool = " + nextEnemyTurn.isMyTurn);
+            enemy.isMyTurn = true;
+            Debug.Log("Fist in list last in queue ismyTurn bool = " + enemy.isMyTurn);
             //return nextEnemyTurn.gameObject.GetComponent<Enemy>();
         }
       //  return null;

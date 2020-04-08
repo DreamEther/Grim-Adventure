@@ -64,7 +64,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Modern_GUI_Skin\Demo_Assets\scripts\GUI_Demo.cs" />
-    <Compile Include="Assets\PlayerGrid.cs" />
     <Compile Include="Assets\Scripts\AI\DragonAI\DragonAI.cs" />
     <Compile Include="Assets\Scripts\AI\DragoonAI\DragoonAI.cs" />
     <Compile Include="Assets\Scripts\AI\NinjaAI\NinjaAI.cs" />
@@ -84,7 +83,6 @@
     <Compile Include="Assets\Scripts\Battle System State Machine Components\PlayerTurn.cs" />
     <Compile Include="Assets\Scripts\Battle System State Machine Components\State.cs" />
     <Compile Include="Assets\Scripts\Battle System State Machine Components\StateMachine.cs" />
-    <Compile Include="Assets\Scripts\BeginRushButtonClicked.cs" />
     <Compile Include="Assets\Scripts\CharacterSpawner.cs" />
     <Compile Include="Assets\Scripts\DestroyOnClick.cs" />
     <Compile Include="Assets\Scripts\DragonController.cs" />
@@ -110,7 +108,9 @@
     <Compile Include="Assets\Scripts\PlaceMinionButtonClicked.cs" />
     <Compile Include="Assets\Scripts\PlaceMinionSelectLane.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\PlayerGrid.cs" />
     <Compile Include="Assets\Scripts\PlayerParty.cs" />
+    <Compile Include="Assets\Scripts\RushButtonTrigger.cs" />
     <Compile Include="Assets\Scripts\RushInventoryManager.cs" />
     <Compile Include="Assets\Scripts\SceneLoader.cs" />
     <Compile Include="Assets\Scripts\SelectLane.cs" />

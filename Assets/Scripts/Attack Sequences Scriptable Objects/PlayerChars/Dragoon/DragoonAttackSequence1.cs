@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,20 +8,19 @@ using UnityEngine.UI;
 
 public class DragoonAttackSequence1 : AttackSequence
 {
-    private DragoonAI dragoonAttackSequence;
+    private DragoonAI dragoon;
     public override void Initialize(GameObject gameObject)
     {
-        dragoonAttackSequence = gameObject.GetComponent<DragoonAI>();
+        dragoon = gameObject.GetComponent<DragoonAI>();
     }
 
-    public void ListenForButtonPress(Button button)
+    public override void TriggerAbility(Action onAttackComplete)
     {
-        throw new System.NotImplementedException();
-    }
-
-    public override void TriggerAbility()
-    {
-        PlayerController.Attack attack = dragoonAttackSequence.AttackSequence1;
-        dragoonAttackSequence.TriggerDragoonAttackSequence(attack);
+       PlayerController.Attack attack = dragoon.AttackSequence1;
+       dragoon.TriggerDragoonAttackSequence(attack);
+        if(dragoon.energyLevel == 0)
+        {
+            onAttackComplete();
+        }
     }
 }

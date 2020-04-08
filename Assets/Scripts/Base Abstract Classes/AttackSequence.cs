@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using System;
 public abstract class AttackSequence : ScriptableObject
 {
     public bool isDefaultSequence = false;
@@ -14,6 +14,6 @@ public abstract class AttackSequence : ScriptableObject
     public Button button;
 
     public abstract void Initialize(GameObject gameObject);
-    public abstract void TriggerAbility();
+    public abstract void TriggerAbility(Action onAttackComplete);
 
 }

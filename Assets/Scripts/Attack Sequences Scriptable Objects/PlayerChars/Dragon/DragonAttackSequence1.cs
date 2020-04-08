@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,7 +14,7 @@ public abstract class DragonAttackSequence1 : AttackSequence
         draygonAttackAnimationSequence1 = gameObject.GetComponent<DragonAI>();
     }
 
-    public override void TriggerAbility()
+    public override void TriggerAbility(Action onAttackComplete)
     {
       //  draygonAttackAnimationSequence1.Trigger();
     }

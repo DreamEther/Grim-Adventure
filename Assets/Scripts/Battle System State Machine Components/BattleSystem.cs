@@ -4,34 +4,16 @@ using UnityEngine;
 
 public class BattleSystem : StateMachine
 {
+    public delegate void OnTurnChange();
+    public OnTurnChange TurnChanged;
     public GameObject ninja;
     public GameObject currentPlayer;
     public bool playAttackSequenceOne = false;
     //NEED TO MAKE WIN AND LOSE STATES. CAN DELETE ENUMS AFTER...JUST FOR REFERENCE
-    public enum BattleState
-    {
-        BEGINNING,
-        PLAYERTURN,
-        ENEMYTURN,
-        WIN,
-        LOSE
-    }
-
     public void Update()
     {
-       if(playAttackSequenceOne)
-        {
-            PlayAttackSequence(currentPlayer, ninjaAttackSequence_1);
-        }
+  
     }
-    public void PlayAttackSequence(GameObject playerChar, AttackSequence attackSequence)
-    {
-
-        ninjaAttackSequence_1 = attackSequence;
-        ninjaAttackSequence_1.Initialize(playerChar); // getting the trigger component script attached to 'playerChar'
-        ninjaAttackSequence_1.TriggerAbility();
-    }
-
 
     //won't need to include this since we are transitioning to new enum states in our specific state classes. 
     //public BattleState _state;

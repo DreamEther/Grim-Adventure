@@ -12,6 +12,10 @@ public class BeginBattle : State
     //own start method which other states will also implement
     public override IEnumerator Start()
     {
+        if (BattleSystem.TurnChanged != null)
+        {
+            BattleSystem.TurnChanged.Invoke();
+        }
         Debug.Log("In begin battle start method");
         yield return new WaitForSeconds(1f);
 

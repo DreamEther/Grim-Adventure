@@ -9,16 +9,12 @@ public class DragoonRushUI : BaseUI
 	private DragoonAI dragoon;
 	public void Awake()
 	{
-		DontDestroyOnLoad(this);
+		dragoon = gameObject.GetComponentInParent<DragoonAI>();
 	}
 	public void Start()
 	{
-		dragoon = gameObject.GetComponent<DragoonAI>();
 		inventorySlots = itemsParent.GetComponentsInChildren<InventorySlot>();
-
 		dragoon.OnSequenceAdded += UpdateUI;
-
-
 	}
 
 

@@ -27,6 +27,7 @@ public class PlayerGrid : MonoBehaviour
         }
     }
 
+    //this event is called on the image itself so that we can invoke this event on click
     public void MovePlayerChar()
     {
         if(Clicked != null)

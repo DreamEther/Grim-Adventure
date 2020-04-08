@@ -21,14 +21,7 @@ public class NinjaRushUI : BaseUI
 
 	private void Update()
 	{
-		//	if (ninja.isMyTurn)
-		//	{
-		//		this.gameObject.SetActive(true);
-		//	}
-		//	else
-		//	{
-		//		this.gameObject.SetActive(false);
-		//	}
+
 	}
 
 

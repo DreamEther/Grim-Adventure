@@ -10,9 +10,9 @@ public class UIController : MonoBehaviour
     public static GameObject laneTracks;
     public static GameObject minionUI;
     public static GameObject rushUI;
-    private AttackSequence attackSequence;
-    [SerializeField] public List<AttackSequence> ninjaAttackSequences;
     public static GameObject ninjaRushUI;
+    public static GameObject dragoonRushUI;
+
     void Awake()
     {
         battleUI = GameObject.FindGameObjectWithTag("BattleUI");
@@ -20,22 +20,15 @@ public class UIController : MonoBehaviour
         enemyGrid = GameObject.FindGameObjectWithTag("EnemyGrid");
         laneTracks = GameObject.FindGameObjectWithTag("LaneTracks");
         minionUI = GameObject.FindGameObjectWithTag("MinionInventory");
-        //rushUI = GameObject.FindGameObjectWithTag("RushInventory");
-        minionUI.SetActive(false);
-        //ninjaRushUI.SetActive(false);
-        //combatLog.SetActive(false);
-        ninjaAttackSequences = new List<AttackSequence>();
         ninjaRushUI = GameObject.FindGameObjectWithTag("NinjaRushUI");
-
+        dragoonRushUI = GameObject.FindGameObjectWithTag("DragoonRushUI");
     }
 
     private void Start()
     {
         ninjaRushUI.SetActive(false);
-        //attackSequence = new NinjaAttackSequence2();
-        //attackSequence.aName = "ninjaAS2";
-        //attackSequence.isOfType = "ninjaAttackAnimation";
-        //ninjaAttackSequences.Add(attackSequence);
+        dragoonRushUI.SetActive(false);
+        minionUI.SetActive(false);
     }
     private void Update()
     {
@@ -43,6 +36,15 @@ public class UIController : MonoBehaviour
         {
             minionUI.SetActive(false);
         }
+    }
+
+    private void CloseAllUIInstances()
+    {
+        //minionUI.SetActive(false);
+        //minionUI.SetActive(false);
+
+        //minionUI.SetActive(false);
+        ninjaRushUI.SetActive(false);
     }
 
     public void OpenNinjaRushUI()

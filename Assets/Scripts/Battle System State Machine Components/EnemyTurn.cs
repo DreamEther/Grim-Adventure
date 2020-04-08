@@ -12,8 +12,9 @@ public class EnemyTurn : State
     // Start is called before the first frame update
     public override IEnumerator Start()
     { 
-            Debug.Log("The enemy is taking its turn");
-            yield break;
+        Debug.Log("The enemy is taking its turn");
+        yield return new WaitForSeconds(2);
+        BattleSystem.SetState(new BeginBattle(BattleSystem));
     }
 
     public override IEnumerator Attack()

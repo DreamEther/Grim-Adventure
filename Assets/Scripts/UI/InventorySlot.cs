@@ -1,11 +1,14 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class InventorySlot : MonoBehaviour
 {
+   
     public bool hasClicked = false;
     public Image icon;
     public Text text;
@@ -32,10 +35,10 @@ public class InventorySlot : MonoBehaviour
         rushButton.GetComponent<Button>().onClick.AddListener(() => TriggerAbility());
         //button.onClick.AddListener(TriggerAbility);
         icon.enabled = true;
-        
+
     }
 
-  
+
     public void TriggerAbility()
     {
         hasClicked = true;
@@ -45,7 +48,8 @@ public class InventorySlot : MonoBehaviour
     {
        if(hasClicked)
         {
-            attackSequence.TriggerAbility();
+
+            attackSequence.TriggerAbility(playerChar.GetComponent<PlayerController>().CallEndAttack);
 
         }
 
