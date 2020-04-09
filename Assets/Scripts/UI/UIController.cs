@@ -13,6 +13,7 @@ public class UIController : MonoBehaviour
     public static GameObject ninjaRushUI;
     public static GameObject dragoonRushUI;
 
+
     void Awake()
     {
         battleUI = GameObject.FindGameObjectWithTag("BattleUI");

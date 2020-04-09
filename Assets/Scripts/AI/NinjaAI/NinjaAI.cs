@@ -25,6 +25,8 @@ public class NinjaAI : PlayerController
     private Vector3 _hoverPosition;
     private float scaleOfHitAnim;
     public Animator successPopups;
+    public GameObject rushSelectScreenCanvas;
+    public GameObject _uiController;
     void Awake()
     {        
         if (ninjaAnim == null)
@@ -62,6 +64,8 @@ public class NinjaAI : PlayerController
        // Debug.Log("ismyTurn= " + isMyTurn + "\n magnitude of vector back to start position= " + vectorBackToStartingPos.magnitude);
         if(isAttacking)
         {
+            _uiController.GetComponent<Canvas>().enabled = false;
+            rushSelectScreenCanvas.GetComponent<Canvas>().enabled = false;
             scaleOfHitAnim = hitAnimOuter.transform.localScale.x;
             Debug.Log("scaleeeeeee: " + scaleOfHitAnim);
             successPopups.SetFloat("SuccessWindows", scaleOfHitAnim);
@@ -73,6 +77,10 @@ public class NinjaAI : PlayerController
             myTurnCircle.GetComponent<SpriteRenderer>().enabled = true;
             GetDistanceToNearestGameObject();
             ReadyNinjaRushUI();
+            if(!isAttacking)
+            {
+                _uiController.GetComponent<Canvas>().enabled = true;
+            }
         }
         else
         {
