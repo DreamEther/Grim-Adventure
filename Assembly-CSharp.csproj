@@ -63,6 +63,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\AnchorUI.cs" />
     <Compile Include="Assets\Modern_GUI_Skin\Demo_Assets\scripts\GUI_Demo.cs" />
     <Compile Include="Assets\Scripts\AI\DragonAI\DragonAI.cs" />
     <Compile Include="Assets\Scripts\AI\DragoonAI\DragoonAI.cs" />

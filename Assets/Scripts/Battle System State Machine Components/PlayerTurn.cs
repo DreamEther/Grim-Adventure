@@ -29,10 +29,12 @@ public class PlayerTurn : State
 
     public override IEnumerator Attack()
     {
+        BattleSystem.currentPlayer.GetComponent<PlayerController>().isAttacking = true;
         Debug.Log("I'm attacking");
         //isMyTurn never turns false as of right now 
         yield return new WaitUntil(() => BattleSystem.currentPlayer.GetComponent<PlayerController>().isMyTurn == false);
-        BattleSystem.SetState(new EnemyTurn(BattleSystem));    
+        BattleSystem.currentPlayer.GetComponent<PlayerController>().isAttacking = false;
+        BattleSystem.SetState(new BeginBattle(BattleSystem));    
     }
 
 }

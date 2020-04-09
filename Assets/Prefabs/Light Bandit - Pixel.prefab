@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 5728599270011680379}
   - component: {fileID: 5728599270011680375}
   - component: {fileID: 8797859327630017241}
-  - component: {fileID: 6054218082841429356}
-  - component: {fileID: 9124924336342634983}
+  - component: {fileID: 1692672031329863092}
+  - component: {fileID: 7313328223914299845}
   m_Layer: 0
   m_Name: Light Bandit - Pixel
   m_TagString: enemy
@@ -157,7 +157,7 @@ PolygonCollider2D:
       - {x: 0.14911048, y: -0.32062787}
       - {x: 0.14459857, y: -0.04451312}
       - {x: 0.13101381, y: 0.16579378}
---- !u!114 &6054218082841429356
+--- !u!114 &1692672031329863092
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -166,12 +166,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5728599270011680380}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99ca91794543a564aa48cfc4b8c26fbd, type: 3}
+  m_Script: {fileID: 11500000, guid: 69c44ae044e4d5d4588b2fde3cb352c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
   attackPower: 0
---- !u!114 &9124924336342634983
+--- !u!114 &7313328223914299845
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f161a77702399c040b4fc8813217b138, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 7689763179471582543, guid: 8aa436b69c2b2654fa784eb1799da32a, type: 3}
+  player: {fileID: 0}
   _currentLane: 0
   health: 0
   attackPower: 0

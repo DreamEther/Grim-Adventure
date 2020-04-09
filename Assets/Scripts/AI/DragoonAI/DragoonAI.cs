@@ -32,6 +32,7 @@ public class DragoonAI : PlayerController
     }
     void Start()
     {
+        SetSceneDependencies();
         _playerGrids.Clicked += MovePosition;
         myAttackSequences = new List<AttackSequence>();
         offsetWhenMoving = new Vector3(0, 2, 0);
@@ -63,17 +64,16 @@ public class DragoonAI : PlayerController
     private void ReadyDragoonRushUI()
     {
             UIController.combatLog.SetActive(true);
-            if (_openRushUI.placeRushButtonClicked)
+            if (_rushTrigger.placeRushButtonClicked)
             {
                 UIController.dragoonRushUI.SetActive(true);
-                _openRushUI.placeRushButtonClicked = false; 
+                _rushTrigger.placeRushButtonClicked = false; 
             }
     }
 
     public void MovePosition()
     {
-        if (isMyTurn)
-        {
+  
             if (_moveButtonTrigger.moveButtonClicked == true)
             {
                 Debug.Log("moving");
@@ -82,7 +82,7 @@ public class DragoonAI : PlayerController
                 _moveButtonTrigger.moveButtonClicked = false;
 
             }
-        }
+        
 
     }
 
@@ -162,7 +162,11 @@ public class DragoonAI : PlayerController
         throw new NotImplementedException();
     }
 
- 
+    public override IEnumerator ListenForAttackInput()
+    {
+        yield break;
+        Debug.Log("ignore this for now");
+    }
 
 
     //public IEnumerator TransitionToOtherAnim(string paramName)

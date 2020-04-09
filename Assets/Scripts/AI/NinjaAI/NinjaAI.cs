@@ -20,10 +20,11 @@ public class NinjaAI : PlayerController
     private Vector3 _cachedStartingPos; // trying to use this to move back to starting position when energy level reaches zero
     private Vector2 myPosVectorTwo; // trying to use this to move back to starting position when energy level reaches zero
     Vector2 backToStartPos;
-   
+    Vector3 vectorBackToStartingPos;
     public bool rushSelected;
     private Vector3 _hoverPosition;
- 
+    private float scaleOfHitAnim;
+    public Animator successPopups;
     void Awake()
     {        
         if (ninjaAnim == null)
@@ -34,6 +35,8 @@ public class NinjaAI : PlayerController
 
     void Start()
     {
+        vectorBackToStartingPos = new Vector3();
+        SetSceneDependencies();
         backToStartPos = new Vector2();
         _playerGrids.Clicked += MovePosition;
         offsetWhenMoving = new Vector3(0, 2, 0);
@@ -54,7 +57,17 @@ public class NinjaAI : PlayerController
 
     private void Update()
     {
-
+     
+        Debug.Log("isattacking value: " + isAttacking);
+       // Debug.Log("ismyTurn= " + isMyTurn + "\n magnitude of vector back to start position= " + vectorBackToStartingPos.magnitude);
+        if(isAttacking)
+        {
+            scaleOfHitAnim = hitAnimOuter.transform.localScale.x;
+            Debug.Log("scaleeeeeee: " + scaleOfHitAnim);
+            successPopups.SetFloat("SuccessWindows", scaleOfHitAnim);
+            //Debug.Log(hitAnim.transform.localScale.x);
+            StartCoroutine(ListenForAttackInput());
+        }
         if (isMyTurn)
         {
             myTurnCircle.GetComponent<SpriteRenderer>().enabled = true;
@@ -65,16 +78,17 @@ public class NinjaAI : PlayerController
         {
             myTurnCircle.GetComponent<SpriteRenderer>().enabled = false;
         }
+        
 
     }
 
     private void ReadyNinjaRushUI()
     {
             UIController.combatLog.SetActive(true);
-            if (_openRushUI.placeRushButtonClicked)
+            if (_rushTrigger.placeRushButtonClicked)
             {
                 UIController.ninjaRushUI.SetActive(true);
-                _openRushUI.placeRushButtonClicked = false;
+            _rushTrigger.placeRushButtonClicked = false;
             }      
     }
 
@@ -156,14 +170,15 @@ public class NinjaAI : PlayerController
     {
         if (energyLevel == 0)
         {
-            isMyTurn = false;
+            isAttacking = false;
             Vector3 changeAxis = new Vector3(0, 180, 0);
+            vectorBackToStartingPos = _cachedStartingPos - transform.position;
             ninjaAnim.SetBool("PlayIdleAnim", true);
             ninjaAnim.SetBool("PlayRunAnim", false);
             transform.position += (_cachedStartingPos - transform.position) * speed * Time.deltaTime;
             //transform.position = Vector3.MoveTowards(transform.position, _cachedStartingPos, speed * Time.deltaTime);
 
-            if (backToStartPos.magnitude < accuracy)
+            if (vectorBackToStartingPos.magnitude < accuracy)
             {
                 isMyTurn = false;
             }
@@ -231,7 +246,36 @@ public class NinjaAI : PlayerController
         ninjaAnim.SetBool(paramName, true);
         yield return null;
         ninjaAnim.SetBool(paramName, false);
-    }    
+    }
+    public override IEnumerator ListenForAttackInput()
+    {
+        Vector3 miss = new Vector3(.401f, .401f, 0);
+        if (Input.GetMouseButtonDown(0))
+        {
+            successPopups.SetBool("UserClicks", true);
+            yield return new WaitForSeconds(.2F);
+            successPopups.SetBool("UserClicks", false);
+
+            //else if (hitAnimOuter.transform.localScale.x > 0.263f && hitAnimOuter.transform.localScale.x < 0.401f)
+            //{
+            //    Debug.Log("Bad!");
+            //}
+            //else if (hitAnimOuter.transform.localScale.x > 0.173f && hitAnimOuter.transform.localScale.x < 0.263f)
+            //{
+            //    Debug.Log("Good!");
+            //}
+            //else if (hitAnimOuter.transform.localScale.x > 0.09f && hitAnimOuter.transform.localScale.x < 0.173f)
+            //{
+            //    Debug.Log("Great!");
+            //}
+            //else if (hitAnimOuter.transform.localScale.x > 0.086f && hitAnimOuter.transform.localScale.x < .09f)
+            //{
+            //    Debug.Log("Perfect!");
+            //}
+
+        }
+    }
+
 }
 
 

@@ -20,6 +20,7 @@ public class BeginBattle : State
         yield return new WaitForSeconds(1f);
 
         BattleSystem.currentPlayer = TurnOrder.turnOrder.Dequeue();
+        Debug.Log("turn order after dequeue count: " + TurnOrder.turnOrder.Count);
         Debug.Log("currentPlayer" + BattleSystem.currentPlayer.name);
         if (BattleSystem.currentPlayer.GetComponent<Enemy>() == null)
         {

@@ -9,16 +9,26 @@ public abstract class PlayerController : MonoBehaviour
 
     [SerializeField] public GameObject myTurnCircle;
     [SerializeField] public int inventorySpace;
-    [SerializeField] public MoveButtonTrigger _moveButtonTrigger;
-    [SerializeField] public RushButtonTrigger _openRushUI;
+    [HideInInspector] public MoveButtonTrigger _moveButtonTrigger;
+    [SerializeField] public GameObject _moveButtonTriggerGameObject;
+
 
     [SerializeField] public AttackSequence _myDefaultAttackSequence;
     [SerializeField] public BaseMinion _myDefaultMinion;
-    [SerializeField] public GameEvents getEnemiesInScene;
-    [SerializeField] public PlayerGrid _playerGrids; //need this to get a reference to combat log parent object. This is set in the inspector
+    [SerializeField] public GameObject gameManagerObject;
+    [HideInInspector] public GameEvents gameManager;
+
+    [SerializeField] public GameObject _rushTriggerGameObject;
+    [HideInInspector] public RushButtonTrigger _rushTrigger;
+
+    [HideInInspector] public PlayerGrid _playerGrids; //need this to get a reference to combat log parent object. This is set in the inspector
+    [SerializeField] public GameObject _playerGridsGameObject; //need this to get a reference to combat log parent object. This is set in the inspector
+
+    public GameObject hitAnimOuter;
     public Vector3 distanceToNearestGameObject;
     [SerializeField] public int energyLevel = 3;
     [SerializeField] public int speed;
+    public bool isAttacking = false;
     public bool isMyTurn = false;
     public GameObject newNearestGameObject;
     private LanePosition currentPosition;
@@ -39,6 +49,19 @@ public abstract class PlayerController : MonoBehaviour
         LANE3
     };
 
+    public virtual void SetSceneDependencies()
+    {
+        _moveButtonTriggerGameObject = GameObject.FindGameObjectWithTag("MoveTrigger");
+        _moveButtonTrigger = _moveButtonTriggerGameObject.GetComponent<MoveButtonTrigger>();
+        _rushTriggerGameObject = GameObject.FindGameObjectWithTag("RushTrigger");
+        _rushTrigger = _rushTriggerGameObject.GetComponent<RushButtonTrigger>();
+        _playerGridsGameObject = GameObject.FindGameObjectWithTag("PlayerGrid");
+        _playerGrids = _playerGridsGameObject.GetComponent<PlayerGrid>();
+        gameManagerObject = GameObject.FindGameObjectWithTag("GameManager");
+        gameManager = gameManagerObject.GetComponent<GameEvents>();
+    }
+
+    public abstract IEnumerator ListenForAttackInput();
     public virtual IEnumerator Wait(float seconds, Action action)
     {
         yield return new WaitForSeconds(10);

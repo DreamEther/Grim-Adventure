@@ -48,9 +48,11 @@ public class InventorySlot : MonoBehaviour
     {
        if(hasClicked)
         {
-
             attackSequence.TriggerAbility(playerChar.GetComponent<PlayerController>().CallEndAttack);
-
+            if (playerChar.GetComponent<PlayerController>().isAttacking == false)
+            {
+                hasClicked = false;
+            }
         }
 
     }

@@ -32,6 +32,10 @@ TagManager:
   - RushInventory
   - NinjaRushUI
   - DragoonRushUI
+  - MoveTrigger
+  - GameManager
+  - dragoon
+  - RushTrigger
   layers:
   - Default
   - TransparentFX

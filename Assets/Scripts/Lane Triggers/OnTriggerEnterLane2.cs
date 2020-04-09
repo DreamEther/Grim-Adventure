@@ -44,8 +44,8 @@ public class OnTriggerEnterLane2 : MonoBehaviour
             // {
             //    playerChar.UpdateLane(lane1);
             // }
-            Debug.Log("Player chars in lane 2: " + playerCharsInLaneTwo.Count);
-            Debug.Log("Player Char current Position: " + playerChar.CurrentPosition);
+            //Debug.Log("Player chars in lane 2: " + playerCharsInLaneTwo.Count);
+           // Debug.Log("Player Char current Position: " + playerChar.CurrentPosition);
 
         }
         //PlayerController.LanePosition.LANE1;
@@ -57,7 +57,7 @@ public class OnTriggerEnterLane2 : MonoBehaviour
             //   foreach(GameObject enemy in enemiesInLaneOne)
             //   {
             //      // Debug.Log(enemy.name);
-            Debug.Log(enemiesInLaneTwo.Count);
+          //  Debug.Log(enemiesInLaneTwo.Count);
             //   }       
         }
 
